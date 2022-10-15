@@ -4,28 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Findo</title>
-    <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet" >
+    <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/08cf8c1353.js" crossorigin="anonymous"></script>
     <script src="/js/javascript.js" type="text/javascript" defer></script>
+    <script src="/js/jquery.js" type="text/javascript" defer></script>
 </head>
 <body>
 <div class="wrapper_findo">
-    <header th:fragment="headerfragment">
-        <span th:text="${id}"></span>
-        <p style="font-size: 20px;">id 값 따로빼서 보기</p>
-        <p th:utext="${id}"></p>
-        <p>네이버로 가는 URL</p>
-        <a th:href="@{http://www.naver.com}">네이버로 가는 a tag</a> <br/>
-        <input type="number" step="0.1" max="1" min="-1"/>
-       <div class="findo_head_icons">
-            <div class="findo_head_icons_left">
-                <button onclick="sidemenu()"><i class="fa-solid fa-bars"></i></button>
+    <div class="total_findo">
+        <header th:fragment="headerfragment">
+            <!--        <span th:text="${id}"></span>-->
+            <!--        <p style="font-size: 20px;">id 값 따로빼서 보기</p>-->
+            <!--        <p th:utext="${id}"></p>-->
+            <!--        <p>네이버로 가는 URL</p>-->
+            <!--        <a th:href="@{http://www.naver.com}">네이버로 가는 a tag</a> <br/>-->
+            <!--        <input type="number" step="0.1" max="1" min="-1"/>-->
+            <div class="findo_head_icons">
+                <div class="findo_head_icons_left">
+                    <button onclick="sidemenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
+                </div>
+                <div class="findo_head_icons_right">
+                    <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+                    <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+                    <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
+                </div>
             </div>
-            <div class="findo_head_icons_right">
-                <button><a th:href="@{/test}"><i class="fa-solid fa-bell"></i></a></button>
-                <button><a th:href="@{/test}"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-                <button><a th:href="@{/test}"><i class="fa-solid fa-right-to-bracket"></i></a></button>
+            <div class="findo_head_logo">
+                <img src="/images/logo_pink.png">
             </div>
-       </div>
-    </header>
-</div>
+            <div class="findo_head_button">
+                <button><a th:href="@{/findo}">홈</a></button>
+                <button><a th:href="@{/portfolio}">포트폴리오</a></button>
+                <button><a th:href="@{/community}">커뮤니티</a></button>
+                <button><a th:href="@{/news}">뉴스</a></button>
+            </div>
+            <div class="findo_head_login">
+                <div class="findo_head_login_text" th:if="${session != null}">
+                    <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
+                    <button><a th:href="@{/login}">로그인</a></button>
+                </div>
+                <div class="findo_head_login_text" th:unless="${session != null}">
+                    <p th:text="${memberid}"></p>
+                </div>
+            </div>
+        </header><!-- header -->
+        <div class="findo_main">
+            <div class="main_top_top">
+                <img src="/images/company2.jpg">
+            </div>
+            <div class="main_top_middle">
+                <img src="/images/company3.jpg" >
+            </div>
+            <div class="main_top_bottom">
+                <img src="/images/company4.jpg" >
+            </div> <!-- main_top -->
+
+            <div class="main_middle_top">
+                <img src="/images/company5.jpg" >
+            </div>
+            <div class="main_middle_middle">
+                <img src="/images/company6.jpg" >
+            </div>
+            <div class="main_middle_bottom">
+                <img src="/images/company7.jpg" >
+            </div> <!-- main_middel -->
+
+            <div class="main_bottom_top">
+                <img src="/images/company2.jpg" >
+            </div>
+            <div class="main_bottom_middle">
+                <img src="/images/company3.jpg" >
+            </div>
+            <div class="main_bottom_bottom">
+                <img src="/images/company4.jpg" >
+            </div> <!-- main_bottom -->
+
+
+
+
+        </div> <!-- findo_main -->
+    </div> <!-- total_findo -->
+</div> <!-- wrapper_findo -->

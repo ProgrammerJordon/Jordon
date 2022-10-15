@@ -10,15 +10,50 @@ public class MainController {
 
     @RequestMapping("/findo")
     public String index(Model model) {
-        model.addAttribute("id", "test");
+        //model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo";
     }
 
-    @RequestMapping("/test")
-    public String test(Model model) {
-        model.addAttribute("id", "test");
-        return "test";
+    @RequestMapping("/portfolio")
+    public String findo_portfolio(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_portfolio";
     }
 
+    @RequestMapping("/community")
+    public String findo_community(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_community";
+    }
 
+    @RequestMapping("/news")
+    public String findo_news(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_news";
+    }
+
+    @RequestMapping("/login")
+    public String findo_login(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_login";
+    }
+
+    @RequestMapping("/search")
+    public String findo_search(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_search";
+    }
+
+    @RequestMapping("/announcement")
+    public String findo_announcement(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_announcement";
+    }
 }
