@@ -56,4 +56,68 @@ public class MainController {
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo_announcement";
     }
+
+    @RequestMapping("/company")
+    public String findo_company(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_company";
+    }
+
+    @RequestMapping("/investment")
+    public String findo_investment(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_investment";
+    }
+
+    @RequestMapping("/products")
+    public String findo_products(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_products";
+    }
+
+    @RequestMapping("/FAQ")
+    public String findo_faq(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_faq";
+    }
+
+    @RequestMapping("/management")
+    public String findo_management(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_management";
+    }
+
+    @RequestMapping("/using_law")
+    public String findo_using_law(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_using_law";
+    }
+
+    @RequestMapping("/financial_transaction_law")
+    public String findo_financial_transation_law(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_financial_transaction_law";
+    }
+
+    @RequestMapping("/personal_info_law")
+    public String findo_personal_info_law(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_personal_info_law";
+    }
+
+    @RequestMapping("/management_announcement")
+    public String findo_management_announcement(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_management_announcement";
+    }
+
 }

@@ -5,9 +5,43 @@
     align-items: center;
 }
 
+p {
+    color: #5fbb91;
+}
+
+button {
+    color: #5fbb91;
+    background: white;
+    border: none;
+}
+
+button:hover {
+    color: #5fbb91;
+    background: #b1fbc3;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px
+}
+
+li {
+    color: #5fbb91;
+}
+
+a {
+    color: #5fbb91;
+}
+
 .total_findo {
     width: 600px;
     height: 100vh;
+}
+
+.findo_head_icons_left button {
+    font-size: 20px;
+}
+
+.findo_head_icons_right a {
+    font-size: 20px;
 }
 
 .findo_head_icons {
@@ -42,6 +76,12 @@
 .findo_head_login_text {
     text-align: center;
     margin: 20px 0px;
+}
+
+.findo_head_login_text button {
+    border: 1px solid #5fbb91;
+    border-radius: 5px;
+    padding: 10px 20px;
 }
 
 .findo_head_login_text a {
@@ -118,3 +158,61 @@
 }
 
 /*main.css*/
+
+/*footer*/
+footer_middle img{
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+/*footer*/
+.footer_top {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.footer_top_list li {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+.footer_top_list a {
+    text-decoration: none;
+    font-size: 30px;
+
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.footer_bottom_top_list li {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+.footer_bottom_top_list a {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.footer_bottom_middle {
+    font-size: 20px;
+}
+
+.footer_bottom_bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_bottom_bottom_top {
+    font-size: 15px;
+}
+
+.footer_bottom_bottom_middle a {
+    font-size: 20px;
+    text-decoration: none;
+}
