@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findo</title>
+    <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet" >
+    <script src="https://kit.fontawesome.com/08cf8c1353.js" crossorigin="anonymous"></script>
+    <script src="/js/javascript.js" type="text/javascript" defer></script>
 </head>
 <body>
-test
-</body>
-</html>
+<div class="wrapper_findo">
+    <header th:fragment="headerfragment">
+        <span th:text="${id}"></span>
+        <p style="font-size: 20px;">id 값 따로빼서 보기</p>
+        <p th:utext="${id}"></p>
+        <p>네이버로 가는 URL</p>
+        <a th:href="@{http://www.naver.com}">네이버로 가는 a tag</a> <br/>
+        <input type="number" step="0.1" max="1" min="-1"/>
+       <div class="findo_head_icons">
+            <div class="findo_head_icons_left">
+                <button onclick="sidemenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div class="findo_head_icons_right">
+                <button><a th:href="@{/test}"><i class="fa-solid fa-bell"></i></a></button>
+                <button><a th:href="@{/test}"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                <button><a th:href="@{/test}"><i class="fa-solid fa-right-to-bracket"></i></a></button>
+            </div>
+       </div>
+    </header>
+</div>
