@@ -1,0 +1,40 @@
+<head th:fragment="headfragment">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findo</title>
+    <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/08cf8c1353.js" crossorigin="anonymous"></script>
+    <script src="/js/javascript.js" type="text/javascript" defer></script>
+    <script src="/js/jquery.js" type="text/javascript" defer></script>
+</head>
+
+<header th:fragment="headerfragment">
+    <div class="findo_head_icons">
+        <div class="findo_head_icons_left">
+            <button onclick="sidemenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
+        </div>
+        <div class="findo_head_icons_right">
+            <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+            <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+            <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
+        </div>
+    </div>
+    <div class="findo_head_logo">
+        <img src="/images/logo_pink.png">
+    </div>
+    <div class="findo_head_button">
+        <button><a th:href="@{/findo}">홈</a></button>
+        <button><a th:href="@{/portfolio}">포트폴리오</a></button>
+        <button><a th:href="@{/community}">커뮤니티</a></button>
+        <button><a th:href="@{/news}">뉴스</a></button>
+    </div>
+    <div class="findo_head_login">
+        <div class="findo_head_login_text" th:if="${session != null}">
+            <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
+            <button><a th:href="@{/login}">로그인</a></button>
+        </div>
+        <div class="findo_head_login_text" th:unless="${session != null}">
+            <p th:text="${memberid}"></p>
+        </div>
+    </div>
+</header><!-- header -->

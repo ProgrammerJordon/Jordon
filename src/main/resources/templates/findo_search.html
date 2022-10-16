@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Findo</title>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
 </head>
 <body>
-findo_search
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <div>
+            메인 영역 내부 입니다.
+        </div>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
 </body>
 </html>
