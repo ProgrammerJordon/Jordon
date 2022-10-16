@@ -23,14 +23,6 @@ button {
     font-weight: bold;
 }
 
-button:hover {
-    color: #5fbb91;
-    background: #d7f5df;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px
-}
-
 li {
     color: #5fbb91;
     font-weight: bold;
@@ -62,6 +54,14 @@ a {
     padding-top: 20px;
 }
 
+.findo_head_icons button:hover {
+    color: #5fbb91;
+    background: #d7f5df;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px
+}
+
 .findo_head_logo img {
     width: 600px;
     height: 200px;
@@ -72,7 +72,7 @@ a {
     justify-content: space-around;
     text-align: center;
     padding: 20px 0px 0px 0px;
-    border-top: 1px solid #5fbb91;
+    border-top: 2px solid #5fbb91;
 }
 
 .findo_head_button a {
@@ -81,10 +81,31 @@ a {
     text-decoration: none;
 }
 
+/* findo_head_button hover */
+
+.findo_head_button a {
+    color: #5fbb91;
+    display:inline-block;
+    margin:0;
+    text-transform:uppercase;
+}
+.findo_head_button a:after {
+    display:block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.findo_head_button a:hover:after {
+    transform: scaleX(1);
+}
+
+/* findo_head_button hover */
+
 .findo_head_login {
     font-size: 30px;
     margin: 20px 0px;
-    border-top: 1px solid #5fbb91;
+    border-top: 2px solid #5fbb91;
     border-bottom: 1px solid #5fbb91;
 }
 
@@ -93,8 +114,12 @@ a {
     margin: 10px 0px;
 }
 
+.findo_head_login_text button:hover {
+    background: #d7f5df;
+}
+
 .findo_head_login_text button {
-    border: 1px solid #5fbb91;
+    border: 2px solid #5fbb91;
     border-radius: 5px;
     padding: 10px 20px;
 }
@@ -117,6 +142,10 @@ a {
 
 .findo_main img {
    margin: 20px;
+}
+
+main_top_top h2 {
+    text-align: left;
 }
 
 .main_top_top img {
@@ -143,7 +172,7 @@ a {
     border-radius: 20px;
 }
 
-.main_middel_middle img {
+.main_middle_middle img {
     width: 600px;
     height: 500px;
     border-radius: 20px;
@@ -188,6 +217,28 @@ footer_middle img{
     margin: 20px 0px;
 }
 
+/* footer_top a hover */
+
+.footer_top a {
+    color: #5fbb91;
+    display:inline-block;
+    margin:0;
+    text-transform:uppercase;
+}
+.footer_top a:after {
+    display:block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.footer_top a:hover:after {
+    transform: scaleX(1);
+}
+
+/* footer_top a hover */
+
+
 .footer_top_list li {
     list-style: none;
     margin: 20px 0px;
@@ -197,6 +248,11 @@ footer_middle img{
     text-decoration: none;
     font-size: 30px;
 
+}
+
+.footer_middle {
+    border-top: 2px solid #5fbb91;
+    border-bottom: 2px solid #5fbb91;
 }
 
 .footer_middle img {
@@ -220,6 +276,25 @@ footer_middle img{
     text-decoration: none;
     font-size: 30px;
 }
+
+/* footer hover underline */
+.footer_bottom_top_list a {
+    color: #5fbb91;
+    display:inline-block;
+    margin:0;
+    text-transform:uppercase;
+}
+.footer_bottom_top_list a:after {
+    display:block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.footer_bottom_top_list a:hover:after {
+    transform: scaleX(1);
+}
+/* footer hover underline */
 
 .footer_bottom_middle {
     font-size: 20px;
