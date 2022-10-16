@@ -155,5 +155,32 @@ public class MainController {
         return "findo";
     }
 
+    @RequestMapping("/profile")
+    public String findo_profile(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_profile";
+    }
+
+    @RequestMapping("/event")
+    public String findo_event(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_event";
+    }
+
+    @RequestMapping("/gamezone")
+    public String findo_gamezone(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_gamezone";
+    }
+
+    @RequestMapping("/customerservice")
+    public String findo_customerservice(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_customerservice";
+    }
 
 }

@@ -577,3 +577,76 @@ footer_middle img{
     margin-bottom: 40px;
     text-align: center;
 }
+
+/* show menu */
+.menu_bg {
+    width: 75%;
+    height: 100vh;
+    position: fixed;
+    top:0px;
+    left:0px;
+    overflow: hidden;
+    display: none;
+}
+.menu {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:50%;
+    height: 100%;
+    background-color:#5fbb91;
+}
+.menu > div {
+    padding: 2%;
+}
+
+.hidemenu {
+    width: 96%;
+    text-align: right;
+}
+
+.hidemenu_login {
+    background-color: #5fbb91;
+}
+
+.hidemenu_login_text button {
+    border-radius: 5px;
+}
+
+.hidemenu_login_text p {
+}
+
+.hidemenu_login_text p {
+    font-size: 20px;
+}
+
+.hidemenu_login_text a {
+    font-size: 40px;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.hidemenu_login p {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.hidemenu_login a {
+    color: #5fbb91;
+    display:inline-block;
+    margin:0;
+    text-transform:uppercase;
+}
+.hidemenu_login a:after {
+    display:block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.hidemenu_login a:hover:after {
+    transform: scaleX(1);
+}
+
+/* show menu */
