@@ -1,4 +1,7 @@
 /*header css */
+body {
+    margin: 0px;
+}
 .wrapper_findo {
     display: flex;
     justify-content: center;
@@ -17,7 +20,7 @@ button {
 
 button:hover {
     color: #5fbb91;
-    background: #b1fbc3;
+    background: #b5e8c3;
     padding: 5px 10px;
     border: none;
     border-radius: 5px
@@ -36,6 +39,8 @@ a {
     height: 100vh;
 }
 
+
+
 .findo_head_icons_left button {
     font-size: 20px;
 }
@@ -51,13 +56,14 @@ a {
 
 .findo_head_logo img {
     width: 600px;
-    height: 200px;
+    height: 150px;
 }
 
 .findo_head_button {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    padding: 20px 0px 0px 0px;
 }
 
 .findo_head_button a {
@@ -97,6 +103,7 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
+
 }
 
 .findo_main img {
