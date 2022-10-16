@@ -462,3 +462,43 @@ footer_middle img{
     text-decoration: none;
 }
 /* findo_login */
+
+/* findo_signup_agreement */
+.signup_agreement_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_agreement_logo img {
+    width: 600px;
+    height: 200px;
+}
+
+.signup_agreement_title h2 {
+    color: #5fbb91;
+}
+
+.signup_agreement_form textarea {
+    margin: 10px 0px;
+    border: 2px solid #5fbb91;
+}
+
+.signup_agreement_form_button input {
+    font-size: 30px;
+    padding: 10px 30px;
+    background-color: white;
+    border: 2px solid #5fbb91;
+    color: #5fbb91;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.signup_agreement_form_button input:hover {
+    background-color: #d7f5df;
+}
+.signup_agreement_submit_footer {
+    margin-bottom: 40px;
+    text-align: center;
+}
