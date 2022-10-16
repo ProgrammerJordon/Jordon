@@ -120,4 +120,25 @@ public class MainController {
         return "findo_management_announcement";
     }
 
+    @RequestMapping("/id_search")
+    public String findo_id_search(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_id_search";
+    }
+
+    @RequestMapping("/password_search")
+    public String findo_password_search(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_password_search";
+    }
+
+    @RequestMapping("/signup_agreement")
+    public String findo_signup_agreement(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_signup_agreement";
+    }
+
 }

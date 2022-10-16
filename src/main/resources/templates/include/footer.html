@@ -1,51 +1,55 @@
 <footer th:fragment="footerfragment">
-  <div class="footer_top">
-    <div class="footer_top_list">
-      <li><a th:href="@{/findo}">Home</a></li>
-      <li><a th:href="@{/company}">Company</a></li>
+    <hr>
+    <div class="footer_top">
+        <div class="footer_top_list">
+            <li><a th:href="@{/findo}">Home</a></li>
+            <li><a th:href="@{/company}">Company</a></li>
+        </div>
+        <div class="footer_top_list">
+            <li><a th:href="@{/investment}">Investment</a></li>
+            <li><a th:href="@{/products}">Products</a></li>
+        </div>
+        <div class="footer_top_list">
+            <li><a th:href="@{/FAQ}">FAQ</a></li>
+            <li><a th:href="@{/management}">Management</a></li>
+        </div>
     </div>
-    <div class="footer_top_list">
-      <li><a th:href="@{/investment}">Investment</a></li>
-      <li><a th:href="@{/products}">Products</a></li>
+    <hr>
+    <div class="footer_middle">
+        <img src="/images/management3.jpg"/>
     </div>
-    <div class="footer_top_list">
-      <li><a th:href="@{/FAQ}">FAQ</a></li>
-      <li><a th:href="@{/management}">Management</a></li>
+    <hr>
+    <div class="footer_bottom">
+        <div class="footer_bottom_top_list">
+            <li><a th:href="@{/using_law}">핀도이용약관</a></li>
+            <li><a th:href="@{/financial_transaction_law}">전자금융거래이용약관</a></li>
+        </div>
+        <div class="footer_bottom_top_list">
+            <li><a th:href="@{/personal_info_law}">개인정보처리방침</a></li>
+            <li><a th:href="@{/management_announcement}">경영공지</a></li>
+        </div>
     </div>
-  </div>
-  <div class="footer_middle">
-    <img src="/images/management3.jpg" />
-  </div>
-  <div class="footer_bottom">
-    <div class="footer_bottom_top_list">
-      <li><a th:href="@{/using_law}">핀도이용약관</a></li>
-      <li><a th:href="@{/financial_transaction_law}">전자금융거래이용약관</a></li>
+    <hr>
+    <div class="footer_bottom_middle">
+        <p>주식회사 핀도</p>
+        <p>사업자등록번호 502-10923-12</p>
+        <p>대표 정범수</p>
+        <p>서울특별시 강남구 강남대로 84길(역삼동)</p>
     </div>
-    <div class="footer_bottom_top_list">
-      <li><a th:href="@{/personal_info_law}">개인정보처리방침</a></li>
-      <li><a th:href="@{/management_announcement}">경영공지</a></li>
+    <div class="footer_bottom_bottom">
+        <div class="footer_bottom_bottom_top">
+            <span>Copyright © FINDO Corp. All Rights Reserved.</span>
+        </div>
+        <div class="footer_bottom_bottom_middle">
+            <button>
+                <a th:href="@{https://www.facebook.com/}"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
+            </button>
+            <button>
+                <a th:href="@{https://www.instagram.com/}"><i class="fa-brands fa-square-instagram fa-2x"></i></a>
+            </button>
+            <button>
+                <a th:href="@{https://twitter.com/}"><i class="fa-brands fa-square-twitter fa-2x"></i></a>
+            </button>
+        </div>
     </div>
-  </div>
-  <div class="footer_bottom_middle">
-    <p>주식회사 핀도</p>
-    <p>사업자등록번호 502-10923-12</p>
-    <p>대표 정범수</p>
-    <p>서울특별시 강남구 강남대로 84길(역삼동)</p>
-  </div>
-  <div class="footer_bottom_bottom">
-    <div class="footer_bottom_bottom_top">
-      <span>Copyright © FINDO Corp. All Rights Reserved.</span>
-    </div>
-    <div class="footer_bottom_bottom_middle">
-      <button>
-        <a th:href="@{https://www.facebook.com/}"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
-      </button>
-      <button>
-        <a th:href="@{https://www.instagram.com/}"><i class="fa-brands fa-square-instagram fa-2x"></i></a>
-      </button>
-      <button>
-        <a th:href="@{https://twitter.com/}"><i class="fa-brands fa-square-twitter fa-2x"></i></a>
-      </button>
-    </div>
-  </div>
 </footer>

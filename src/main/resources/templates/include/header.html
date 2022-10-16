@@ -13,14 +13,19 @@
         <div class="findo_head_icons_left">
             <button onclick="sidemenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
         </div>
-        <div class="findo_head_icons_right">
+        <div th:if="${session != null}" class="findo_head_icons_right">
             <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
             <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
             <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
         </div>
+        <div th:unless="${session != null}" class="findo_head_icons_right">
+            <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+            <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+            <button><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a></button>
+        </div>
     </div>
     <div class="findo_head_logo">
-        <img src="/images/logo_pink.png">
+        <a th:href="@{/findo}"><img src="/images/logo_black.png"></a>
     </div>
     <hr>
     <div class="findo_head_button">
@@ -30,6 +35,7 @@
         <button><a th:href="@{/news}">뉴스</a></button>
     </div>
     <div class="findo_head_login">
+        <hr>
         <div class="findo_head_login_text" th:if="${session != null}">
             <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
             <button><a th:href="@{/login}">로그인</a></button>
@@ -38,5 +44,4 @@
             <p th:text="${memberid}"></p>
         </div>
     </div>
-    <hr>
 </header><!-- header -->

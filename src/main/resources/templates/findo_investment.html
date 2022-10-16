@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Findo</title>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
 </head>
 <body>
-Findo_investment
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <div class="findo_investment_wrapper">
+            <div class="findo_investment_main_top">
+                <img src="/images/company3.jpg">
+            </div>
+            <div class="findo_investment_main_middle">
+                <img src="/images/company3.jpg">
+            </div>
+            <div class="findo_investment_main_bottom">
+                <img src="/images/company3.jpg">
+            </div>
+            <div class="findo_investment_advertisement">
+                <img src="/images/advertisement_lol.jpg" alt="advertisement" />
+            </div>
+        </div>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
 </body>
 </html>

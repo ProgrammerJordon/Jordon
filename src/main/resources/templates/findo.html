@@ -17,14 +17,19 @@
                 <div class="findo_head_icons_left">
                     <button onclick="sidemenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
                 </div>
-                <div class="findo_head_icons_right">
+                <div th:if="${session != null}" class="findo_head_icons_right">
                     <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
                     <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
                     <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
                 </div>
+                <div th:unless="${session != null}" class="findo_head_icons_right">
+                    <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+                    <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+                    <button><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a></button>
+                </div>
             </div>
             <div class="findo_head_logo">
-                <img src="/images/logo_pink.png">
+                <a th:href="@{/findo}"><img src="/images/logo_black.png"></a>
             </div>
             <hr>
             <div class="findo_head_button">
@@ -34,6 +39,7 @@
                 <button><a th:href="@{/news}">뉴스</a></button>
             </div>
             <div class="findo_head_login">
+                <hr>
                 <div class="findo_head_login_text" th:if="${session != null}">
                     <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
                     <button><a th:href="@{/login}">로그인</a></button>
@@ -42,7 +48,6 @@
                     <p th:text="${memberid}"></p>
                 </div>
             </div>
-            <hr>
         </header><!-- header -->
         <div class="findo_main">
             <div class="main_top_top">
@@ -77,6 +82,7 @@
         </div> <!-- findo_main -->
         <!-- footer -->
         <footer th:fragment="footerfragment">
+            <hr>
             <div class="footer_top">
                 <div class="footer_top_list">
                     <li><a th:href="@{/findo}">Home</a></li>
@@ -91,9 +97,11 @@
                     <li><a th:href="@{/management}">Management</a></li>
                 </div>
             </div> <!-- footer_top-->
+            <hr>
             <div class="footer_middle">
                 <img src="/images/management3.jpg"/>
             </div> <!-- footer_middle-->
+            <hr>
             <div class="footer_bottom">
                 <div class="footer_bottom_top_list">
                     <li><a th:href="@{/using_law}">핀도이용약관</a></li>
@@ -104,6 +112,7 @@
                     <li><a th:href="@{/management_announcement}">경영공지</a></li>
                 </div>
             </div> <!-- footer_bottom-->
+            <hr>
             <div class="footer_bottom_middle">
                 <p>주식회사 핀도</p>
                 <p>사업자등록번호 502-10923-12</p>

@@ -12,15 +12,20 @@ p {
     color: #5fbb91;
 }
 
+span {
+    color: #5fbb91;
+}
+
 button {
     color: #5fbb91;
     background: white;
     border: none;
+    font-weight: bold;
 }
 
 button:hover {
     color: #5fbb91;
-    background: #b5e8c3;
+    background: #d7f5df;
     padding: 5px 10px;
     border: none;
     border-radius: 5px
@@ -28,10 +33,12 @@ button:hover {
 
 li {
     color: #5fbb91;
+    font-weight: bold;
 }
 
 a {
     color: #5fbb91;
+    font-weight: bold;
 }
 
 .total_findo {
@@ -52,11 +59,12 @@ a {
 .findo_head_icons {
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
 }
 
 .findo_head_logo img {
     width: 600px;
-    height: 150px;
+    height: 200px;
 }
 
 .findo_head_button {
@@ -64,6 +72,7 @@ a {
     justify-content: space-around;
     text-align: center;
     padding: 20px 0px 0px 0px;
+    border-top: 1px solid #5fbb91;
 }
 
 .findo_head_button a {
@@ -75,13 +84,13 @@ a {
 .findo_head_login {
     font-size: 30px;
     margin: 20px 0px;
-    border: 1px solid pink;
-    border-radius: 20px;
+    border-top: 1px solid #5fbb91;
+    border-bottom: 1px solid #5fbb91;
 }
 
 .findo_head_login_text {
     text-align: center;
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 
 .findo_head_login_text button {
@@ -190,6 +199,12 @@ footer_middle img{
 
 }
 
+.footer_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
 .footer_bottom {
     display: flex;
     justify-content: space-around;
@@ -223,3 +238,227 @@ footer_middle img{
     font-size: 20px;
     text-decoration: none;
 }
+
+/* findo_search */
+
+.search_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area input{
+    padding: 20px 60px;
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.language-area p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.input-area i {
+    font-size: 40px;
+}
+
+.search_main_advertise img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+/* findo_search */
+
+/* findo_investment */
+.findo_investment_main_top img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_main_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_main_bottom img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_advertisement img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+/* findo_investment */
+
+/* findo_company */
+.findo_company_wrapper h2 {
+    text-align: center;
+}
+
+.findo_company_wrapper p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.findo_company_main_top img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main_middle img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main_bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-top img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle-middel img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-bottom-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+/* findo_company */
+
+/* findo_login */
+
+.wrapper_total_login {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_main {
+    text-align: center;
+    color: #5fbb91;
+}
+
+.login_main_login_id input {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin-bottom: 10px;
+}
+
+.login_main_login_password input {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin: 10px 0px;
+}
+
+.login_main_function {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #5fbb91;
+}
+
+.login_main_button input {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #5fbb91;
+    color: #5fbb91;
+}
+
+.login_main_button input:hover {
+    background-color: #d7f5df;
+    color: #5fbb91;
+}
+
+.login_search {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.login_search li {
+    display: flex;
+    list-style: none;
+}
+
+.login_search a {
+    text-decoration: none;
+}
+
+.login_advertisement img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.login_logo img {
+    width: 600px;
+    height: 200px;
+}
+.login_law {
+    display: flex;
+}
+
+.login_law li{
+    list-style: none;
+    text-decoration: none;
+}
+
+.login_law a{
+    text-decoration: none;
+}
+/* findo_login */

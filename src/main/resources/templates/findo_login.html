@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Findo</title>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
 </head>
 <body>
-findo_login
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <form method="post" action="/login_ok">
+            <div class="wrapper_total_login">
+                <div class="wrapper_login">
+                    <div class="login_logo">
+                        <a th:href="@{/findo}"><img src="/images/logo_black.png"/></a>
+                    </div>
+                    <div class="login_main">
+                        <h3>로그인</h3>
+                        <div class="login_main_login_id">
+                            <input type="text" size="24" id="id" name="id" placeholder="ID" maxlength="25" required/>
+                        </div>
+                        <div class="login_main_login_password">
+                            <input type="password" size="24" id="password" name="password" placeholder="Password"
+                                   maxlength="25" required/>
+                        </div>
+                        <div class="login_main_function">
+                            <div>로그인 상태유지</div>
+                            <div>IP보안</div>
+                        </div>
+                        <div class="login_main_button">
+                            <input type="submit" value="로그인"/>
+                        </div>
+                    </div>
+
+                    <div class="login_search">
+                        <li><a th:href="@{/password_search}">비밀번호 찾기 </a> | </li>
+                        <li><a th:href="@{/id_search}">아이디찾기 </a> | </li>
+                        <li><a th:href="@{/signup_agreement}">회원가입</a></li>
+                    </div>
+
+                    <div class="login_advertisement">
+                        <a th:href="@{https://rolls-roycemotorcars-apac.com/}"><img src="/images/car.jpg"/></a>
+                    </div>
+
+                    <div class="login_law">
+                        <li><a th:href="@{/using_law}">이용약관 </a> | </li>
+                        <li><a th:href="@{/personal_info_law}">개인정보처리방침 </a> | </li>
+                        <li><a th:href="@{/inancial_transation_law}">책임의 한계와 법적고지 </a> | </li>
+                        <li><a th:href="@{/FAQ}">고객센터</a></li>
+                    </div>
+
+                    <div class="login_copyright">
+                        <p>Copyright © FINDO Corp. All Rights Reserved.</p>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

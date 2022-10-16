@@ -6,9 +6,22 @@
 <div class="wrapper_findo">
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
-        <div>
-            <p>메인 영역 내부 입니다.</p>
-        </div>
+        <form method="post" action="#">
+            <div class="search_wrapper">
+                <div class="search_main">
+                    <div class="input-area">
+                        <input type="text" class="input-box" maxlength="20" placeholder="종목명 / 코드 검색"/>
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+                    </div>
+                    <div class="language-area">
+                        <p>Findo offered in: 한국어 English</p>
+                    </div>
+                    <div class="search_main_advertise">
+                        <a th:href="@{https://rolls-roycemotorcars-apac.com/}"><img src="/images/car.jpg" ></a>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>
 </div>
