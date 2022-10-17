@@ -8,6 +8,10 @@ body {
     align-items: center;
 }
 
+.wrapper_findo a {
+    cursor: grabbing;
+}
+
 p {
     color: #5fbb91;
 }
@@ -347,6 +351,27 @@ footer_middle img{
 /* findo_search */
 
 /* findo_investment */
+.findo_investment_wrapper {
+    text-align: center;
+    border-top: 1px solid #5fbb91;
+}
+
+.findo_investment_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_wrapper h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5fbb91;
+}
+
+.findo_investment_main_top {
+    margin-top: 20px;
+}
+
 .findo_investment_main_top img {
     width: 600px;
     height: 500px;
@@ -650,3 +675,44 @@ footer_middle img{
 }
 
 /* show menu */
+
+/* findo_products */
+.index_product_wrapper {
+    text-align: center;
+}
+
+.index_product_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    cursor: grabbing;
+}
+
+.index_product_wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* findo_products */
+
+/* findo_management */
+
+.findo_management_wrapper {
+    border-top: 1px solid #5fbb91;
+    padding-top : 20px;
+}
+
+.findo_management_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_management_wrapper h2 {
+    text-align: center;
+}
+
+.findo_management_wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}

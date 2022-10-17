@@ -100,7 +100,7 @@ public class MainController {
     }
 
     @RequestMapping("/financial_transaction_law")
-    public String findo_financial_transation_law(Model model) {
+    public String findo_financial_transaction_law(Model model) {
         model.addAttribute("session", "session");
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo_financial_transaction_law";

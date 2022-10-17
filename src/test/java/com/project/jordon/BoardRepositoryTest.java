@@ -1,6 +1,5 @@
 package com.project.jordon;
 
-import com.project.jordon.dao.BoardRepository;
 import com.project.jordon.vo.BoardVO;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
