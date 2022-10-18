@@ -7,7 +7,12 @@
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
         <div>
-            <p>메인 영역 내부 입니다.<p>
+            <form action="community_board_delete.ok" method="post">
+                <p>community_board_delete 내부 입니다.</p>
+                <input type="text" placeholder="password" required>
+                <input type="submit" value="삭제">
+                <a th:href="@{/community_board_edit}"><input type="button" value="취소"></a>
+            </form>
         </div>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>

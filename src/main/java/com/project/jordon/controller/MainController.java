@@ -148,6 +148,13 @@ public class MainController {
         return "findo_signup_form";
     }
 
+    @RequestMapping("/findo_signup_form_ok")
+    public String findo_signup_form_ok(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_signup_complement";
+    }
+
     @RequestMapping("/login_ok")
     public String findo_login_ok(Model model) {
         model.addAttribute("session", "session");

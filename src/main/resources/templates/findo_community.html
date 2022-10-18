@@ -7,37 +7,10 @@
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
         <!-- board_list -->
-        <table>
-            <thead>
-            <tr>
-                <th class="one wide">번호</th>
-                <th class="ten wide">글제목</th>
-                <th class="two wide">작성자</th>
-                <th class="three wide">작성일</th>
-            </tr>
-            </thead>
 
-            <tbody>
-            <!-- CONTENTS !-->
-            <tr th:each="board : ${boardList}">
-                <td>
-                    <span th:text="${board.id}"></span>
-                </td>
-                <td>
-                    <a th:href="@{'/post/' + ${board.id}}">
-                        <span th:text="${board.title}"></span>
-                    </a>
-                </td>
-                <td>
-                    <span th:text="${board.writer}"></span>
-                </td>
-                <td>
-                    <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <a th:href="@{/board_write}">글쓰기</a>
+        <a th:href="@{/community_board_content}">글내용</a> <br><br>
+
+        <a th:href="@{/community_board_write}">글쓰기</a>
 
         <!-- board_list -->
         <div th:replace="/include/footer :: footerfragment"></div>

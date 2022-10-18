@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <div>
+            <form action="/community_board_edit_ok" method="post">
+            <table>
+                <tr>
+                    <th>제목</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><textarea></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="수정">
+            <a th:href="@{/community}"><input type="button" value="취소"></a>
+            </form>
+        </div>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>
