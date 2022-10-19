@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Findo</title>
+  <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/08cf8c1353.js" crossorigin="anonymous"></script>
+  <script src="/js/jquery.js" type="text/javascript"></script>
+  <script src="/js/javascript.js" type="text/javascript" defer></script>
+</head>
+<body>
+<div class="wrapper_findo">
+  <div class="total_findo">
+    <header th:fragment="headerfragment">
+      <div class="findo_head_icons">
+        <!-- showMenu -->
+        <div class="findo_head_icons_left">
+          <button onclick="ShowMenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
+        </div>
+        <div class="menu_bg">
+          <div class="menu">
+            <div class="hidemenu" onclick="HideMenu()">
+              <button><i class="fa-solid fa-xmark fa-3x"></i></button>
+            </div>
+            <div class="hidemenu_wrapper">
+              <div class="hidemenu_login">
+                <hr>
+                <div class="hidemenu_login_text" th:if="${session != null}">
+                  <p>로그인을 하시려면 <br> 아래의 버튼을 클릭하세요</p>
+                  <button><a th:href="@{/login}">Login</a></button>
+                </div>
+                <div class="hidemenu_login_text" th:unless="${session != null}">
+                  <p th:text="${memberid}"></p>님 반갑습니다.
+                </div>
+                <hr>
+                <a th:href="@{/profile}"><p>Profile</p></a>
+                <hr>
+                <a th:href="@{/event}"><p>Event</p></a>
+                <hr>
+                <a th:href="@{/gamezone}"><p>GameZone</p></a>
+                <hr>
+                <a th:href="@{/announcement}"><p>Announcement</p></a>
+                <hr>
+                <a th:href="@{/customerservice}"><p>CustomerService</p></a>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- showMenu -->
+        <div th:if="${session != null}" class="findo_head_icons_right">
+          <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+          <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+          <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
+        </div>
+        <div th:unless="${session != null}" class="findo_head_icons_right">
+          <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+          <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+          <button><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a></button>
+        </div>
+      </div>
+      <div class="findo_head_logo">
+        <a th:href="@{/findo}"><img src="/images/logo_black.png"></a>
+      </div>
+      <hr>
+      <div class="findo_head_button">
+        <button><a th:href="@{/findo}">홈</a></button>
+        <button><a th:href="@{/portfolio}">포트폴리오</a></button>
+        <button><a th:href="@{/community}">커뮤니티</a></button>
+        <button><a th:href="@{/news}">뉴스</a></button>
+      </div>
+    </header><!-- header -->
+    <hr>
+    <div class="wrapper_findo">
+      <div class="findo_signup_completement">
+        <div class="" findo_signup_completement_logo>
+          <img src="/images/complete.gif">
+        </div>
+        <h2>메일 발송이 완료되었습니다.</h2>
+        <div>
+          <a th:href="@{/findo}"><input type="button" value="Home"></a>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer th:fragment="footerfragment">
+      <hr>
+      <div class="footer_top">
+        <div class="footer_top_list">
+          <li><a th:href="@{/findo}">Home</a></li>
+          <li><a th:href="@{/company}">Company</a></li>
+        </div>
+        <div class="footer_top_list">
+          <li><a th:href="@{/investment}">Investment</a></li>
+          <li><a th:href="@{/products}">Products</a></li>
+        </div>
+        <div class="footer_top_list">
+          <li><a th:href="@{/management}">Management</a></li>
+          <li><a th:href="@{/FAQ}">FAQ</a></li>
+        </div>
+      </div> <!-- footer_top-->
+      <hr>
+      <div class="footer_middle">
+        <img src="/images/foreigncompany2.png"/>
+      </div> <!-- footer_middle-->
+      <hr>
+      <div class="footer_bottom">
+        <div class="footer_bottom_top_list">
+          <li><a th:href="@{/using_law}">핀도이용약관</a></li>
+          <li><a th:href="@{/financial_transaction_law}">전자금융거래이용약관</a></li>
+        </div>
+        <div class="footer_bottom_top_list">
+          <li><a th:href="@{/personal_info_law}">개인정보처리방침</a></li>
+          <li><a th:href="@{/management_announcement}">경영공지</a></li>
+        </div>
+      </div> <!-- footer_bottom-->
+      <hr>
+      <div class="footer_bottom_middle">
+        <p>주식회사 핀도</p>
+        <p>사업자등록번호 502-10923-12</p>
+        <p>대표 정범수</p>
+        <p>서울특별시 강남구 강남대로 84길(역삼동)</p>
+      </div> <!-- footer_bottom_middle-->
+      <div class="footer_bottom_bottom">
+        <div class="footer_bottom_bottom_top">
+          <span>Copyright © FINDO Corp. All Rights Reserved.</span>
+        </div>
+        <div class="footer_bottom_bottom_middle">
+          <button>
+            <a th:href="@{https://www.facebook.com/}"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
+          </button>
+          <button>
+            <a th:href="@{https://www.instagram.com/}"><i
+                    class="fa-brands fa-square-instagram fa-2x"></i></a>
+          </button>
+          <button>
+            <a th:href="@{https://twitter.com/}"><i class="fa-brands fa-square-twitter fa-2x"></i></a>
+          </button>
+        </div>
+      </div> <!-- footer_bottom_bottom -->
+    </footer> <!-- footer -->
+  </div> <!-- total_findo -->
+</div> <!-- wrapper_findo -->
+</body>
+</html>

@@ -1,9 +1,11 @@
 package com.project.jordon.service;
 
-import com.project.jordon.repository.MemberRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.project.jordon.vo.MemberVO;
 
-@Service
-public class MemberService {
+public interface MemberService {
+    //     Bring method from DAO
+    // 회원가입
+    void insertMember(MemberVO m);
+    // 로그인
+    MemberVO loginMember(String memberid);
 }

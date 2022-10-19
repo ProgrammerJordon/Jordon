@@ -6,9 +6,35 @@
 <div class="wrapper_findo">
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
-        <div>
-            <p>findo_customerservice 영역 내부 입니다.<p>
-        </div>
+        <h2>Customer Service For Email</h2>
+        <hr>
+        <form action="sending_mail" method="post">
+            <div class="findo_customerservice">
+                <table border="1" style="border:2px solid #5fbb91;">
+                    <tr>
+                        <th style="padding:5px 35px; font-size: 10px;">문의 제목</th>
+                        <td><textarea rows="2" cols="50" required
+                                      style="border:none; width:100%; resize: none; font-size: 15px;" spellcheck="false"
+                                      placeholder="제목을 입력해 주세요."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="padding:20px 35px; font-size: 10px;">문의 내용</th>
+                        <td><textarea rows="20" cols="50" required
+                                      style="border:none; width:100%; height:50%; font-size: 15px; resize: none;"
+                                      spellcheck="false" placeholder="내용을 입력해 주세요."></textarea></td>
+                    </tr>
+                </table>
+                <div class="findo_customerservice_button">
+                    <div>
+                        <span style="font-size: 10px">*메일문의는 1~2일간 시간이 소요됩니다.*</span>
+                    </div>
+                    <div>
+                        <input type="submit" value="문의발송">
+                    </div>
+                </div>
+            </div>
+        </form>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>
 </div>

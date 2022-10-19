@@ -39,3 +39,6 @@ $(document).on("click", "input:checkbox[name=cbox]", function(e) {
         $("#cboxAll").prop("checked",false);
     }
 });
+
+//////////////////
+

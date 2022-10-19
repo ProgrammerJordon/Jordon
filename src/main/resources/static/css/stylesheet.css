@@ -493,12 +493,14 @@ footer_middle img{
     font-size: 20px;
     padding: 20px 40px;
     margin-bottom: 10px;
+    border: 2px solid #5fbb91;
 }
 
 .login_main_login_password input {
     font-size: 20px;
     padding: 20px 40px;
     margin: 10px 0px;
+    border: 2px solid #5fbb91;
 }
 
 .login_main_function {
@@ -1033,6 +1035,10 @@ footer_middle img{
     font-size: 15px;
 }
 
+.footer_bottom_bottom_middle {
+    margin-bottom: 20px;
+}
+
 .footer_bottom_bottom_middle a {
     font-size: 20px;
     text-decoration: none;
@@ -1288,7 +1294,6 @@ footer_middle img{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .signup_agreement_logo img {
@@ -1497,7 +1502,6 @@ footer_middle img{
 }
 
 .signup_email_text input {
-    color: #5fbb91;
     border-radius: 5px;
     border: 2px solid #5fbb91;
 }
@@ -1525,10 +1529,91 @@ footer_middle img{
     background: #d7f5df;
 }
 
+.signup_auth_email input {
+    background-color: white;
+    color: #5fbb91;
+}
+
+.signup_auth_email input:hover {
+    background-color: #d7f5df;
+    color: #5fbb91;
+}
+
 /* findo_signup_form */
 
 /* findo_signup_completement */
+.findo_signup_completement_logo img {
+    width: 600px;
+    height: 500px;
+}
 
+.findo_signup_completement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.findo_signup_completement h2 {
+    text-align: center;
+}
 
+.findo_signup_completement input {
+    font-size: 30px;
+    background: white;
+    border: 2px solid #5fbb91;
+    color: #5fbb91;
+    padding: 20px 40px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.findo_signup_completement input:hover {
+    font-size: 30px;
+    background: #d7f5df;
+    border: 2px solid #5fbb91;
+    color: #5fbb91;
+}
 /* findo_signup_completement */
+
+/* address API */
+
+.findo_signup_address input {
+    border: 2px solid #5fbb91;
+    margin: 20px 30px;
+    font-size: 15px;
+}
+
+.findo_signup_address_button {
+    background-color: white;
+    color: #5fbb91;
+
+}
+
+.findo_signup_address_button:hover {
+    background-color: #d7f5df;
+}
+
+/* address API */
+
+/* customerservice */
+.findo_customerservice_button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.findo_customerservice_button input {
+    color: #5fbb91;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #5fbb91;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.findo_customerservice_button input:hover {
+    background-color: #d7f5df;
+}
+
+/* customerservice */

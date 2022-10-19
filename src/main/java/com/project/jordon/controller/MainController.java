@@ -4,14 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class MainController {
 
     @RequestMapping("/findo")
-    public String index(Model model) {
-        //model.addAttribute("session", "session");
-        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+    public String index(HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        String sessionid = (String)session.getAttribute(String.valueOf(session));
+        session.setAttribute("session", sessionid);
         return "findo";
     }
 
@@ -34,13 +38,6 @@ public class MainController {
         model.addAttribute("session", "session");
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo_news";
-    }
-
-    @RequestMapping("/login")
-    public String findo_login(Model model) {
-        model.addAttribute("session", "session");
-        model.addAttribute("memberid", "memberid 님 반갑습니다.");
-        return "findo_login";
     }
 
     @RequestMapping("/search")
@@ -141,25 +138,11 @@ public class MainController {
         return "findo_signup_agreement";
     }
 
-    @RequestMapping("/signup_form")
-    public String findo_signup_form(Model model) {
+    @RequestMapping("/findo_signup_completement")
+    public String findo_signup_completement(Model model) {
         model.addAttribute("session", "session");
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
-        return "findo_signup_form";
-    }
-
-    @RequestMapping("/findo_signup_form_ok")
-    public String findo_signup_form_ok(Model model) {
-        model.addAttribute("session", "session");
-        model.addAttribute("memberid", "memberid 님 반갑습니다.");
-        return "findo_signup_complement";
-    }
-
-    @RequestMapping("/login_ok")
-    public String findo_login_ok(Model model) {
-        model.addAttribute("session", "session");
-        model.addAttribute("memberid", "memberid 님 반갑습니다.");
-        return "findo";
+        return "findo_signup_completement";
     }
 
     @RequestMapping("/profile")
@@ -188,6 +171,13 @@ public class MainController {
         model.addAttribute("session", "session");
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo_customerservice";
+    }
+
+    @RequestMapping("/sending_mail")
+    public String sending_mail(Model model) {
+        model.addAttribute("session", "session");
+        model.addAttribute("memberid", "memberid 님 반갑습니다.");
+        return "findo_customerservice_completement";
     }
 
 }

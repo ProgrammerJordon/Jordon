@@ -26,13 +26,13 @@
                         <div class="hidemenu_wrapper">
                             <div class="hidemenu_login">
                                 <hr>
-                                <div class="hidemenu_login_text" th:if="${session != null}">
+                                <th:block class="hidemenu_login_text" th:if="${session == null}">
                                     <p>로그인을 하시려면 <br> 아래의 버튼을 클릭하세요</p>
                                     <button><a th:href="@{/login}">Login</a></button>
-                                </div>
-                                <div class="hidemenu_login_text" th:unless="${session != null}">
-                                    <p th:text="${memberid}"></p>님 반갑습니다.
-                                </div>
+                                </th:block>
+                                <th:block class="hidemenu_login_text" th:unless="${session == null}">
+                                    <p><span th:text="${session.session}"></span>님 반갑습니다.</p>
+                                </th:block>
                                 <hr>
                                 <a th:href="@{/profile}"><p>Profile</p></a>
                                 <hr>
@@ -73,12 +73,12 @@
             </div>
             <div class="findo_head_login">
                 <hr>
-                <div class="findo_head_login_text" th:if="${session != null}">
+                <div class="findo_head_login_text" th:if="${session == null}">
                     <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
                     <button><a th:href="@{/login}">로그인</a></button>
                 </div>
-                <div class="findo_head_login_text" th:unless="${session != null}">
-                    <p th:text="${memberid}"></p>
+                <div class="findo_head_login_text" th:unless="${session == null}">
+                    <p th:text="${session}"></p>
                 </div>
             </div>
         </header><!-- header -->
