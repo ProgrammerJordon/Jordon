@@ -12,4 +12,8 @@
     <select id="member_login" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
         select * from member where memberid LIKE '%'||#{memberid}||'%'
     </select>
+
+    <select id="member_id" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
+        select * from member where memberid LIKE '%'||#{memberid}||'%'
+    </select>
 </mapper>

@@ -7,9 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
 public class MemberController {
@@ -32,28 +38,33 @@ public class MemberController {
 
     @RequestMapping("/login")
     public String findo_login() {
+
         return "findo_login";
     }
-
     @RequestMapping("/findo_login_ok")
-    public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request) {
+    public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request, HttpServletResponse response) throws IOException {
         MemberVO m = this.memberserivce.loginMember(memberid);
+        PrintWriter out = response.getWriter();
         System.out.println(m);
-        if(m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
-            System.out.println("아이디 비밀번호 둘다 같음");
-            HttpSession session = request.getSession();
-            session.setAttribute("session", memberid);
-            session.getAttribute("session");
-                if(session != null) {
-                    System.out.println("세션이 존재함");
-                }else{
-                    System.out.println("세션이 존재하지 않음");
+        if (m != null) {
+            if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
+                System.out.println("아이디 비밀번호 둘다 같음");
+                HttpSession session = request.getSession();
+                session.setAttribute("session", memberid);
+                session.getAttribute("session");
+                if (m.getMemberid().equals(memberid) == false || m.getMemberpassword().equals(memberpassword) == false) {
+                    System.out.println("쓰레기 값이 들어옴");
+                    return "redirect:/login";
+                } else {
+                    System.out.println("정상적인 데이터가 들어옴");
                 }
                 return "redirect:/findo";
-        }else {
-            System.out.println("아이디 비밀번호 틀림");
-            return "redirect:/findo_login";
+            } else {
+                System.out.println("아이디 비밀번호 틀림");
+                return "redirect:/login";
+            }
         }
+        return "redirect:/login";
     }
 
     @RequestMapping("logout")

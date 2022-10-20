@@ -22,4 +22,9 @@ public class MemberServiceImpl implements MemberService{
         return this.memberDAO.loginMember(memberid);
     }
 
+    @Override
+    public MemberVO idMember(String memberid) {
+        return this.memberDAO.idMember(memberid);
+    }
+
 }

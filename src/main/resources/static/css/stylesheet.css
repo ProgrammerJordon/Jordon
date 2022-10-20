@@ -636,21 +636,36 @@ footer_middle img{
     background-color: #5fbb91;
 }
 
-.hidemenu_login_text button {
-    border-radius: 5px;
+.hidemenu_login_text span{
+    margin: 10px 0px;
+    padding: 10px 0px;
 }
 
-.hidemenu_login_text p {
+.hidemenu_login_text button {
+    border-radius: 5px;
 }
 
 .hidemenu_login_text p {
     font-size: 20px;
 }
 
-.hidemenu_login_text a {
+.hidemenu_login button {
     font-size: 40px;
     text-decoration: none;
     padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.hidemenu_login button a {
+    text-decoration: none;
+}
+
+.hidemenu_login span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 20px 0px;
+    margin: 10px 0px;
 }
 
 .hidemenu_login p {
@@ -838,6 +853,12 @@ a {
 .findo_head_login_text {
     text-align: center;
     margin: 10px 0px;
+}
+
+.findo_head_login p {
+    font-size: 30px;
+    font-weight: bold;
+
 }
 
 .findo_head_login_text button:hover {
@@ -1625,4 +1646,8 @@ footer_middle img{
 
 .hidemenu_login_text span {
     color: white;
+    padding: 20px 0px;
+    margin: 20px 0px;
+    font-size: 20px;
+    font-width: bold;
 }

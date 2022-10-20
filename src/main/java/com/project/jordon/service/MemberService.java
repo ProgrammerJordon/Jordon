@@ -8,4 +8,7 @@ public interface MemberService {
     void insertMember(MemberVO m);
     // 로그인
     MemberVO loginMember(String memberid);
+
+    // 중복아이디 확인
+    MemberVO idMember(String memberid);
 }
