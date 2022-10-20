@@ -43,15 +43,22 @@ public class MemberController {
             System.out.println("아이디 비밀번호 둘다 같음");
             HttpSession session = request.getSession();
             session.setAttribute("session", memberid);
+            session.getAttribute("session");
                 if(session != null) {
                     System.out.println("세션이 존재함");
                 }else{
                     System.out.println("세션이 존재하지 않음");
                 }
-            return "findo";
+                return "redirect:/findo";
         }else {
             System.out.println("아이디 비밀번호 틀림");
-            return "findo_login";
+            return "redirect:/findo_login";
         }
+    }
+
+    @RequestMapping("logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/findo";
     }
 }

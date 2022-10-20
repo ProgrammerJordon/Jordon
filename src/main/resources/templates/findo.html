@@ -31,7 +31,7 @@
                                     <button><a th:href="@{/login}">Login</a></button>
                                 </th:block>
                                 <th:block class="hidemenu_login_text" th:unless="${session == null}">
-                                    <p><span th:text="${session.session}"></span>님 반갑습니다.</p>
+                                    <p><span th:text="${session.session}+'님 반갑습니다.'"></span></p>
                                 </th:block>
                                 <hr>
                                 <a th:href="@{/profile}"><p>Profile</p></a>
@@ -50,15 +50,15 @@
                 </div>
 
                 <!-- showMenu -->
-                <div th:if="${session != null}" class="findo_head_icons_right">
+                <div th:if="${session == null}" class="findo_head_icons_right">
                     <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
                     <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
                     <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
                 </div>
-                <div th:unless="${session != null}" class="findo_head_icons_right">
+                <div th:unless="${session == null}" class="findo_head_icons_right">
                     <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
                     <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
-                    <button><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a></button>
+                    <button><a th:href="@{/logout}"><i class="fa-solid fa-xmark fa-2x"></i></a></button>
                 </div>
             </div>
             <div class="findo_head_logo">
@@ -78,7 +78,7 @@
                     <button><a th:href="@{/login}">로그인</a></button>
                 </div>
                 <div class="findo_head_login_text" th:unless="${session == null}">
-                    <p th:text="${session}"></p>
+                    <p><span th:text="${session.session}"></span>님 반갑습니다.</p>
                 </div>
             </div>
         </header><!-- header -->

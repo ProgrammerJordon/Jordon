@@ -12,10 +12,8 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     @RequestMapping("/findo")
-    public String index(HttpServletRequest request) throws Exception {
-        HttpSession session = request.getSession();
-        String sessionid = (String)session.getAttribute(String.valueOf(session));
-        session.setAttribute("session", sessionid);
+    public String index(Model model) {
+
         return "findo";
     }
 

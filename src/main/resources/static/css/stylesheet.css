@@ -1617,3 +1617,12 @@ footer_middle img{
 }
 
 /* customerservice */
+
+/* session */
+.hidemenu_login_text p {
+    color: white;
+}
+
+.hidemenu_login_text span {
+    color: white;
+}

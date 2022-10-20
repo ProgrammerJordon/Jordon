@@ -22,5 +22,4 @@ public class MemberServiceImpl implements MemberService{
         return this.memberDAO.loginMember(memberid);
     }
 
-
 }
