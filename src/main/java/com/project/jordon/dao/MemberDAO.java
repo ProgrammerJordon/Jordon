@@ -12,7 +12,5 @@ public interface MemberDAO {
     MemberVO loginMember(String memberid);
 
     // 중복아이디 확인
-    MemberVO idMember(String memberid);
-
 
 }

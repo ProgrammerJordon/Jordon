@@ -6,14 +6,11 @@
 
 <mapper namespace="Member">
     <insert id="member_insert" parameterType="m">
-        insert into member (memberid,memberpassword,memberpassword2,membername,memberbirth,membergender,memberemail,memberemailauth,memberaddress1,memberaddress2,memberaddress3,memberaddress4,memberaddress5,memberphonenumber,memberregdate,memberupdate) values (#{memberid},#{memberpassword},#{memberpassword2},#{membername},#{memberbirth},#{membergender},#{memberemail},#{memberemailauth},#{memberaddress1},#{memberaddress2},#{memberaddress3},#{memberaddress4},#{memberaddress5},#{memberphonenumber},sysdate,sysdate)
+        insert into member (membernumber,memberid,memberpassword,memberpassword2,membername,memberbirth,membergender,memberemail,memberemailauth,memberaddress1,memberaddress2,memberaddress3,memberaddress4,memberaddress5,memberphonenumber,memberregdate,memberupdate) values (membernumber_seq.nextval,#{memberid},#{memberpassword},#{memberpassword2},#{membername},#{memberbirth},#{membergender},#{memberemail},#{memberemailauth},#{memberaddress1},#{memberaddress2},#{memberaddress3},#{memberaddress4},#{memberaddress5},#{memberphonenumber},sysdate,sysdate)
     </insert>
 
     <select id="member_login" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
-        select * from member where memberid LIKE '%'||#{memberid}||'%'
+        select * from member where memberid LIKE #{memberid}
     </select>
-
-    <select id="member_id" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
-        select * from member where memberid LIKE '%'||#{memberid}||'%'
-    </select>
+    
 </mapper>

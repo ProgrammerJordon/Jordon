@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="search-list" align="center">
+  <table>
+    <tr style="text-align: center;">
+      <th width="50%" height="26">종목명</th>
+      <th width="50%">종목코드</th>
+    </tr>
+    <c:if test="${!empty slist}"> <%-- 검색전후 목록이 있는 경우 실행 --%>
+      <c:forEach var="s" items="${slist}">
+        <tr>
+
+          <td align="center">${s.stocknumber}</td>
+          &nbsp;<%--한칸의 빈공백 --%>
+
+          <td style="text-align: center;">
+            <a href="stock_cont?stocknumber=${s.stocknumber}" style="text-decoration: none; color:black;">${s.stockname}</a>
+            <%-- *.do?board_no=번호&page=쪽번호&state=cont 주소창에 노출되는 get방식(쿼리스트링 방식)으로 3개의 피라미터
+            값을 &기호로 구분해서 전달함. --%>
+          </td>
+        </tr>
+      </c:forEach>
+    </c:if>
+
+    <c:if test="${empty slist}">
+      <tr>
+        <th colspan="5">검색한 종목이 없습니다.</th>
+      </tr>
+    </c:if>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <form method="post" action="/search_list">
+            <div class="input-area">
+                <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
+                       placeholder="종목명 / 코드 검색"/>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </div>
+        </form>
+        <div class="search-list" align="center">
+            <table>
+                <tr style="text-align: center;">
+                    <th width="50%" height="26">종목코드</th>
+                    <th width="50%">종목명</th>
+                </tr>
+                <div th:if="${slist != null}">
+                    <tr style="font-size: 15px" th:each="s : ${slist}">
+
+                        <td align="center">
+                            <span th:text="${s.stocknumber}"></span>
+                        </td>
+
+                        <td style="text-align: center;">
+                            <a th:href="@{/stock_cont(stocknumber=${s.stocknumber})}"
+                               style="text-decoration: none; color:black;">
+                                <span th:text="${s.stockname}"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </div>
+
+                <div th:if="${find_name == null}">
+                    <tr>
+                        <th colspan="5"><span th:text="검색한 종목이 없습니다."></span></th>
+                    </tr>
+                </div>
+            </table>
+        </div>
+
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>

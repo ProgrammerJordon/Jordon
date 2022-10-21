@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Member;
 
 @Controller
 public class MemberController {
@@ -25,15 +26,21 @@ public class MemberController {
 
     @RequestMapping("/signup_form")
     public String findo_signup_form(Model model) {
-        model.addAttribute("session", "session");
-        model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "findo_signup_form";
     }
 
+
+
     @RequestMapping("/findo_signup_form_ok")
     public String findo_signup_form_ok(MemberVO m) {
-        this.memberserivce.insertMember(m);
-        return "redirect:/findo_signup_completement";
+        if(m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2() != null && m.getMembername() !=null && m.getMemberbirth() != null && m.getMembergender() != null && m.getMemberemail() != null && m.getMemberemailauth() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMemberphonenumber() != null) {
+            this.memberserivce.insertMember(m);
+            System.out.println("저장됨");
+            return "findo_signup_completement";
+        }else {
+            System.out.println("저장안됨");
+            return "findo_signup_form";
+        }
     }
 
     @RequestMapping("/login")

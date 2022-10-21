@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="search">
+    <select id="search_list" resultType="com.project.jordon.vo.SearchVO">
+        select * from kospi where stockname like #{find_name} or stocknumber like #{find_name}
+    </select>
+
+    <select id="search_cont" resultType="com.project.jordon.vo.SearchVO">
+        select * from kospi where stocknumber=#{find_name}
+    </select>
+
+</mapper>

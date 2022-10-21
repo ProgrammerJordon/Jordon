@@ -10,5 +10,5 @@ public interface MemberService {
     MemberVO loginMember(String memberid);
 
     // 중복아이디 확인
-    MemberVO idMember(String memberid);
+
 }

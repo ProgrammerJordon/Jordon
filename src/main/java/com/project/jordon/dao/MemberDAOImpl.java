@@ -23,10 +23,6 @@ public class MemberDAOImpl implements MemberDAO {
         return this.sqlSession.selectOne("member_login", memberid);
     }
 
-    @Override
-    public MemberVO idMember(String memberid) {
-        return this.sqlSession.selectOne("member_id", memberid);
-    }
 
 
 }

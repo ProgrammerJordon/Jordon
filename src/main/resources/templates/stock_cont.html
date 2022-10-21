@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <form method="post" action="/search_list">
+            <div class="input-area">
+                <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
+                       placeholder="종목명 / 코드 검색"/>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </div>
+        </form>
+        <br>
+        <hr>
+        <div id="bCont_wrap">
+            <h1 class="bCont_title">
+                <span th:text="${stock.detail.name}"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="color: black;" th:text="${stock.detail.openPrice}+'원'"></span></h1>
+            <hr>
+            <div class="chart">
+                <input type="button" value="1D" id="daily">
+                <input type="button" value="1M" id="month1">
+                <input type="button" value="3M" id="month3">
+                <input type="button" value="1Y" id="year1">
+                <input type="button" value="3Y" id="year3">
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    let chartLabels = [];//x축
+                    let chartData = [];//y축
+
+                    //자바코드로 json 받으면 x축, y축으로 나눠줌
+                    function StockObjectParse(stockObject, period) {
+
+                        console.log(period);
+
+                        const obj = stockObject;
+                        let d = obj.month1;
+
+                        if (period == "daily") {
+                            d = obj.daily;
+                            for (i = 0; i < d.price.length; i++) {
+                                chartLabels.push(d.date[i]);
+                                chartData.push(d.price[i]);
+                            }
+                        } else {
+                            if (period == "month1") {
+                                d = obj.month1;
+                            } else if (period == "month3") {
+                                d = obj.month3
+                            } else if (period == "year1") {
+                                d = obj.year1
+                            } else if (period == "year3") {
+                                d = obj.year3
+                            } else {
+                                d = obj.month1
+                            }
+
+                            for (i = 0; i < d.price.length; i++) {
+                                chartLabels.push(d.date[d.date.length - 1 - i]);
+                                chartData.push(d.price[d.price.length - 1 - i]);
+                            }
+                        }
+
+
+                        createChart();
+
+                    };
+
+                    let lineChartData = {
+                        labels: chartLabels,
+                        datasets: [
+                            {
+                                label: "종목차트",
+
+                                fillColor: 'rgb(150,48,185)',
+
+                                strokeColor: 'rgb(102,193,131)',
+
+                                pointColor: 'rgb(255, 99, 132)',
+
+                                pointStrokeColor: 'rgb(93,145,186)',
+
+                                pointHighlightFill: 'rgb(155, 99, 132)',
+
+                                pointHighlightStroke: 'rgb(255, 99, 132)',
+
+                                data: chartData
+
+                            }
+                        ]
+                    }
+
+                    function createChart() {
+
+                        let ctx = document.getElementById("myChart").getContext("2d");
+
+                        let myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: lineChartData,
+
+                            fillColor: 'rgb(255, 99, 132)',
+
+                            strokeColor: 'rgb(102,193,131)',
+
+                            pointColor: 'rgb(255, 99, 132)',
+
+                            pointStrokeColor: 'rgb(93,145,186)',
+
+                            pointHighlightFill: 'rgb(155, 99, 132)',
+
+                            pointHighlightStroke: 'rgb(255, 99, 132)',
+
+                            options: {
+
+                                plugins: {
+                                    filler: {
+                                        propagate: true,
+
+                                    }
+                                }
+                            }
+                        });
+                        return myChart;
+                    }
+
+                    /*]]>*/
+                </script>
+                <script th:inline="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
+                    /*<![CDATA[*/
+                    /*]]>*/
+                </script>
+                <canvas id="myChart" height="100px" width="100px">five chart</canvas>
+
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+
+                    StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
+                    let atn = document.getElementById("daily");
+                    atn.addEventListener('click', (e) => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "daily");
+                    });
+                    let btn = document.getElementById("month1");
+                    btn.addEventListener('click', (e) => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "month1");
+                    });
+                    let ctn = document.getElementById("month3");
+                    ctn.addEventListener('click', (e) => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "month3");
+                    });
+                    let dtn = document.getElementById("year1");
+                    dtn.addEventListener('click', (e) => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "year1");
+                    });
+                    let etn = document.getElementById("year3");
+                    etn.addEventListener('click', (e) => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "year3");
+                    });
+                    /*]]>*/
+                </script>
+
+            </div>
+            <div class="bCont_t_mover">
+                <table id="bCont_t">
+                    <tr>
+                        <th>현재가격</th>
+                        <td><span th:text="${stock.detail.openPrice}"></span></td>
+                        <th>PER</th>
+                        <td><span th:text="${stock.investmentIndicator.perValue}"></span></td>
+                    </tr>
+                    <tr>
+                        <th>고가</th>
+                        <td><span th:text="${stock.detail.highPrice}"></span></td> <!-- $전부 thymeleaf  -->
+                        <th>PBR</th>
+                        <td><span th:text="${stock.investmentIndicator.pbrValue}"></span></td>
+                    </tr>
+                    <tr>
+                        <th>저가</th>
+                        <td><span th:text="${stock.detail.lowPrice}"></span></td>
+                        <th>EPS</th>
+                        <td><span th:text="${stock.investmentIndicator.epsValue}"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>

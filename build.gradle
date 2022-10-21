@@ -21,6 +21,8 @@ repositories {
 dependencies {
     // Login page up
     //implementation 'org.springframework.boot:spring-boot-starter-security'
+    // simple JSON
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
     // thymeleaf layout dependency add
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
