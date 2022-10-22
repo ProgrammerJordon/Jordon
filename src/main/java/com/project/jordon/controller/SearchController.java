@@ -33,6 +33,8 @@ public class SearchController {
 
         System.out.println(find_name);
         List<SearchVO> slist = this.searchService.getSearchList(svo);
+        int slist_check = slist.size();
+        listM.addAttribute("slist_check", slist_check);
         listM.addAttribute("slist", slist);
         listM.addAttribute("find_name", find_name);
         return "search_list";

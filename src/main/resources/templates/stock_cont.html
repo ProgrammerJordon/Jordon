@@ -9,7 +9,7 @@
         <form method="post" action="/search_list">
             <div class="input-area">
                 <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
-                       placeholder="종목명 / 코드 검색"/>
+                       placeholder="종목명 / 코드 검색" spellcheck="false"/>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
             </div>
         </form>
@@ -26,19 +26,95 @@
                 <input type="button" value="3M" id="month3">
                 <input type="button" value="1Y" id="year1">
                 <input type="button" value="3Y" id="year3">
+            </div>
+            <div>
+                <script th:inline="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
+                    /*<![CDATA[*/
+                    /*]]>*/
+                </script>
+                <canvas id="myChart" height="600px" width="600px">five chart</canvas>
                 <script th:inline="javascript">
                     /*<![CDATA[*/
+
+                    function createChart() {
+                        let ctx = document.getElementById("myChart").getContext("2d");
+                        let myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: lineChartData,
+                            fill: true,
+                            fillColor: 'rgb(0,0,0)',
+                            borderColor: 'rgb(100,100,100)',
+                            tension: 0.5,
+                            options: {}
+                        });
+                    }
+
                     let chartLabels = [];//x축
                     let chartData = [];//y축
 
+                    let lineChartData = {
+                        labels: chartLabels,
+                        datasets: [
+                            {
+                                label: "종목차트",
+                                fill: true,
+                                fillColor: 'rgb(0,0,0)',
+                                borderColor: 'rgb(100,100,100)',
+                                tension: 0.5,
+                                data: chartData
+                            }
+                        ]
+                    }
+
+
+
+                    StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
+                    let atn = document.getElementById("daily");
+                    atn.addEventListener('click', () => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "daily");
+                    });
+                    let btn = document.getElementById("month1");
+                    btn.addEventListener('click', () => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "month1");
+                    });
+                    let ctn = document.getElementById("month3");
+                    ctn.addEventListener('click', () => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "month3");
+                    });
+                    let dtn = document.getElementById("year1");
+                    dtn.addEventListener('click', () => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "year1");
+                    });
+                    let etn = document.getElementById("year3");
+                    etn.addEventListener('click', () => {
+                        if (chartLabels.length > 0) {
+                            chartLabels.splice(0, chartLabels.length);
+                            chartData.splice(0, chartData.length);
+                        }
+                        StockObjectParse([[${stock}]], "year3");
+                    });
+
                     //자바코드로 json 받으면 x축, y축으로 나눠줌
                     function StockObjectParse(stockObject, period) {
-
                         console.log(period);
-
                         const obj = stockObject;
-                        let d = obj.month1;
-
+                        let d;
                         if (period == "daily") {
                             d = obj.daily;
                             for (i = 0; i < d.price.length; i++) {
@@ -57,131 +133,18 @@
                             } else {
                                 d = obj.month1
                             }
-
                             for (i = 0; i < d.price.length; i++) {
                                 chartLabels.push(d.date[d.date.length - 1 - i]);
                                 chartData.push(d.price[d.price.length - 1 - i]);
                             }
                         }
-
-
-                        createChart();
-
+                        createChart("myChart");
                     };
 
-                    let lineChartData = {
-                        labels: chartLabels,
-                        datasets: [
-                            {
-                                label: "종목차트",
-
-                                fillColor: 'rgb(150,48,185)',
-
-                                strokeColor: 'rgb(102,193,131)',
-
-                                pointColor: 'rgb(255, 99, 132)',
-
-                                pointStrokeColor: 'rgb(93,145,186)',
-
-                                pointHighlightFill: 'rgb(155, 99, 132)',
-
-                                pointHighlightStroke: 'rgb(255, 99, 132)',
-
-                                data: chartData
-
-                            }
-                        ]
-                    }
-
-                    function createChart() {
-
-                        let ctx = document.getElementById("myChart").getContext("2d");
-
-                        let myChart = new Chart(ctx, {
-                            type: 'line',
-                            data: lineChartData,
-
-                            fillColor: 'rgb(255, 99, 132)',
-
-                            strokeColor: 'rgb(102,193,131)',
-
-                            pointColor: 'rgb(255, 99, 132)',
-
-                            pointStrokeColor: 'rgb(93,145,186)',
-
-                            pointHighlightFill: 'rgb(155, 99, 132)',
-
-                            pointHighlightStroke: 'rgb(255, 99, 132)',
-
-                            options: {
-
-                                plugins: {
-                                    filler: {
-                                        propagate: true,
-
-                                    }
-                                }
-                            }
-                        });
-                        return myChart;
-                    }
-
                     /*]]>*/
                 </script>
-                <script th:inline="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
-                    /*<![CDATA[*/
-                    /*]]>*/
-                </script>
-                <canvas id="myChart" height="100px" width="100px">five chart</canvas>
-
-                <script th:inline="javascript">
-                    /*<![CDATA[*/
-
-                    StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
-                    let atn = document.getElementById("daily");
-                    atn.addEventListener('click', (e) => {
-                        if (chartLabels.length > 0) {
-                            chartLabels.splice(0, chartLabels.length);
-                            chartData.splice(0, chartData.length);
-                        }
-                        StockObjectParse([[${stock}]], "daily");
-                    });
-                    let btn = document.getElementById("month1");
-                    btn.addEventListener('click', (e) => {
-                        if (chartLabels.length > 0) {
-                            chartLabels.splice(0, chartLabels.length);
-                            chartData.splice(0, chartData.length);
-                        }
-                        StockObjectParse([[${stock}]], "month1");
-                    });
-                    let ctn = document.getElementById("month3");
-                    ctn.addEventListener('click', (e) => {
-                        if (chartLabels.length > 0) {
-                            chartLabels.splice(0, chartLabels.length);
-                            chartData.splice(0, chartData.length);
-                        }
-                        StockObjectParse([[${stock}]], "month3");
-                    });
-                    let dtn = document.getElementById("year1");
-                    dtn.addEventListener('click', (e) => {
-                        if (chartLabels.length > 0) {
-                            chartLabels.splice(0, chartLabels.length);
-                            chartData.splice(0, chartData.length);
-                        }
-                        StockObjectParse([[${stock}]], "year1");
-                    });
-                    let etn = document.getElementById("year3");
-                    etn.addEventListener('click', (e) => {
-                        if (chartLabels.length > 0) {
-                            chartLabels.splice(0, chartLabels.length);
-                            chartData.splice(0, chartData.length);
-                        }
-                        StockObjectParse([[${stock}]], "year3");
-                    });
-                    /*]]>*/
-                </script>
-
             </div>
+
             <div class="bCont_t_mover">
                 <table id="bCont_t">
                     <tr>
