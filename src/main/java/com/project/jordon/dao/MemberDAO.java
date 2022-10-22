@@ -3,6 +3,8 @@ package com.project.jordon.dao;
 
 import com.project.jordon.vo.MemberVO;
 
+import java.util.List;
+
 public interface MemberDAO {
 
     // hit method whatever you want
@@ -12,5 +14,10 @@ public interface MemberDAO {
     MemberVO loginMember(String memberid);
 
     // 중복아이디 확인
+    // 아이디 찾기
+    MemberVO idsearchMember(String memberemail);
+    // 비밀번호 찾기
+    MemberVO passwordsearchMember(String memberid);
+
 
 }

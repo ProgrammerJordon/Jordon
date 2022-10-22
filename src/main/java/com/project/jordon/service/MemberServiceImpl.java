@@ -5,6 +5,8 @@ import com.project.jordon.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberServiceImpl implements MemberService{
     //     Autowired from DAO
@@ -20,6 +22,16 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public MemberVO loginMember(String memberid) {
         return this.memberDAO.loginMember(memberid);
+    }
+
+    @Override
+    public MemberVO idsearchMember(String memberemail) {
+        return this.memberDAO.idsearchMember(memberemail);
+    }
+
+    @Override
+    public MemberVO passwordsearchMember(String memberid) {
+        return this.memberDAO.passwordsearchMember(memberid);
     }
 
 }

@@ -22,11 +22,9 @@ public class StockInfo {
         JSONObject result = null;
         StringBuilder sb = new StringBuilder();
 
-
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
         conn.setDoOutput(true);
-
 
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 

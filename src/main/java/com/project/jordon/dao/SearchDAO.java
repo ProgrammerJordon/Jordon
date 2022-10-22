@@ -8,4 +8,6 @@ public interface SearchDAO {
     List<SearchVO> getSearchList(SearchVO svo);
 
     SearchVO getSearchCont(String stocknumber);
+
+
 }

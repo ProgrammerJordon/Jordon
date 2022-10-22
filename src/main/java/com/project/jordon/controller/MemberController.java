@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Member;
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -74,9 +75,60 @@ public class MemberController {
         return "redirect:/login";
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/findo";
     }
+
+    // 아이디찾기 컨트롤러
+    @RequestMapping("/search_memberid")
+    public String search_memberid() {
+        return "findo_search_id";
+    }
+    // 아이디 찾기 확인 눌렀을때 컨트롤러
+    @RequestMapping("/search_memberid_completement")
+    public String search_memberid_completement(String memberemail, String membername, Model model) {
+        MemberVO m = this.memberserivce.idsearchMember(memberemail);
+
+        System.out.println(m);
+        if(m != null) {
+            if(m.getMemberemail().equals(memberemail) && m.getMembername().equals(membername)) {
+                System.out.println("찾았다 요놈");
+                String memberid = m.getMemberid();
+                model.addAttribute("memberid", memberid);
+                return "findo_search_id_completement";
+            }else {
+                System.out.println("찾지 못함");
+                return "findo_search_id";
+            }
+        }
+        return "findo_search_id";
+    }
+
+    // 비밀번호찾기 컨트롤러
+    @RequestMapping("/search_memberpassword")
+    public String search_memberpassword() {
+        return "findo_search_password";
+    }
+    // 비밀번호 찾기 확인 눌렀을때 컨트롤러
+    @RequestMapping("/search_memberpassword_completement")
+    public String search_memberpassword_completement(String memberid,String memberemail, String membername, Model model) {
+        MemberVO m = this.memberserivce.passwordsearchMember(memberid);
+        System.out.println(m);
+        if(m != null) {
+            if(m.getMemberid().equals(memberid) && m.getMemberemail().equals(memberemail) && m.getMembername().equals(membername)) {
+                System.out.println("찾았다 요놈");
+                String memberpassword = m.getMemberpassword();
+                model.addAttribute("memberpassword", memberpassword);
+                return "findo_search_password_completement";
+            }else {
+                System.out.println("찾지 못함");
+                return "findo_search_password";
+            }
+        }
+        return "findo_search_password";
+    }
+
+
 }

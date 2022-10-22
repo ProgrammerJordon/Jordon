@@ -38,15 +38,34 @@
 
                     function createChart() {
                         let ctx = document.getElementById("myChart").getContext("2d");
-                        let myChart = new Chart(ctx, {
+                        const config = {
                             type: 'line',
-                            data: lineChartData,
-                            fill: true,
+                            label: "종목차트",
+                            fill: false,
                             fillColor: 'rgb(0,0,0)',
                             borderColor: 'rgb(100,100,100)',
                             tension: 0.5,
-                            options: {}
-                        });
+                            data: lineChartData,
+                            options: {
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            fontColor: "rgb(1,1,1)",
+                                            fontSize: 10,
+                                            fontStyle: "bold"
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            fontColor: "rgb(102,193,131)",
+                                            fontSize: 18,
+                                            fontStyle: "bold"
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        let myChart = new Chart(ctx, config)
                     }
 
                     let chartLabels = [];//x축
@@ -57,7 +76,7 @@
                         datasets: [
                             {
                                 label: "종목차트",
-                                fill: true,
+                                fill: false,
                                 fillColor: 'rgb(0,0,0)',
                                 borderColor: 'rgb(100,100,100)',
                                 tension: 0.5,
@@ -65,7 +84,6 @@
                             }
                         ]
                     }
-
 
 
                     StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
@@ -134,8 +152,8 @@
                                 d = obj.month1
                             }
                             for (i = 0; i < d.price.length; i++) {
-                                chartLabels.push(d.date[d.date.length - 1 - i]);
-                                chartData.push(d.price[d.price.length - 1 - i]);
+                                chartLabels.push(d.date[d.date.length -1 - i]);
+                                chartData.push(d.price[d.price.length -1 - i]);
                             }
                         }
                         createChart("myChart");

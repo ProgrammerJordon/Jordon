@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <form action="search_memberid_completement" method="post">
+            <div class="search_member_id">
+                <div>
+                    <input type="text" id="memberemail" name="memberemail" placeholder="Email"
+                           spellcheck="false" required>
+                </div>
+                <div>
+                    <input type="text" id="membername" name="membername" placeholder="이름" spellcheck="false"
+                           required>
+                </div>
+                <div>
+                    <input type="submit" value="아이디찾기">
+                    <a th:href="@{/login}"><input type="button" value="취소"></a>
+                </div>
+            </div>
+        </form>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>

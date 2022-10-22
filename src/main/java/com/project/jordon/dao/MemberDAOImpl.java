@@ -23,6 +23,15 @@ public class MemberDAOImpl implements MemberDAO {
         return this.sqlSession.selectOne("member_login", memberid);
     }
 
+    @Override
+    public MemberVO idsearchMember(String memberemail) {
+        return this.sqlSession.selectOne("member_id_search", memberemail);
+    }
+
+    @Override
+    public MemberVO passwordsearchMember(String memberid) {
+        return this.sqlSession.selectOne("member_password_search", memberid);
+    }
 
 
 }
