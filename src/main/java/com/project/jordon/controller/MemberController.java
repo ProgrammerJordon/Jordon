@@ -46,18 +46,17 @@ public class MemberController {
 
     @RequestMapping("/login")
     public String findo_login() {
-
         return "findo_login";
     }
     @RequestMapping("/findo_login_ok")
     public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request, HttpServletResponse response) throws IOException {
         MemberVO m = this.memberserivce.loginMember(memberid);
-        PrintWriter out = response.getWriter();
         System.out.println(m);
         if (m != null) {
             if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
                 System.out.println("아이디 비밀번호 둘다 같음");
                 HttpSession session = request.getSession();
+                session.setMaxInactiveInterval(30 * 60);
                 session.setAttribute("session", memberid);
                 session.getAttribute("session");
                 if (m.getMemberid().equals(memberid) == false || m.getMemberpassword().equals(memberpassword) == false) {
