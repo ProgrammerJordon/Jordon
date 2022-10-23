@@ -34,4 +34,14 @@ public class MemberServiceImpl implements MemberService{
         return this.memberDAO.passwordsearchMember(memberid);
     }
 
+    @Override
+    public int updateMember(MemberVO m) {
+        return this.memberDAO.updateMember(m);
+    }
+
+    @Override
+    public int deleteMember(MemberVO m) {
+        return this.memberDAO.deleteMember(m);
+    }
+
 }

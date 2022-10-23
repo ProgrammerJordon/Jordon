@@ -96,11 +96,6 @@ public class MainController {
         return "findo_signup_completement";
     }
 
-    @RequestMapping("/profile")
-    public String findo_profile() {
-        return "findo_profile";
-    }
-
     @RequestMapping("/event")
     public String findo_event() {
         return "findo_event";

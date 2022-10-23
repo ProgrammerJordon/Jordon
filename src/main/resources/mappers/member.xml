@@ -5,10 +5,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member">
+    <!-- 회원 가입 -->
     <insert id="member_insert" parameterType="m">
         insert into member (membernumber,memberid,memberpassword,memberpassword2,membername,memberbirth,membergender,memberemail,memberemailauth,memberaddress1,memberaddress2,memberaddress3,memberaddress4,memberaddress5,memberphonenumber,memberregdate,memberupdate) values (membernumber_seq.nextval,#{memberid},#{memberpassword},#{memberpassword2},#{membername},#{memberbirth},#{membergender},#{memberemail},#{memberemailauth},#{memberaddress1},#{memberaddress2},#{memberaddress3},#{memberaddress4},#{memberaddress5},#{memberphonenumber},sysdate,sysdate)
     </insert>
-
+    <!-- 회원 로그인 -->
     <select id="member_login" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
         select * from member where memberid LIKE #{memberid}
     </select>
@@ -22,6 +23,16 @@
     <select id="member_password_search" parameterType="String" resultType="com.project.jordon.vo.MemberVO">
         select * from member where memberid like #{memberid}
     </select>
+
+    <!-- Member Info Update -->
+    <update id="member_update" parameterType="m">
+        update member set memberpassword=#{memberpassword},memberpassword2=#{memberpassword2},membername=#{membername},memberbirth=#{memberbirth},membergender=#{membergender},memberemail=<![CDATA[#{memberemail}]]>,memberaddress1=#{memberaddress1},memberaddress2=#{memberaddress2},memberaddress3=#{memberaddress3},memberaddress4=#{memberaddress4},memberaddress5=#{memberaddress5},memberphonenumber=#{memberphonenumber},memberupdate=sysdate where memberid=#{memberid}
+    </update>
+
+    <!-- Memeber delete -->
+    <delete id="member_delete" parameterType="m">
+        delete from member where memberid=#{memberid} and memberemail=<![CDATA[#{memberemail}]]> and memberpassword=#{memberpassword}
+    </delete>
 
     
 </mapper>

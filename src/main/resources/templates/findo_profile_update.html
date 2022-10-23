@@ -71,21 +71,38 @@
         <div th:if="${session.session != null}" class="findo_signup_form">
             <h1>PROFILE</h1>
             <hr>
+            <form action="profile_update_completement" method="post">
                 <div class="signup_id">
                     <h2>아이디</h2>
                 </div>
                 <div class="signup_id_text">
                     <input autofocus type="text" id="memberid" name="memberid" class="input_id"
-                           th:value="${session.session}" readonly size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)"
+                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)"
+                           th:value="${session.session}" readonly spellcheck="false" required/>
+                </div>
+                <div class="signup_password">
+                    <h2>비밀번호</h2>
+                </div>
+                <div class="signup_password_text">
+                    <input type="password" id="memberpassword" name="memberpassword"
+                           size="32" minlength="8" maxlength="20" onchange="check_pw()" placeholder="PASSWORD"
                            required/>
                 </div>
-
+                <span>* 특수문자를 포함한 8자리 이상의 비밀번호를 입력하세요.</span>
+                <div class="signup_password_confirm">
+                    <h2>비밀번호 재확인</h2>
+                </div>
+                <div class="signup_password_confirm_text">
+                    <input type="password" id="memberpassword2" name="memberpassword2"
+                           size="32" minlength="8" maxlength="20" onchange="check_pw()" required/>
+                </div>
+                <span id="check"></span>
                 <div class="signup_name">
                     <h2>이름</h2>
                 </div>
                 <div class="signup_name_text">
                     <input type="text" id="membername" name="membername" size="32"
-                           minlength="2" maxlength="6" style="ime-mode:active;" th:value="${session.membername}" readonly required/>
+                           minlength="2" maxlength="6" style="ime-mode:active;" required/>
                 </div>
                 <div class="signup_birth">
                     <h2>생년월일</h2>
@@ -93,22 +110,28 @@
                 <div class="signup_birth_text">
 
                     <input type="text" id="memberbirth" name="memberbirth"
-                           size="32" minlength="8" maxlength="8" placeholder="생년월일 8자리를 입력해주세요." th:value="${session.memberbirth}" readonly
-                           onkeyup="onlyNumber(this)" required/>
+                           size="32" minlength="8" maxlength="8" placeholder="생년월일 8자리를 입력해주세요."
+                           onkeyup="onlyNumber(this)" th:value="${session.memberbirth}" readonly required/>
 
                 </div>
                 <div class="signup_gender">
                     <h2>성별</h2>
                 </div>
                 <div class="signup_gender_text">
-                    <input type="text" th:value="${session.membergender}" readonly />
+                    <select id="membergender" name="membergender">
+                        <option name="membergender" value="select" selected>선택</option>
+                        <option name="membergender" value="male">남성</option>
+                        <option name="membergender" value="female">여성</option>
+                        <option name="membergender" value="other">선택안함</option>
+                    </select>
                 </div>
                 <div class="signup_email">
                     <h2>이메일</h2>
                 </div>
                 <div class="signup_email_text">
                     <input type="text" id="memberemail" name="memberemail"
-                           size="32" maxlength="35" placeholder="이메일" th:value="${session.memberemail}" readonly required/>
+                           size="32" maxlength="35" placeholder="이메일" th:value="${session.memberemail}" readonly
+                           spellcheck="false" required/>
                 </div>
                 <!-- -->
                 <hr>
@@ -117,12 +140,19 @@
                 <div class="findo_signup_address">
                     <table border="1">
                         <tr>
-                            <input type="text" id="memberaddress1" name="memberaddress1" th:value="${session.memberaddress1}" readonly placeholder="우편번호" size="10">
-                            <input type="text" id="memberaddress2" name="memberaddress2" th:value="${session.memberaddress2}" readonly placeholder="도로명주소" size="30">
-                            <input type="text" id="memberaddress3" name="memberaddress3" th:value="${session.memberaddress3}" readonly placeholder="지번주소" size="30">
+                            <input class="findo_signup_address_button" type="button"
+                                   onClick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                            <input type="text" id="memberaddress1" name="memberaddress1" placeholder="우편번호" size="10"
+                                   spellcheck="false" required>
+                            <input type="text" id="memberaddress2" name="memberaddress2" placeholder="도로명주소" size="30"
+                                   spellcheck="false" required>
+                            <input type="text" id="memberaddress3" name="memberaddress3" placeholder="지번주소" size="30"
+                                   spellcheck="false" required>
                             <span id="guide" style="color:#999;display:none"></span> <br>
-                            <input type="text" id="memberaddress4" name="memberaddress4" th:value="${session.memberaddress4}" readonly placeholder="상세주소" size="25">
-                            <input type="text" id="memberaddress5" name="memberaddress5" th:value="${session.memberaddress5}" readonly placeholder="참고항목" size="25">
+                            <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25"
+                                   spellcheck="false" required>
+                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="건물주소" size="25"
+                                   spellcheck="false" required>
                         </tr>
                     </table>
                 </div>
@@ -134,13 +164,14 @@
                 <div class="signup_phonenumber_text">
                     <input type="text" id="memberphonenumber" name="memberphonenumber" placeholder="'-'를 제외하고 입력하세요."
                            size="32"
-                           minlength="13" maxlength="13" onkeyup="onlyNumber(this)" th:value="${session.memberphonenumber}" readonly required/>
+                           minlength="13" maxlength="13" onkeyup="onlyNumber(this)" spellcheck="false" required/>
                 </div>
                 <hr>
                 <div class="signup_button">
-                    <input type="button" value="정보변경" th:onclick="|location.href='@{/profile_update}'|" />
-                    <input type="button" value="회원탈퇴" th:onclick="|location.href='@{/profile_delete}'|" />
+                    <input type="submit" value="회원정보변경"/>
+                    <input type="button" value="되돌아가기" th:onclick="|location.href='@{/profile}'|" />
                 </div>
+            </form>
         </div>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>

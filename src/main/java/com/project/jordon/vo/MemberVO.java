@@ -22,5 +22,5 @@ public class MemberVO {
     private String memberaddress5; // 참고주소
     private String memberphonenumber;
     private Date memberregdate; // 등록날짜
-    private Date updatedate; // 수정날짜
+    private Date memberupdate; // 수정날짜
 }

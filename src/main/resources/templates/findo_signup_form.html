@@ -129,7 +129,7 @@
         </header>
         <hr>
         <!-- header -->
-        <!-- footer -->
+
         <div class="findo_signup_form">
             <form action="findo_signup_form_ok">
                 <div class="signup_id">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="signup_id_text">
                     <input autofocus type="text" id="memberid" name="memberid" class="input_id"
-                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)" required/>
+                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)" spellcheck="false" required/>
                     <div class="signup_id_text_button">
                         <input type="button" id="memberid_confirm" name="memberid_confirm" value="중복확인" onclick="idcheck_confirm()"/>
                     </div>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="signup_name_text">
                     <input type="text" id="membername" name="membername" size="32"
-                           minlength="2" maxlength="6" style="ime-mode:active;" required/>
+                           minlength="2" maxlength="6" style="ime-mode:active;" spellcheck="false" required/>
                 </div>
                 <div class="signup_birth">
                     <h2>생년월일</h2>
@@ -218,12 +218,12 @@
                         <tr>
                             <input class="findo_signup_address_button" type="button"
                                    onClick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                            <input type="text" id="memberaddress1" name="memberaddress1" placeholder="우편번호" size="10">
-                            <input type="text" id="memberaddress2" name="memberaddress2" placeholder="도로명주소" size="30">
-                            <input type="text" id="memberaddress3" name="memberaddress3" placeholder="지번주소" size="30">
+                            <input type="text" id="memberaddress1" name="memberaddress1" placeholder="우편번호" size="10" required>
+                            <input type="text" id="memberaddress2" name="memberaddress2" placeholder="도로명주소" size="30" required>
+                            <input type="text" id="memberaddress3" name="memberaddress3" placeholder="지번주소" size="30" required>
                             <span id="guide" style="color:#999;display:none"></span> <br>
-                            <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25">
-                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="참고항목" size="25">
+                            <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25" required>
+                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="건물주소" size="25" required>
                         </tr>
                     </table>
                 </div>

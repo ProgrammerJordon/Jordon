@@ -27,7 +27,7 @@
                             <button><a th:href="@{/login}">Login</a></button>
                         </th:block>
                         <th:block class="hidemenu_login_text" th:unless="${session.session == null}">
-                            <span th:text="${session.session}+'님 반갑습니다.'"></span>
+                            <p th:text="${session.session}+'님 반갑습니다.'"></p>
                         </th:block>
                         <hr>
                         <a th:href="@{/profile}"><p>Profile</p></a>
@@ -74,7 +74,7 @@
             <button><a th:href="@{/login}">로그인</a></button>
         </div>
         <div class="findo_head_login_text" th:unless="${session.session == null}">
-            <p><span th:text="${session.session}"></span>님 반갑습니다.</p>
+            <p th:text="${session.session}+'님 반갑습니다.'"></p>
         </div>
     </div>
 </header><!-- header -->

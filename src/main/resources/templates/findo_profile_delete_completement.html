@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <div class="findo_signup_completement">
+            <div class="" findo_signup_completement_logo>
+                <img src="/images/complete.gif">
+            </div>
+            <h2>회원탈퇴가 완료되었습니다.</h2>
+            <div>
+                <a th:href="@{/findo}"><input type="button" value="Home"></a>
+            </div>
+        </div>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>
