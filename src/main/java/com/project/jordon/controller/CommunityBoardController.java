@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CommunityBoardController {
-
+    // community board controller
     @RequestMapping("/community_board_write")
     public String community_board_write(Model model) {
         model.addAttribute("session", "session");
@@ -53,4 +53,5 @@ public class CommunityBoardController {
         model.addAttribute("memberid", "memberid 님 반갑습니다.");
         return "community";
     }
+
 }

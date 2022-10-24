@@ -1618,6 +1618,11 @@ footer_middle img{
 /* address API */
 
 /* customerservice */
+.findo_customerservice_announce {
+    text-align: center;
+    padding: 30px 0px;
+}
+
 .findo_customerservice_button {
     display: flex;
     justify-content: space-between;
