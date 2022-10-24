@@ -6,27 +6,30 @@
 <div class="wrapper_findo">
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
-        <form action="profile_delete_completement">
-            <div class="signup_id_text">
-                <input autofocus type="text" id="memberid" name="memberid" class="input_id"
-                       size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)"
-                       spellcheck="false" required/>
-            </div>
-            <div class="signup_password_text">
-                <input type="password" id="memberpassword" name="memberpassword"
-                       size="32" minlength="8" maxlength="20" onchange="check_pw()" placeholder="PASSWORD"
-                       required/>
-
-                <div class="signup_email_text">
-                    <input type="text" id="memberemail" name="memberemail"
-                           size="32" maxlength="35" placeholder="이메일"
+        <div class="findo_signup_form">
+            <form action="profile_delete_completement">
+                <div class="signup_id_text">
+                    <input autofocus type="text" id="memberid" name="memberid" class="input_id"
+                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)"
                            spellcheck="false" required/>
                 </div>
-                <div class="signup_button">
-                    <input type="submit" value="회원탈퇴" />
-                    <input type="button" value="취소" th:onclick="|location.href='@{/findo}'|" />
+                <div class="signup_password_text">
+                    <input type="password" id="memberpassword" name="memberpassword"
+                           size="32" minlength="8" maxlength="20" onchange="check_pw()" placeholder="PASSWORD"
+                           required/>
+
+                    <div class="signup_email_text">
+                        <input type="text" id="memberemail" name="memberemail"
+                               size="32" maxlength="35" placeholder="이메일"
+                               spellcheck="false" required/>
+                    </div>
+                    <div class="signup_button">
+                        <input type="submit" value="회원탈퇴"/>
+                        <input type="button" value="취소" th:onclick="|location.href='@{/findo}'|"/>
+                    </div>
                 </div>
-        </form>
+            </form>
+        </div>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>
 </div>

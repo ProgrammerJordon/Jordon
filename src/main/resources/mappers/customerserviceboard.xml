@@ -7,7 +7,7 @@
 <mapper namespace="CustomerServiceBoard">
     <!-- 문의 저장 -->
     <insert id="customerservice_insert" parameterType="c">
-        insert into CUSTOMERSERVICE (CUSTOMERSERVICENUMBER,memberid,MEMBEREMAIL,membername,CUSTOMERSERVICETITLE,CUSTOMERSERVICECONTENTS,CUSTOMBERSERVICEDATE) values (CUSTOMERSERVICENUMBER_seq.nextval,#{memberid},#{memberemail},#{membername},sysdate)
+        insert into CUSTOMERSERVICE (CUSTOMERSERVICENUMBER,memberid,MEMBEREMAIL,membername,CUSTOMERSERVICETITLE,CUSTOMERSERVICECONTENTS,CUSTOMBERSERVICEDATE) values (CUSTOMERSERVICENUMBER_seq.nextval,#{memberid},#{memberemail},#{membername},#{customerservicetitle},#{customerservicecontents},sysdate)
     </insert>
 
 </mapper>

@@ -13,14 +13,14 @@
         </div>
 
         <div th:if="${session.session != null}" class="findo_customerservice">
-            <form action="sending_mail" method="post">
+            <form action="customerservice_completement" method="post">
                 <input hidden type="text" id="memberid" name="memberid" class="input_id"
                        th:value="${session.session}" readonly size="32" maxlength="20" minlength="6" placeholder="ID"
                        onkeyup="CheckInputType(this)"
                        required/>
                 <input hidden type="text" id="memberemail" name="memberemail"
                        size="32" maxlength="35" placeholder="이메일" th:value="${session.memberemail}" readonly required/>
-                <input type="text" id="membername" name="membername" th:value="${session.membername}" size="32"
+                <input hidden type="text" id="membername" name="membername" th:value="${session.membername}" size="32"
                        minlength="2" maxlength="6" style="ime-mode:active;" required/>
                 <table border="1" style="border:2px solid #5fbb91;">
                     <tr>

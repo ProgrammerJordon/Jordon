@@ -106,14 +106,4 @@ public class MainController {
         return "findo_gamezone";
     }
 
-    @RequestMapping("/customerservice")
-    public String findo_customerservice() {
-        return "findo_customerservice";
-    }
-
-    @RequestMapping("/sending_mail")
-    public String sending_mail() {
-        return "findo_customerservice_completement";
-    }
-
 }

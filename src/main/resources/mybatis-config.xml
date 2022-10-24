@@ -7,5 +7,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.project.jordon.vo.MemberVO" alias="m"/>
+        <typeAlias type="com.project.jordon.vo.CustomerServiceVO" alias="c"/>
     </typeAliases>
 </configuration>
