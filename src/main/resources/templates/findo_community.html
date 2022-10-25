@@ -4,17 +4,15 @@
 </head>
 <body>
 <div class="wrapper_findo">
-    <div class="total_findo">
-        <div th:replace="/include/header :: headerfragment"></div>
-        <!-- board_list -->
-
-        <a th:href="@{/community_board_content}">글내용</a> <br><br>
-
-        <a th:href="@{/community_board_write}">글쓰기</a>
-
-        <!-- board_list -->
-        <div th:replace="/include/footer :: footerfragment"></div>
+  <div class="total_findo">
+    <div th:replace="/include/header :: headerfragment"></div>
+    <div>
+      <p>커뮤니티 영역 내부 입니다.<p>
+        <a th:href="@{/community_contents}">글정보 보기</a>
+      <a th:href="@{/community_write}">글쓰기로 가기</a>
     </div>
+    <div th:replace="/include/footer :: footerfragment"></div>
+  </div>
 </div>
 </body>
 </html>

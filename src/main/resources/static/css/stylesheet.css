@@ -1738,3 +1738,35 @@ canvas {
 
 /* findo_profile */
 
+/* findo_id_search */
+.search_id input {
+    background-color: white;
+    color: #5fbb91;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.search_id input:hover {
+    background-color: #d7f5df;
+    color: #010101;
+}
+
+/* findo_id_search */
+
+/* findo_password_search */
+.search_password input {
+    background-color: white;
+    color: #5fbb91;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.search_password input:hover {
+    background-color: #d7f5df;
+    color: #010101;
+}
+
+/* findo_password_search */
+

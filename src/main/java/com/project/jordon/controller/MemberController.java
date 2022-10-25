@@ -160,11 +160,12 @@ public class MemberController {
     }
 
     @RequestMapping("/profile_update_completement")
-    public String profile_update_completement(MemberVO m) {
+    public String profile_update_completement(MemberVO m, HttpSession session) {
         int updateinfo = this.memberserivce.updateMember(m);
         System.out.println(updateinfo);
         if (updateinfo == 1) {
             System.out.println("업데이트성공");
+            session.invalidate();
             return "findo_profile_update_completement";
         } else {
             System.out.println("업데이트실패");

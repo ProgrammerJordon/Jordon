@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <form action="/community_edit_ok" method="post">
+        <div>
+            <table border="1">
+                <tr>
+                    <th>작성자</th>
+                    <td><input type="text" th:value="${session.session}" readonly></td>
+                </tr>
+                <tr>
+                    <th>글제목</th>
+                    <td><input type="text" id="communitytitle" name="communitytitle"></td>
+                </tr>
+                <tr>
+                    <th>글내용</th>
+                    <td><textarea rows="20" cols="20" id="communitycontents" name="communitycontents"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <input type="submit" value="글수정완료" />
+            <br>
+            <button><a th:href="@{/community}">글수정취소목록으로 돌아가기</a></button>
+        </div>
+        </form>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>

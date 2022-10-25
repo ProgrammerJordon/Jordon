@@ -8,5 +8,6 @@
     <typeAliases>
         <typeAlias type="com.project.jordon.vo.MemberVO" alias="m"/>
         <typeAlias type="com.project.jordon.vo.CustomerServiceVO" alias="c"/>
+        <typeAlias type="com.project.jordon.vo.CommunityVO" alias="b"/>
     </typeAliases>
 </configuration>

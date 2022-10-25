@@ -7,7 +7,7 @@
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
         <form action="search_memberid_completement" method="post">
-            <div class="search_member_id">
+            <div class="findo_signup_form">
                 <div>
                     <input type="text" id="memberemail" name="memberemail" placeholder="Email"
                            spellcheck="false" required>
@@ -16,9 +16,9 @@
                     <input type="text" id="membername" name="membername" placeholder="이름" spellcheck="false"
                            required>
                 </div>
-                <div>
+                <div class="search_id">
                     <input type="submit" value="아이디찾기">
-                    <a th:href="@{/login}"><input type="button" value="취소"></a>
+                    <input type="button" value="취소" th:onclick="|location.href='@{/login}'|" />
                 </div>
             </div>
         </form>
