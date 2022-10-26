@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+
+    <!-- 게시물 저장 -->
+    <insert id="b_in" parameterType="b"> <!-- parameterType은 전달인자 자료형 타입이고,생략이 가능함. -->
+        insert into tbl_board (bno,writer,title,content,regdate) values(bno_seq.nextval,#{writer},#{title},#{content},
+        sysdate)
+    </insert> <!-- #{title}은 b.getTitle()과 같은 효과가 발생한다. -->
+
+    <!-- 총레코드 개수 -->
+    <select id="b_count" resultType="int"> <!-- mybatis에서 resultType속성은 반환 자료형 타입 -->
+        select count(*) from tbl_board
+    </select>
+
+    <!-- 목록 -->
+    <select id="b_list" parameterType="b" resultType="b">
+        select * from (select rowNum rNum,bno,writer,title,viewcnt,regdate,replycnt
+        from (select * from tbl_board order by
+        bno desc)) where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+        <!--  &gt;은 >, &lt;은 < 를 의미 => 1이상이고 10이하이다.결국 한페이지 보여지는 최대목록개수는 10개로 제한. -->
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="b_hit"> <!-- 전달인자 타입인 parameterType은 생략가능 -->
+        update tbl_board set viewcnt=viewcnt+1 where bno=#{bno}
+    </update>
+
+    <!-- 내용보기 -->
+    <select id="b_cont" parameterType="int" resultType="net.daum.vo.BoardVO">
+        select * from tbl_board where bno=#{bno}
+    </select>
+
+    <!-- 수정 -->
+    <update id="b_edit" parameterType="b">
+        update tbl_board set writer=#{writer}, title=#{title}, content=#{content} where bno=#{bno}
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="b_del"> <!-- parameterType은 생략가능함. -->
+        delete from tbl_board where bno=#{bno}
+    </delete>
+
+    <!-- 댓글 개수 카운터 -->
+    <update id="updateReplyCnt" parameterType="java.util.Map">
+        update tbl_board set replycnt=replycnt+#{count} where bno=#{bno}
+    </update>
+
+</mapper>

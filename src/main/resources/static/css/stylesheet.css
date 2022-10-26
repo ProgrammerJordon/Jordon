@@ -1770,3 +1770,19 @@ canvas {
 
 /* findo_password_search */
 
+/*댓글 수정화면 영역*/
+#modDiv {
+    width: 300px;
+    height: 100px;
+    background-color: gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+/*댓글 수정화면 영역*/
+
