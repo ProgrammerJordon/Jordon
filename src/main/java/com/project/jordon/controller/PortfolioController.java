@@ -32,11 +32,13 @@ public class PortfolioController {
     PortfolioService portfolioService;
 
     @RequestMapping("/portfolio")
-    String findo_portfolio(Model listM, PortfolioVO pvo, HttpServletRequest request, HttpServletResponse response, HttpSession session)throws Exception {
+    public String findo_portfolio(Model listM, PortfolioVO pvo, HttpServletRequest request, HttpServletResponse response, HttpSession session)throws Exception {
         response.setContentType("text/html;Charset=UTF-8");
         String id = (String) session.getAttribute("session");
         PrintWriter out = response.getWriter();
-
+        if(session == null) {
+            return "findo";
+        }else {
 //            System.out.println("login은 가능함.");
         pvo.setMemberid(id);
         List<PortfolioVO> plist = this.portfolioService.getPortfolioList(pvo);//db에서 불러온 보유 포트폴리오 리스트
@@ -86,6 +88,7 @@ public class PortfolioController {
 
 
         return "findo_portfolio";
+        }
     }
 
     @GetMapping("port_cont")

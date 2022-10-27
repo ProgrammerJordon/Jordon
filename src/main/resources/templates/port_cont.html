@@ -6,188 +6,185 @@
 <div class="wrapper_findo">
   <div class="total_findo">
     <div th:replace="/include/header :: headerfragment"></div>
+    <form method="post" action="/search_list">
+      <div class="input-area">
+        <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
+               placeholder="종목명 / 코드 검색" spellcheck="false"/>
+        <button type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+      </div>
+    </form>
+    <br>
+    <hr>
     <div id="bCont_wrap">
-      <h2 class="bCont_title"><span th:text="${stock.detail.name}"></span></h2>
+      <h1 class="bCont_title">
+        <span th:text="${stock.detail.name}"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: black;" th:text="${stock.detail.currentPrice}+'원'"></span></h1>
+      <hr>
       <div class="chart">
+        <input type="button" value="1D" id="daily">
+        <input type="button" value="1M" id="month1">
+        <input type="button" value="3M" id="month3">
+        <input type="button" value="1Y" id="year1">
+        <input type="button" value="3Y" id="year3">
+      </div>
+      <div>
+        <script th:inline="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
+          /*<![CDATA[*/
+          /*]]>*/
+        </script>
+        <canvas id="myChart" height="600px" width="600px">five chart</canvas>
         <script th:inline="javascript">
           /*<![CDATA[*/
-          let chartLabels = [];//x축
-          let chartData = [];//y축
 
-          //자바코드로 json 받으면 x축, y축으로 나눠줌
-          function StockObjectParse(stockObject, period){
-
-            console.log(period);
-
-            const obj = stockObject;
-            let d = obj.month1;
-
-            if(period =="daily"){
-              d = obj.daily;
-              for(i=0; i<d.price.length;i++){
-                chartLabels.push(d.date[i]);
-                chartData.push(d.price[i]);
-              }
-            }else{
-              if(period =="month1"){
-                d = obj.month1;
-              } else if(period =="month3"){
-                d = obj.month3
-              } else if(period == "year1"){
-                d = obj.year1
-              } else if(period == "year3"){
-                d = obj.year3
-              } else{
-                d = obj.month1
-              }
-
-              for(i=0; i<d.price.length;i++){
-                chartLabels.push(d.date[d.date.length - 1 -i]);
-                chartData.push(d.price[d.price.length - 1 -i]);
-              }
-            }
-
-
-            createChart();
-
-          };
-
-          let lineChartData = {
-
-            labels : chartLabels,
-
-            datasets : [
-
-              {
-                label : "차트",
-                fill: false,
-                backgroundColor: 'rgb(214,64,225)',
-                borderColor: 'rgb(214,64,225)',
-                tension: 0.1,
-                data : chartData,
-                pointStyle: 'dash',
-                options: {
-
-                }
-
-              }
-            ]
-          }
-
-          function createChart(){
-
+          function createChart() {
             let ctx = document.getElementById("myChart").getContext("2d");
-            const canvasBackgroundColor = {
-              id: 'canvasBackgroundColor',
-              beforeDraw: (chart) => {
-                const {ctx} = chart;
-                ctx.save();
-                ctx.globalCompositeOperation = 'destination-over';
-                ctx.fillStyle = 'rgba(250,181,238,0.37)';
-                ctx.fillRect(0, 0, chart.width, chart.height);
-                ctx.restore();
-              }
-            }
             const config = {
               type: 'line',
+              label: "종목차트",
+              fill: false,
+              fillColor: 'rgb(0,0,0)',
+              borderColor: 'rgb(100,100,100)',
+              tension: 0.5,
               data: lineChartData,
               options: {
                 scales: {
                   xAxes: [{
                     ticks: {
-                      fontColor: "green",
-                      fontSize:10,
+                      fontColor: "rgb(1,1,1)",
+                      fontSize: 10,
+                      fontStyle: "bold"
                     }
                   }],
                   yAxes: [{
                     ticks: {
-                      fontColor: "green",
+                      fontColor: "rgb(102,193,131)",
                       fontSize: 18,
+                      fontStyle: "bold"
                     }
                   }]
                 }
-              },
-              plugins:[canvasBackgroundColor]
+              }
             }
-            var myChart = new Chart(ctx, config)
-
+            let myChart = new Chart(ctx, config)
           }
-          /*]]>*/
-        </script>
-        <script th:inline="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" >
-          /*<![CDATA[*/
-          /*]]>*/
-        </script>
-        <canvas id="myChart" height="100px" width="100px">five chart</canvas>
-        <input type="button" value="1일" id="daily">
-        <input type="button" value="한달" id="month1">
-        <input type="button" value="세달" id="month3">
-        <input type="button" value="1년" id="year1">
-        <input type="button" value="3년" id="year3">
-        <script th:inline="javascript">
-          /*<![CDATA[*/
 
-          StockObjectParse([[${stock}]],""); // $stock 바꿔주기
+          let chartLabels = [];//x축
+          let chartData = [];//y축
+
+          let lineChartData = {
+            labels: chartLabels,
+            datasets: [
+              {
+                label: "종목차트",
+                fill: false,
+                fillColor: 'rgb(0,0,0)',
+                borderColor: 'rgb(100,100,100)',
+                tension: 0.5,
+                data: chartData,
+                pointStyle: 'dash',
+                option: {
+                }
+              }
+            ]
+          }
+
+          StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
           let atn = document.getElementById("daily");
-          atn.addEventListener('click', (e) => {
-            if(chartLabels.length > 0){
+          atn.addEventListener('click', () => {
+            if (chartLabels.length > 0) {
               chartLabels.splice(0, chartLabels.length);
               chartData.splice(0, chartData.length);
             }
-            StockObjectParse([[${stock}]],"daily");
+            StockObjectParse([[${stock}]], "daily");
           });
           let btn = document.getElementById("month1");
-          btn.addEventListener('click', (e) => {
-            if(chartLabels.length > 0){
+          btn.addEventListener('click', () => {
+            if (chartLabels.length > 0) {
               chartLabels.splice(0, chartLabels.length);
               chartData.splice(0, chartData.length);
             }
-            StockObjectParse([[${stock}]],"month1");
+            StockObjectParse([[${stock}]], "month1");
           });
           let ctn = document.getElementById("month3");
-          ctn.addEventListener('click', (e) => {
-            if(chartLabels.length > 0){
+          ctn.addEventListener('click', () => {
+            if (chartLabels.length > 0) {
               chartLabels.splice(0, chartLabels.length);
               chartData.splice(0, chartData.length);
             }
-            StockObjectParse([[${stock}]],"month3");
+            StockObjectParse([[${stock}]], "month3");
           });
           let dtn = document.getElementById("year1");
-          dtn.addEventListener('click', (e) => {
-            if(chartLabels.length > 0){
+          dtn.addEventListener('click', () => {
+            if (chartLabels.length > 0) {
               chartLabels.splice(0, chartLabels.length);
               chartData.splice(0, chartData.length);
             }
-            StockObjectParse([[${stock}]],"year1");
+            StockObjectParse([[${stock}]], "year1");
           });
           let etn = document.getElementById("year3");
-          etn.addEventListener('click', (e) => {
-            if(chartLabels.length > 0){
+          etn.addEventListener('click', () => {
+            if (chartLabels.length > 0) {
               chartLabels.splice(0, chartLabels.length);
               chartData.splice(0, chartData.length);
             }
-            StockObjectParse([[${stock}]],"year3");
+            StockObjectParse([[${stock}]], "year3");
           });
+
+          //자바코드로 json 받으면 x축, y축으로 나눠줌
+          function StockObjectParse(stockObject, period) {
+            console.log(period);
+            const obj = stockObject;
+            let d;
+            if (period == "daily") {
+              d = obj.daily;
+              for (i = 0; i < d.price.length; i++) {
+                chartLabels.push(d.date[i]);
+                chartData.push(d.price[i]);
+              }
+            } else {
+              if (period == "month1") {
+                d = obj.month1;
+              } else if (period == "month3") {
+                d = obj.month3
+              } else if (period == "year1") {
+                d = obj.year1
+              } else if (period == "year3") {
+                d = obj.year3
+              } else {
+                d = obj.month1
+              }
+              for (i = 0; i < d.price.length; i++) {
+                chartLabels.push(d.date[d.date.length -1 - i]);
+                chartData.push(d.price[d.price.length -1 - i]);
+              }
+            }
+            createChart("myChart");
+          };
           /*]]>*/
         </script>
-
       </div>
-      <table id="bCont_t">
-        <tr>
-          <th>현재가격</th><td><span th:text="${stock.detail.openPrice}"></span></td>
-          <th>PER</th><td><span th:text="${stock.investmentIndicator.perValue}"></span></td>
-        </tr>
-        <tr>
-          <th>고가</th><td> <span th:text="${stock.detail.highPrice}"></span></td> <!-- $전부 thymeleaf  -->
-          <th>PBR</th><td> <span th:text="${stock.investmentIndicator.pbrValue}"></span></td>
-        </tr>
-        <tr>
-          <th>저가</th><td><span th:text="${stock.detail.lowPrice}"></span></td>
-          <th>EPS</th><td><span th:text="${stock.investmentIndicator.epsValue}"></span></td>
-        </tr>
-      </table>
-      <div id="dCont_menu">
-        <button><a th:href="@{/search}">검색하기</a></button>
+
+      <div class="bCont_t_mover">
+        <table id="bCont_t">
+          <tr>
+            <th>현재가격</th>
+            <td><span th:text="${stock.detail.currentPrice}"></span></td>
+            <th>PER</th>
+            <td><span th:text="${stock.investmentIndicator.perValue}"></span></td>
+          </tr>
+          <tr>
+            <th>고가</th>
+            <td><span th:text="${stock.detail.highPrice}"></span></td> <!-- $전부 thymeleaf  -->
+            <th>PBR</th>
+            <td><span th:text="${stock.investmentIndicator.pbrValue}"></span></td>
+          </tr>
+          <tr>
+            <th>저가</th>
+            <td><span th:text="${stock.detail.lowPrice}"></span></td>
+            <th>EPS</th>
+            <td><span th:text="${stock.investmentIndicator.epsValue}"></span></td>
+          </tr>
+        </table>
       </div>
     </div>
     <div th:replace="/include/footer :: footerfragment"></div>

@@ -6,10 +6,15 @@
 <div class="wrapper_findo">
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
-        <div>
-            <h1>아이디를 찾았습니다.</h1>
-            <p th:text="${memberid}"></p>
-            <a th:href="@{/login}"><input type="button" value="확인"></a>
+        <div class="seaech_id_wrapper">
+            <div class="" findo_signup_completement_logo>
+                <img src="/images/complete.gif">
+            </div>
+            <h2>아이디를 찾았습니다.</h2>
+            <h2 th:text="'회원님의 아이디는 ' + ${memberid} + ' 입니다.'"></h2>
+            <div>
+                <a th:href="@{/findo}"><input type="button" value="Home"></a>
+            </div>
         </div>
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>

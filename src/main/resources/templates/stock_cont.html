@@ -18,7 +18,7 @@
         <div id="bCont_wrap">
             <h1 class="bCont_title">
                 <span th:text="${stock.detail.name}"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span style="color: black;" th:text="${stock.detail.openPrice}+'원'"></span></h1>
+                <span style="color: black;" th:text="${stock.detail.currentPrice}+'원'"></span></h1>
             <hr>
             <div class="chart">
                 <input type="button" value="1D" id="daily">
@@ -80,11 +80,13 @@
                                 fillColor: 'rgb(0,0,0)',
                                 borderColor: 'rgb(100,100,100)',
                                 tension: 0.5,
-                                data: chartData
+                                data: chartData,
+                                pointStyle: 'dash',
+                                option: {
+                                }
                             }
                         ]
                     }
-
 
                     StockObjectParse([[${stock}]], ""); // $stock 바꿔주기
                     let atn = document.getElementById("daily");
@@ -158,7 +160,6 @@
                         }
                         createChart("myChart");
                     };
-
                     /*]]>*/
                 </script>
             </div>
@@ -167,7 +168,7 @@
                 <table id="bCont_t">
                     <tr>
                         <th>현재가격</th>
-                        <td><span th:text="${stock.detail.openPrice}"></span></td>
+                        <td><span th:text="${stock.detail.currentPrice}"></span></td>
                         <th>PER</th>
                         <td><span th:text="${stock.investmentIndicator.perValue}"></span></td>
                     </tr>

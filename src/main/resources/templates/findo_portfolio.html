@@ -12,24 +12,24 @@
                 <script>
                     /*<![CDATA[*/
 
-                    function getSearchList(){
+                    function getSearchList() {
                         $.ajax({
                             type: 'GET',
-                            url : "/port_search",
-                            data : $("form[name=search-form]").serialize(),
-                            success : function(result){
+                            url: "/port_search",
+                            data: $("form[name=search-form]").serialize(),
+                            success: function (result) {
                                 //테이블 초기화
                                 $('#stock_list').empty();
-                                if(result.length>=1){
-                                    result.forEach(function(item){
-                                        str='<tr>'
-                                        str += "<td><a id='"+item.stocknumber+"' name='"+item.stockname+"' href='#' onclick='statusChange(this)'>" + item.stocknumber + "</a></td>";
-                                        str += "<td><a id='"+item.stockname+"'  name='"+item.stocknumber+"'href='#' onclick='statusChange2(this)'>" + item.stockname + "</a></td>";
-                                        str+="</tr>"
+                                if (result.length >= 1) {
+                                    result.forEach(function (item) {
+                                        str = '<tr>'
+                                        str += "<td style=\"font-size: 30px; color:black;\"><a id='" + item.stocknumber + "' name='" + item.stockname + "' onclick='statusChange(this)'>" + item.stocknumber + "</a></td>";
+                                        str += "<td style=\"font-size: 30px;\"><a id='" + item.stockname + "'  name='" + item.stocknumber + "' onclick='statusChange2(this)'>" + item.stockname + "</a></td>";
+                                        str += "</tr>"
                                         $('#stock_list').append(str);
                                     })
-                                }else {
-                                    str='검색결과가 없습니다.'
+                                } else {
+                                    str = '검색결과가 없습니다.'
                                     $('#stock_list').append(str);
                                 }
                             }
@@ -42,7 +42,8 @@
                     <div class="input-area">
                         <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
                                placeholder="종목번호 / 코드 입력"/>
-                        <intput type="button" onclick="getSearchList()"><i class="fa-solid fa-magnifying-glass search-icon"></i></intput>
+                        <intput type="button" onclick="getSearchList()"><i
+                                class="fa-solid fa-magnifying-glass search-icon"></i></intput>
                     </div>
                 </form>
 
@@ -64,16 +65,17 @@
                                 // strText 에 전체 문자열이 입력된다.
                                 $("#stock_number").val(strText);
                                 $("#stock_name").val(strText2);
-                                console.log("val.id : "+val.id);
-                                console.log("val.name "+val.name);
+                                console.log("val.id : " + val.id);
+                                console.log("val.name " + val.name);
                                 console.log("statusChange1 실행중");
                             }
+
                             function statusChange2(val) {
 
                                 var strText = $(val).text();
                                 var strText2 = val.name;
-                                console.log("val.id : "+val.id);
-                                console.log("val.name "+val.name);
+                                console.log("val.id : " + val.id);
+                                console.log("val.name " + val.name);
                                 console.log("statusChange2 실행중");
 
 
@@ -81,70 +83,82 @@
                                 $("#stock_number").val(strText2);
                                 $("#stock_name").val(strText);
                             }
+
                             /*]]>*/
                         </script>
                         <form action="/port_add">
-                            <div id="port_cont" name="port_cont">
-                                <input type="text" id="stock_number" name="stock_number" placeholder="종목번호">
-                                <input type="text" id="stock_name" name="stock_name" placeholder="종목명">
-                                <input type="date" id="date" name="date" placeholder="구매날짜">
-                                <input type="text" id="quantity" name="quantity" placeholder="구매수량">
-                                <input type="text" id="price" name="price" placeholder="구매가격">
+                            <div class="port_cont" id="port_cont" name="port_cont">
+                                <input type="text" id="stock_number" name="stock_number" placeholder="종목번호"><br>
+                                <input type="text" id="stock_name" name="stock_name" placeholder="종목명"><br>
+                                <input type="date" id="date" name="date" placeholder="구매날짜"><br>
+                                <input type="text" id="quantity" name="quantity" placeholder="구매수량"><br>
+                                <input type="text" id="price" name="price" placeholder="구매가격"><br>
                                 <button type="submit">내 포트폴리오에 추가</button>
+                                <br>
                             </div>
                         </form>
                     </table>
                 </div>
             </div>
-            <table>
-                <tr style="text-align: center;">
-                    <th>종목코드</th>
-                    <th>종목명</th>
-                    <th>보유수량</th>
-                    <th>현재가</th>
-                    <th>손익</th>
-                    <th>수익률</th>
-                    <th>평균단가</th>
-                </tr>
-                <div th:if="${klist != null}">
-                    <tr th:each="k : ${klist}">
+            <br>
+            <hr>
+            <br>
 
-                        <td align="center">
-                            <span th:text="${k.id}"></span>
-                        </td>
-
-                        <td style="text-align: center;">
-                            <a th:href="@{/port_cont(portfolionumber=${k.id})}"
-                               style="text-decoration: none; color:black;">
-                                <span th:text="${k.name}"></span>
-                            </a>
-                        </td>
-                        <td>
-                            <span th:text="${k.quantity}"></span>
-                        </td>
-
-                        <td>
-                            <span th:text="${k.currentPrice}"></span>
-                        </td>
-                        <td>
-                            <span th:text="${k.profitAndLoss}"></span>
-                        </td>
-                        <td>
-                            <span th:text="${k.eprice}"></span>
-                        </td>
-                        <td>
-                            <span th:text="${k.avgprice}"></span>
-                        </td>
+            <div class="portfolio_stock">
+                <table border="1">
+                    <tr style="text-align: center;">
+                        <th>종목코드</th>
+                        <th>종목명</th>
+                        <th>보유수량</th>
+                        <th>현재가</th>
+                        <th>손익</th>
+                        <th>수익률</th>
+                        <th>평균단가</th>
                     </tr>
+                    <div th:if="${klist != null}">
+                        <tr th:each="k : ${klist}">
 
-                </div>
+                            <td align="center">
+                                <span th:text="${k.id}"></span>
+                            </td>
 
-                <div th:if="${klist == null}">
-                    <tr>
-                        <th colspan="5">검색한 종목이 없습니다.</th>
-                    </tr>
-                </div>
-            </table>
+                            <td style="text-align: center;">
+                                <a th:href="@{/port_cont(portfolionumber=${k.id})}"
+                                   style="text-decoration: none; color:black;">
+                                    <span th:text="${k.name}"></span>
+                                </a>
+                            </td>
+                            <td style="text-align: center;">
+                                <span th:text="${k.quantity}"></span>
+                            </td>
+
+                            <td style="text-align: center;">
+                                <span th:text="${k.currentPrice}"></span>
+                            </td>
+                            <td style="text-align: center;">
+                                <span th:text="${k.profitAndLoss}"></span>
+                            </td>
+                            <td style="text-align: center;">
+                                <span th:text="${k.eprice}"></span>
+                            </td>
+                            <td style="text-align: center;">
+                                <span th:text="${k.avgprice}"></span>
+                            </td>
+                        </tr>
+
+                    </div>
+
+                    <div th:if="${klist == null}">
+                        <tr>
+                            <th colspan="5">검색한 종목이 없습니다.</th>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <div class="advertisement_portfolio">
+            <img src="/images/car.jpg">
         </div>
 
         <div th:replace="/include/footer :: footerfragment"></div>

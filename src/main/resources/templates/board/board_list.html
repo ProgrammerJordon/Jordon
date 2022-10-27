@@ -6,7 +6,7 @@
 <div class="wrapper_findo">
   <div class="total_findo">
     <div th:replace="/include/header :: headerfragment"></div>
-    <div>
+    <div class="board_table">
       <table border="1">
         <tr>
           <td colspan="5" align="right"><span th:text="'총 게시물 수 : '+${totalCount}+'개'"></span></td>
@@ -37,27 +37,17 @@
 
         <tr>
           <th colspan="5">
-            <span th:if="${page <= 1}" th:text="이전">
-            </span>
+            <span th:if="${page <= 1}" th:text="이전"></span>
 
-            <span th:if="${page > 1}">
-              <a th:href="@{/board/board_list(page=${page}-1)}" th:text="이전"></a>
-            </span>
+            <span th:if="${page > 1}"><a th:href="@{/board/board_list(page=${page}-1)}" th:text="이전"></a></span>
 
-            <th:block th:each="a : ${endpage}" th:start="1" th:step="1">
-              <span th:if="${a == page}" th:text="${a}"></span>
-              <span th:if="${a != page}">
-                <a th:href="@{/board/board_list(page=${a})}" th:text="${page}"></a>
-              </span>
+            <th:block th:each="a : ${endpage}"><span th:if="${a == page}" th:text="' < '+${a}+' > '"></span>
+              <span th:if="${a != page}"><a th:href="@{/board/board_list(page=${a})}" th:text="' < '+${page}+' > '"> </a></span>
             </th:block>
 
-            <span th:if="${page >= maxpage}">
-              <span th:text="다음"></span>
-            </span>
+            <span th:if="${page >= maxpage}"><span th:text="다음"></span></span>
 
-            <span th:if="${page < maxpage}">
-              <a th:href="@{/board/board_list(page=${page}+1)}" th:text="다음"></a>
-            </span>
+            <span th:if="${page < maxpage}"><a th:href="@{/board/board_list(page=${page}+1)}" th:text="다음"></a></span>
           </th>
         </tr>
 
