@@ -16,11 +16,6 @@ public class MainController {
         return "findo";
     }
 
-    @RequestMapping("/portfolio")
-    public String findo_portfolio() {
-        return "findo_portfolio";
-    }
-
     @RequestMapping("/news")
     public String findo_news() {
         return "findo_news";

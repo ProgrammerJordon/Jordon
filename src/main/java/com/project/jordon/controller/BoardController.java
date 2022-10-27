@@ -54,13 +54,13 @@ public class BoardController {
     public String board_list(Model m, HttpServletRequest request, BoardVO b, HttpSession session) {
 
         int page=1;//현재 쪽번호
-        int limit=5;//한페이지 보여지는 목록개수
+        int limit=10;//한페이지 보여지는 목록개수
         if(request.getParameter("page") != null) {
             //get으로 전달된 쪽번호가 있는 경우 실행
             page=Integer.parseInt(request.getParameter("page"));
             //쪽번호를 정수 숫자로 바꿔서 저장
         }
-        b.setStartrow((page-1)*5+1);//시작행번호
+        b.setStartrow((page-1)*10+1);//시작행번호
         b.setEndrow(b.getStartrow()+limit-1);//끝행번호
 
         int listCount=this.boardService.getListCount();
@@ -128,7 +128,7 @@ public class BoardController {
         this.boardService.updateBoard(eb);//번호를 기준으로 제목,글쓴이,글내용을 수정
 
         ModelAndView em=new ModelAndView();
-        em.setViewName("redirect:/board/board_cont");//매핑주소 경로 설정
+        em.setViewName("redirect:/board/board_list");//매핑주소 경로 설정
         em.addObject("bno",bno);
         em.addObject("page",page);
         return em;//주소창에 매핑주소가 다음과 같이 설정된다. /board/board_cont?bno=번호&page=쪽번호 get방식으로 전달된다.내용보기에서

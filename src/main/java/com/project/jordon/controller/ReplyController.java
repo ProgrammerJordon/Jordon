@@ -30,7 +30,6 @@ public class ReplyController {
     public ResponseEntity<String> addReply(@RequestBody ReplyVO vo, HttpSession session, MemberVO m, Model model){
         /* @RequestBody ReplyVO vo 하면 전송된 json데이터가 ReplyVO 타입의 vo객체타입으로 변경되어 전송된다.
          */
-        session.setAttribute("session", m.getMemberid());
         model.addAttribute("replyer", vo.getReplyer());
         ResponseEntity<String> entity=null;
 

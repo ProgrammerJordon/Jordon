@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class StockInfo {
-    public JSONObject getStock(String stockCode)throws ParseException, IOException{
+    public static JSONObject getStock(String stockCode)throws ParseException, IOException{
         String BaseUrl = "https://invest.zum.com/api/domestic/stock/";
         String code = stockCode;
         URL url = new URL(BaseUrl + code);

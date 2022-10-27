@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="portfolio">
+    <select id="portfolioList" parameterType="p" resultType="com.project.jordon.vo.PortfolioVO">
+        select * from portfolio where memberid=#{memberid}
+    </select>
+    <select id="portSearchList" resultType="com.project.jordon.vo.SearchVO">
+        select * from kospi where stockname like #{find_name} or stocknumber like #{find_name}
+    </select>
+    <select id="checkStockExist" resultType="com.project.jordon.vo.PortfolioVO">
+        select * from portfolio where portfolionumber=#{stock_number} and memberid=#{memberid}
+    </select>
+
+    <insert id="insertPortfolio">
+        insert into portfolio(portfolioid,memberid,portfolionumber,portfolioname,portfolioquantity,avgprice,transactiondate,transactionprice)
+        values (portfolio_seq.nextval,#{memberid},#{stock_number},#{stock_name},#{quantity},#{price},#{date},#{price})
+    </insert>
+    <update id="editAvg">
+        update portfolio set portfolioquantity=#{quantity},avgprice=#{avgprice} where portfolionumber=#{stock_number} and memberid=#{memberid}
+    </update>
+</mapper>

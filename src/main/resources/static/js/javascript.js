@@ -148,3 +148,6 @@ function check(){
         return false;
     }
 }
+
+// announcement board
+

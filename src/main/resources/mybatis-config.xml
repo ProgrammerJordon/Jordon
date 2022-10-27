@@ -12,5 +12,6 @@
         <typeAlias type="com.project.jordon.vo.BoardVO" alias="b"/>
         <typeAlias type="com.project.jordon.vo.MessageVO" alias="message"/>
         <typeAlias type="com.project.jordon.vo.ReplyVO" alias="r"/>
+        <typeAlias type="com.project.jordon.vo.PortfolioVO" alias="p"/>
     </typeAliases>
 </configuration>
