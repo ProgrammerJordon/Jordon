@@ -26,10 +26,10 @@
                 </tr>
                 <tr>
                     <th colspan="2">
-                        <input type="button" value="수정"
-                               th:onclick="|location.href='@{/board/board_edit(bno=${b.bno}, page=${page})}'|"/>
-                        <input type="button" value="삭제"
-                               th:onclick="|location.href='@{/board/board_del(bno=${b.bno}, page=${page})}'|"/>
+                        <input th:if="${session.session == b.getWriter()}" type="button" value="수정"
+                               th:onclick="|location.href='@{/board/board_edit(bno=${b.bno},page=${page})}'|"/>
+                        <input th:if="${b.replycnt==0 && session.session == b.getWriter()}" type="button" value="삭제"
+                               th:onclick="|location.href='@{/board/board_del(bno=${b.bno},page=${page})}'|"/>
                         <input type="button" value="목록" th:onclick="|location.href='@{/board/board_list(page=${page})}'|"/>
                     </th>
                 </tr>
@@ -45,16 +45,15 @@
                     <textarea rows="3" cols="36" id="replytext"></textarea>
                 </div>
                 <div>
-                    <button type="button" id="replyModBtn">댓글수정</button>
+                    <button  type="button" id="replyModBtn">댓글수정</button>
                     <button type="button" id="replyDelBtn">댓글삭제</button>
                     <button type="button" id="closeBtn" onclick="modDivClose();">닫기</button>
                 </div>
             </div>
 
-            <h2>아작스 댓글 연습</h2>
             <div>
                 <div>
-                    댓글 작성자:<input name="replyer" id="newReplyWriter"/>
+                    댓글 작성자:<input name="replyer" id="newReplyWriter" th:value="${session.session}" readonly/>
                 </div>
                 <br/>
                 <div>

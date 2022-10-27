@@ -36,7 +36,7 @@
                         <hr>
                         <a th:href="@{/gamezone}"><p>GameZone</p></a>
                         <hr>
-                        <a th:href="@{/announcement}"><p>Announcement</p></a>
+                        <a th:href="@{/board/board_list}"><p>Announcement</p></a>
                         <hr>
                         <a th:href="@{/customerservice}"><p>CustomerService</p></a>
                         <hr>
@@ -47,12 +47,12 @@
 
         <!-- showMenu -->
         <div th:if="${session.session == null}" class="findo_head_icons_right">
-            <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+            <button><a th:href="@{/board/board_list}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
             <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
             <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
         </div>
         <div th:unless="${session.session == null}" class="findo_head_icons_right">
-            <button><a th:href="@{/announcement}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+            <button><a th:href="@{/board/board_list}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
             <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
             <button><a th:href="@{/logout}"><i class="fa-solid fa-xmark fa-2x"></i></a></button>
         </div>

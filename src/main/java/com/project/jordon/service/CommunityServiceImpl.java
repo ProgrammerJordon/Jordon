@@ -14,16 +14,19 @@ public class CommunityServiceImpl implements CommunityService{
     private CommunityDAO communityDAO;
 
     @Override
-    public void insercommunity(CommunityVO b) {
-        this.communityDAO.insercommunity(b);
+    public void insercommunity(CommunityVO i) {
+        this.communityDAO.insercommunity(i);
     }
 
     @Override
-    public void updatecommunity(CommunityVO b) {
-        this.communityDAO.updatecommunity(b);
+    public void updatecommunity(CommunityVO i) {
+        this.communityDAO.updatecommunity(i);
     }
 
-
+    @Override
+    public void deletecommunity(CommunityVO i) {
+        this.communityDAO.deletecommunity(i);
+    }
 
 
 }

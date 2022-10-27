@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface CommunityDAO {
     // 커뮤니티 게시글 저장
-    void insercommunity(CommunityVO b);
+    void insercommunity(CommunityVO i);
     // 커뮤니티 게시글 수정 업데이트
-    void updatecommunity(CommunityVO b);
+    void updatecommunity(CommunityVO i);
     // 커뮤니티 목록을 보여줌
+
+    void deletecommunity(CommunityVO i);
 
 }

@@ -35,9 +35,9 @@ public class CommunityController {
 
     // 커뮤니티 글쓰기 확정 버튼 클릭 컨트롤러
     @RequestMapping("/community_write_ok")
-    public String community_write_ok(CommunityVO b) {
-        if (b.getCommunitywriter() != null && b.getCommunitytitle() != null & b.getCommunitycontents() != null) {
-            this.communityservice.insercommunity(b);
+    public String community_write_ok(CommunityVO i) {
+        if (i.getCommunitywriter() != null && i.getCommunitytitle() != null & i.getCommunitycontents() != null) {
+            this.communityservice.insercommunity(i);
             System.out.println("글쓰기 저장 완료");
             return "redirect:/community";
         } else {
@@ -54,9 +54,9 @@ public class CommunityController {
 
     // 커뮤니티 글 수정 완료후 글내용으로 넘어가는 컨트롤러
     @RequestMapping("/community_edit_ok")
-    public String community_edit_ok(CommunityVO b) {
-        if (b.getCommunitytitle() != null && b.getCommunitycontents() != null) {
-            this.communityservice.updatecommunity(b);
+    public String community_edit_ok(CommunityVO i) {
+        if (i.getCommunitytitle() != null && i.getCommunitycontents() != null) {
+            this.communityservice.updatecommunity(i);
             System.out.println("게시글 수정완료");
             return "redirect:/community";
         }
@@ -70,7 +70,8 @@ public class CommunityController {
     }
 
     @RequestMapping("/community_delete_ok")
-    public String community_delete_ok() {
+    public String community_delete_ok(CommunityVO i, int communitynumber) {
+        this.communityservice.deletecommunity(i);
         return "redirect:/community";
     }
 }

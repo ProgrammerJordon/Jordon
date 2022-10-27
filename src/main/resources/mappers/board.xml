@@ -31,7 +31,7 @@
     </update>
 
     <!-- 내용보기 -->
-    <select id="b_cont" parameterType="int" resultType="net.daum.vo.BoardVO">
+    <select id="b_cont" parameterType="int" resultType="com.project.jordon.vo.BoardVO">
         select * from tbl_board where bno=#{bno}
     </select>
 

@@ -7,14 +7,14 @@
   <div class="total_findo">
     <div th:replace="/include/header :: headerfragment"></div>
     <div>
-      <form th:action="@{/board_edit_ok(bno=${eb.bno},page=${page})}" method="post">
+      <form th:action="@{/board/board_edit_ok(bno=${eb.bno},page=${page})}" method="post">
         <table border="1">
           <tr>
             <th colspan="2">Announcement Board Edit</th>
           </tr>
           <tr>
             <th>글쓴이</th>
-            <td><input name="writer" id="writer" size="14" th:value="${eb.writer}"/></td>
+            <td><input name="writer" id="writer" size="14" th:value="${eb.writer}" readonly/></td>
           </tr>
 
           <tr>
@@ -29,7 +29,7 @@
 
           <tr colspan="2">
             <input type="submit" value="글수정" />
-            <input type="reset" value="취소">
+            <input type="reset" value="취소" />
             <input type="button" value="목록" th:onclick="|location.href='@{/board/board_list(page=${page})}'|" />
           </tr>
 

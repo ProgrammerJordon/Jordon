@@ -6,13 +6,17 @@
 
 <mapper namespace="communuity">
 
-    <insert id="insert_community" parameterType="b">
+    <insert id="insert_community" parameterType="i">
         insert into COMMUNITY (communitynumber, communitywriter, communitytitle, communitycontents, communityhit, communityregdate) values (communitynumber_seq.nextval,#{communitywriter},#{communitytitle},#{communitycontents},default,sysdate)
     </insert>
 
-    <update id="update_community" parameterType="b">
+    <update id="update_community" parameterType="i">
         update COMMUNITY set communitytitle=#{communitytitle}, COMMUNITYCONTENTS=#{communitycontents} where COMMUNITYNUMBER=${communitynumber}
     </update>
+
+    <delete id="delete_community" parameterType="i">
+        delete from COMMUNITY where COMMUNITYNUMBER=#{communitynumber}
+    </delete>
 
 
 </mapper>

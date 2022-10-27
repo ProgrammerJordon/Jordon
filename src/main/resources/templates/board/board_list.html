@@ -9,7 +9,7 @@
     <div>
       <table border="1">
         <tr>
-          <td colspan="5" align="right"><span th:text="'총 게시물 수 : '+${totalCount}+'개'"></td>
+          <td colspan="5" align="right"><span th:text="'총 게시물 수 : '+${totalCount}+'개'"></span></td>
         </tr>
         <tr>
           <th>번호</th>
@@ -18,21 +18,19 @@
           <th>조회수</th>
           <th>등록날짜</th>
         </tr>
-        <div th:if="${list != null}">
+        <th:block th:if="${list != null}">
           <tr th:each="b : ${list}">
             <th><span th:text="${b.bno}"></span></th>
-            <th><a th:href="@{/board/board_edit(bno=${b.bno}, page=${page})}"><span th:text="${b.title}"></span>
-                <span th:if="${b.replycnt != 0}" th:text="'댓글개수 : ' + ${b.replycnt}+'개'"></span>
-            </a></th>
-            <th><span th:text="${b.write}"></span></th>
+            <th><a th:href="@{/board/board_cont(bno=${b.bno},page=${page})}"><span th:text="${b.title}"></span></a></th>
+            <th><span th:text="${b.writer}"></span></th>
             <th><span th:text="${b.viewcnt}"></span></th>
             <th><span th:text="${b.regdate}"></span></th>
           </tr>
           </th:each>
-        </div>
+        </th:block>
 
           <tr th:if="${list == null}">
-            <th colspan="5"><span th:text="목록이 없습니다."></span> </th>
+            <th colspan="5"><span th:text="${'목록이 없습니다.'}"></span> </th>
           </tr>
 
         <!-- 쪽번호 관련 -->
@@ -46,12 +44,12 @@
               <a th:href="@{/board/board_list(page=${page}-1)}" th:text="이전"></a>
             </span>
 
-            <span th:each="a , startpage : ${endpage}">
-              <span th:if="${a == page}" th:text="'<'+${a}+'>'"></span>
+            <th:block th:each="a : ${endpage}" th:start="1" th:step="1">
+              <span th:if="${a == page}" th:text="${a}"></span>
               <span th:if="${a != page}">
-                <a th:href="@{/board/board_list(page=${a})}" th:text="${a}"></a>
+                <a th:href="@{/board/board_list(page=${a})}" th:text="${page}"></a>
               </span>
-            </span>
+            </th:block>
 
             <span th:if="${page >= maxpage}">
               <span th:text="다음"></span>
@@ -66,7 +64,7 @@
 
         <tr>
           <td colspan="5" align="right">
-            <input type="button" value="글쓰기" th:onclick="|location.href='@{/board/board_write(page=${page})}'|" />
+            <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/board/board_write(page=${page})}'|" />
           </td>
         </tr>
 

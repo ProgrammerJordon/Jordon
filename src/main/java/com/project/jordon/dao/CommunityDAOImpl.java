@@ -14,15 +14,19 @@ public class CommunityDAOImpl implements CommunityDAO{
     SqlSession sqlSession;
 
     @Override
-    public void insercommunity(CommunityVO b) {
-        this.sqlSession.insert("insert_community",b);
+    public void insercommunity(CommunityVO i) {
+        this.sqlSession.insert("insert_community",i);
     }
 
     @Override
-    public void updatecommunity(CommunityVO b) {
-        this.sqlSession.update("update_community", b);
+    public void updatecommunity(CommunityVO i) {
+        this.sqlSession.update("update_community", i);
     }
 
+    @Override
+    public void deletecommunity(CommunityVO i) {
+        this.sqlSession.delete("delete_community", i);
+    }
 
 
 }
