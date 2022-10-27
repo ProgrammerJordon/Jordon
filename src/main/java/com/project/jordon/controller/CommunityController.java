@@ -73,5 +73,6 @@ public class CommunityController {
     public String community_delete_ok(CommunityVO i, int communitynumber) {
         this.communityservice.deletecommunity(i);
         return "redirect:/community";
+
     }
 }
