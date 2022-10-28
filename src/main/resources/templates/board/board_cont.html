@@ -6,7 +6,7 @@
 <div class="wrapper_findo">
     <div class="total_findo">
         <div th:replace="/include/header :: headerfragment"></div>
-        <div>
+        <div th:if="${session.session != null}">
             <table border="1">
                 <tr>
                     <th colspan="2">내용보기</th>

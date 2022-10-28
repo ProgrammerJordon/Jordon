@@ -26,169 +26,17 @@
                     <th colspan="4" align="right">
                         <input th:if="${session.session == b.getWriter()}" type="button" value="수정"
                                th:onclick="|location.href='@{/board/board_edit(bno=${b.bno},page=${page})}'|"/>
-                        <input th:if="${b.replycnt==0 && session.session == b.getWriter()}" type="button" value="삭제"
+                        <input th:if="${session.session == b.getWriter()}" type="button" value="삭제"
                                th:onclick="|location.href='@{/board/board_del(bno=${b.bno},page=${page})}'|"/>
                         <input type="button" value="목록"
                                th:onclick="|location.href='@{/board/board_list(page=${page})}'|"/>
                     </th>
                 </tr>
             </table>
-
             <br/>
             <hr/>
             <br/>
-
-            <div id="modDiv" style="display: none;">
-                <div class="modal-title"></div>
-                <div>
-                    <textarea rows="3" cols="36" id="replytext"></textarea>
-                </div>
-                <div>
-                    <button type="button" id="replyModBtn">댓글수정</button>
-                    <button type="button" id="replyDelBtn">댓글삭제</button>
-                    <button type="button" id="closeBtn" onclick="modDivClose();">닫기</button>
-                </div>
-            </div>
-
-            <div class="board_cont2_reply">
-                <div>
-                    <input hidden name="replyer" id="newReplyWriter" th:value="${session.session}" readonly/>
-                </div>
-                <br/>
-                <table border="1">
-                    <tr>
-                        <th align="left">댓글</th>
-                    </tr>
-                    <tr>
-                        <td><textarea rows="3" cols="72" name="replytext" id="newReplyText" spellcheck="false"
-                                      style="resize:none;" ></textarea></td>
-                    </tr>
-                </table>
-                <div class="board_cont2_reply_button">
-                    <button id="replyAddBtn">댓글 등록</button>
-                </div>
-            </div>
-            <hr/>
-            [댓글 개수 : <span th:text="${b.replycnt}"></span> 개]
-            <br/>
-            <ul id="replies"></ul>
         </div>
-        <script type="text/javascript">
-            /*<![CDATA[*/
-            var bno = [[${b.bno}]];//스프링 MVC 게시판 번호값, 자바스크립트에서 JSTL OR EL 사용가능=>${b.bno}
-            getAllList()
-
-            function getAllList() {
-                $.getJSON("/replies/all/" + bno, function (data) {//json데이터를 get방식으로 처리,비동기식으로 가져온 데이터는 data매개변수에 저장
-                    var result = "";
-
-                    $(data).each(function () {//each()함수로 반복
-                        result += "<li data-rno='" + this.rno + "' class='replyLi'>"
-                            + this.rno + " : <span class='com' style='color:black;font-weight:bold;'>" + this.replytext + "</span>"
-                            + " <button>댓글수정</button></li><br/>"
-                    });
-                    $('#replies').html(result);//해당영역에 html()함수로 문자와 태그를 함께 변경 적용.
-                });
-            }//댓글목록 함수
-
-
-            //댓글 추가
-            $('#replyAddBtn').on('click', function () {
-                $replyer = $('#newReplyWriter').val();//댓글 작성자
-                $replytext = $('#newReplyText').val();//댓글 내용
-
-                $.ajax({
-                    type: 'post',
-                    url: '/replies',//URL 매핑주소
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-HTTP-Method-Override": "POST"
-                    },
-                    dataType: 'text',
-                    data: JSON.stringify({
-                        bno: bno, //게시판 번호
-                        replyer: $replyer,//댓글 작성자
-                        replytext: $replytext //댓글 내용
-                    }),
-                    success: function (result) {//비동기식으로 받아오는 것이 성공시 호출.받아온 데이터는 result매개변수에 저장
-                        if (result == 'SUCCESS') {
-                            alert('댓글이 등록되었습니다!');
-                            location.reload();//새로고침(단축키 F5)
-                            getAllList();//댓글 목록함수 호출
-                        }
-                    }
-                });//jQuery 비동기식 아작스 함수
-            });
-
-            //댓글 수정 화면
-            $('#replies').on("click", ".replyLi button", function () {
-                var reply = $(this).parent();//parent() 부모 요소를 선택=> li태그를 가리킴
-                //this는 버튼
-                var rno = reply.attr("data-rno");//data-rno속성값을 구함=>댓글 번호
-                var replytext = reply.children('.com').text();//댓글 내용
-
-                $('.modal-title').html(rno);//댓글번호를 표시
-                $('#replytext').val(replytext);//댓글내용을 표시
-                $('#modDiv').show('slow');//댓글수정화면을 나오게 한다.
-            });
-
-            //댓글 수정화면 닫기
-            function modDivClose() {
-                $('#modDiv').hide('slow');
-            }
-
-            //댓글 수정 완료
-            $('#replyModBtn').on('click', function () {
-                $rno = $('.modal-title').html();//댓글 번호
-                $replytext = $("#replytext").val();//수정할 댓글 내용
-
-                $.ajax({
-                    type: 'put',//메서드 방식
-                    url: '/replies/' + $rno, //ReplyController.java에 등록된 매핑주소 경로
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-HTTP-Method-Override": "PUT"
-                    },
-                    data: JSON.stringify({
-                        replytext: $replytext
-                    }),
-                    dataType: 'text',//받아오는 자료형
-                    success: function (result) {
-                        if (result == 'SUCCESS') {
-                            alert('댓글이 수정되었습니다!');
-                            $('#modDiv').hide('slow');//댓글 수정화면 닫기
-                            getAllList();//댓글 목록함수 호출
-                        }
-                    }
-                });//비동기식 jQuery 아작스 함수
-            });
-
-            //댓글 삭제 완료
-            $('#replyDelBtn').on("click", function () {
-                $rno = $('.modal-title').html();//댓글 번호
-
-                $.ajax({
-                    type: 'delete',
-                    url: '/replies/' + $rno,
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-HTTP-Method-Override": "DELETE"
-                    },
-                    dataType: 'text',
-                    success: function (result) {
-                        if (result == 'SUCCESS') {
-                            alert("댓글이 삭제되었습니다!");
-                            $('#modDiv').hide('slow');
-                            location.reload();
-                            getAllList();
-                        }
-                    }
-                });
-            });
-            /*]]>*/
-        </script>
-
-
         <div th:replace="/include/footer :: footerfragment"></div>
     </div>
 </div>
