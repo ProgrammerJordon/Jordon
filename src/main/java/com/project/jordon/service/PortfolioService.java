@@ -15,4 +15,6 @@ public interface PortfolioService {
     void addPortfolio(PortfolioVO pvo);
 
     void editAvgPrice(PortfolioVO pvo);
+
+    void delPortfolio(PortfolioVO pvo);
 }

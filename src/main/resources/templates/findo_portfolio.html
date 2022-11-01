@@ -83,6 +83,22 @@
                                 $("#stock_number").val(strText2);
                                 $("#stock_name").val(strText);
                             }
+                            function showEditButton(){
+                                var status = document.getElementsByClassName('select_edit');
+
+                                    //$(".select_edit").show();
+                                    //console.log(status.style.display);
+                                    if($('th').attr('value') === 'a'){
+                                        $('th').attr('value', 'b');
+                                        $('td').attr('value', 'b');
+                                        $(".select_edit").show();
+                                    }else{
+                                        $('th').attr('value', 'a');
+                                        $('td').attr('value', 'a');
+                                        $(".select_edit").hide();
+                                    }
+
+                            }
 
                             /*]]>*/
                         </script>
@@ -94,9 +110,10 @@
                                 <input type="text" id="quantity" name="quantity" placeholder="구매수량"><br>
                                 <input type="text" id="price" name="price" placeholder="구매가격"><br>
                                 <button type="submit">내 포트폴리오에 추가</button>
-                                <br>
+                                <button type="button" id="edit_port" onclick="showEditButton();">포트폴리오 수정</button>
                             </div>
                         </form>
+
                     </table>
                 </div>
             </div>
@@ -107,6 +124,7 @@
             <div class="portfolio_stock">
                 <table border="1">
                     <tr style="text-align: center;">
+                        <th class="select_edit" th:value="a" style="display: none">선택</th>
                         <th>종목코드</th>
                         <th>종목명</th>
                         <th>보유수량</th>
@@ -115,9 +133,11 @@
                         <th>수익률</th>
                         <th>평균단가</th>
                     </tr>
+                    <form action="/port_del" method="post">
+
                     <div th:if="${klist != null}">
                         <tr th:each="k : ${klist}">
-
+                            <td class="select_edit" style="display: none"><label><input type="checkbox"  name="checkedValue" class="select_edit" th:value="${k.id}" ></label></td>
                             <td align="center">
                                 <span th:text="${k.id}"></span>
                             </td>
@@ -132,27 +152,33 @@
                                 <span th:text="${k.quantity}"></span>
                             </td>
 
-                            <td style="text-align: center;">
+                            <td style="text-align: right;">
                                 <span th:text="${k.currentPrice}"></span>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: right;">
                                 <span th:text="${k.profitAndLoss}"></span>
                             </td>
                             <td style="text-align: center;">
                                 <span th:text="${k.eprice}"></span>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: right;">
                                 <span th:text="${k.avgprice}"></span>
                             </td>
                         </tr>
 
                     </div>
+                        <div>
+                            <button type="submit" id="del_port" class="select_edit" style="display: none">삭제하기</button>
+                        </div>
+
+                    </form>
 
                     <div th:if="${klist == null}">
                         <tr>
                             <th colspan="5">검색한 종목이 없습니다.</th>
                         </tr>
                     </div>
+
                 </table>
             </div>
         </div>

@@ -2,8 +2,6 @@ package com.project.jordon.vo;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 public class PortfolioVO {
     //가지고 있는 포폴에 대한 정보
