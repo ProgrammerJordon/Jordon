@@ -3,6 +3,7 @@ package com.project.jordon.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -94,6 +95,13 @@ public class MainController {
     @RequestMapping("/gamezone")
     public String findo_gamezone() {
         return "findo_gamezone";
+    }
+
+    @RequestMapping("/chat")
+    public ModelAndView chat() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("chat");
+        return mv;
     }
 
 }

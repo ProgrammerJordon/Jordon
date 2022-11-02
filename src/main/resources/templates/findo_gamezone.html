@@ -1,16 +1,279 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head th:replace="/include/header :: headfragment">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Findo</title>
+  <link th:href="@{/css/stylesheet.css}" type="text/css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/08cf8c1353.js" crossorigin="anonymous"></script>
+  <script src="/js/jquery.js" type="text/javascript"></script>
+  <script src="/js/javascript.js" type="text/javascript" defer></script>
 </head>
 <body>
 <div class="wrapper_findo">
   <div class="total_findo">
-    <div th:replace="/include/header :: headerfragment"></div>
-    <div>
-      <p>findo_gamezone 영역 내부 입니다.<p>
+    <header th:fragment="headerfragment">
+      <div class="findo_head_icons">
+        <!-- showMenu -->
+        <div class="findo_head_icons_left">
+          <button onclick="ShowMenu()"><i class="fa-solid fa-bars fa-2x"></i></button>
+        </div>
+        <div class="menu_bg">
+          <div class="menu">
+            <div class="hidemenu" onclick="HideMenu()">
+              <button><i class="fa-solid fa-xmark fa-3x"></i></button>
+            </div>
+            <div class="hidemenu_wrapper">
+              <div class="hidemenu_login">
+                <hr>
+                <th:block class="hidemenu_login_text" th:if="${session.session == null}">
+                  <p>로그인을 하시려면 <br> 아래의 버튼을 클릭하세요</p>
+                  <button><a th:href="@{/login}">Login</a></button>
+                </th:block>
+                <th:block class="hidemenu_login_text" th:unless="${session.session == null}">
+                  <p th:text="${session.session}+'님 반갑습니다.'"></p>
+                </th:block>
+                <hr>
+                <a th:href="@{/profile}"><p>Profile</p></a>
+                <hr>
+                <a th:href="@{/event}"><p>Event</p></a>
+                <hr>
+                <a th:href="@{/gamezone}"><p>GameZone</p></a>
+                <hr>
+                <a th:href="@{/board/board_list}"><p>Announcement</p></a>
+                <hr>
+                <a th:href="@{/customerservice}"><p>CustomerService</p></a>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- showMenu -->
+        <div th:if="${session.session == null}" class="findo_head_icons_right">
+          <button><a th:href="@{/board/board_list}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+          <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+          <button><a th:href="@{/login}"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a></button>
+        </div>
+        <div th:unless="${session.session == null}" class="findo_head_icons_right">
+          <button><a th:href="@{/board/board_list}"><i class="fa-solid fa-bell fa-2x"></i></a></button>
+          <button><a th:href="@{/search}"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a></button>
+          <button><a th:href="@{/logout}"><i class="fa-solid fa-xmark fa-2x"></i></a></button>
+        </div>
+      </div>
+      <div class="findo_head_logo">
+        <a th:href="@{/findo}"><img src="/images/logo_black.png"></a>
+      </div>
+      <hr>
+      <div class="findo_head_button">
+        <button><a th:href="@{/findo}">홈</a></button>
+        <button><a th:href="@{/portfolio}">포트폴리오</a></button>
+        <button><a th:href="@{/community}">커뮤니티</a></button>
+        <button><a th:href="@{/news}">뉴스</a></button>
+      </div>
+      <div class="findo_head_login">
+        <hr>
+        <div class="findo_head_login_text" th:if="${session.session == null}">
+          <p>로그인을 하시려면 아래의 버튼을 클릭하세요</p>
+          <button><a th:href="@{/login}">로그인</a></button>
+        </div>
+        <div class="findo_head_login_text" th:unless="${session.session == null}">
+          <p th:text="${session.session}+'님 반갑습니다.'"></p>
+        </div>
+      </div>
+    </header><!-- header -->
+    <div class="game_canvas">
+    <h2>Game Center!</h2>
     </div>
-    <div th:replace="/include/footer :: footerfragment"></div>
-  </div>
-</div>
+    <div class="game_canvas">
+    <canvas id="game_canvas" width="400" height="700"></canvas>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+
+      // 캔버스 세팅
+      let canvas;
+      let ctx;
+      canvas = document.getElementById("game_canvas")
+      ctx = canvas.getContext("2d")
+
+      canvas.width=600;
+      canvas.height=700;
+
+      let backgroundImage,spaceshipImage,bulletImage,enemyImage,gameoverImage;
+      let gameOver = false;
+      let score = 0;
+      // 우주선 좌표
+      let spaceshipX = canvas.width/2-32
+      let spaceshipY = canvas.height-64
+
+      let bulletList = []; // 총알리스트 저장하는 리스트
+      function Bullet() {
+        this.x=0;
+        this.y=0;
+        this.init=function () {
+          this.x=spaceshipX; // +20 해서 좌표를 조정해도됨 총알좌표
+          this.y=spaceshipY;
+          this.alive = true; //true 면 살아있는 총알 false면 사라진 총알
+          bulletList.push(this);
+        }
+        this.update = function() {
+          this.y -= 7;
+        };
+
+        this.checkHit = function() {
+          for(let i = 0; i < enemyList.length; i++) {
+            if(
+                    this.y <= enemyList[i].y &&
+                    this.x >= enemyList[i].x &&
+                    this.x <= enemyList[i].x+40) {
+              score += 10;
+              this.alive = false;
+              enemyList.splice(i, 1);
+              if(bulletList[i].y = canvas.height) {
+                bulletList.splice(i,1);
+              }
+            }
+          }
+        };
+      }
+
+      function generateRandomValue(min, max) {
+        let randomNum = (Math.random()*(max-min+1))+min;
+        return randomNum
+      }
+
+      let enemyList = []
+      function Enemy() {
+        this.x=0;
+        this.y=0;
+        this.init = function () {
+          this.y = 0;
+          this.x = generateRandomValue(0, canvas.width-64);
+          enemyList.push(this)
+        }
+        this.update = function () {
+          this.y += 2; // enemy가 떨어지는 속도 조절
+
+          if(this.y >= canvas.height-48) {
+            gameOver = true;
+
+          }
+        }
+      }
+
+      function loadImage() {
+        backgroundImage = new Image();
+        backgroundImage.src="/images/background.gif";
+
+        spaceshipImage = new Image();
+        spaceshipImage.src="/images/spaceship.png";
+
+        bulletImage = new Image();
+        bulletImage.src="/images/bullet.png";
+
+        enemyImage = new Image();
+        enemyImage.src="/images/enemy.png"
+
+        gameoverImage = new Image();
+        gameoverImage.src="/images/gameover.jpeg"
+
+      }
+
+      let keyDown={}
+      function setupKeyboardListener() {
+        document.addEventListener("keydown",function (event) {
+          keyDown[event.keyCode] = true;
+        });
+        document.addEventListener("keyup", function (event){
+          delete keyDown[event.keyCode];
+
+          if(event.keyCode == 32) {
+            event.preventDefault();
+            createBullet(); // 총알생성
+          }
+        });
+      }
+
+      function createBullet() {
+        let b = new Bullet();
+        b.init();
+      }
+
+      function createEnemy() {
+        const interval = setInterval(function (){
+          let e = new Enemy();
+          e.init();
+        },500)
+      }
+
+      function update() {
+        if(39 in keyDown) {
+          spaceshipX += 5;
+        }
+        if(37 in keyDown) {
+          spaceshipX -= 5;
+        }
+
+        if(spaceshipX <= 0) {
+          spaceshipX = 0;
+        }
+        if(spaceshipX >= canvas.width-64) {
+          spaceshipX = canvas.width-64;
+        }
+
+        // 총알 움직이게 하기위한 y좌표 변환
+        for(let i=0; i<bulletList.length; i++) {
+          if(bulletList[i].alive) {
+            bulletList[i].update();
+            bulletList[i].checkHit();
+          }
+        }
+
+        for(let i=0; i<enemyList.length; i++) {
+          enemyList[i].update();
+        }
+
+
+      }
+
+      function render() {
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(spaceshipImage, spaceshipX, spaceshipY);
+        ctx.fillText(`SCORE:${score}`, 20, 20);
+        ctx.fillStyle = "White";
+        ctx.font = "20px Arial"
+
+        for(let i = 0; i<bulletList.length; i++) {
+          if(bulletList[i].alive) {
+            ctx.drawImage(bulletImage, bulletList[i].x, bulletList[i].y);
+          }
+        }
+
+        for(let i=0; i<enemyList.length; i++) {
+          ctx.drawImage(enemyImage, enemyList[i].x, enemyList[i].y);
+        }
+      }
+
+      function main() {
+        if(!gameOver) {
+          update();
+          render();
+          requestAnimationFrame(main);
+        }else {
+          ctx.drawImage(gameoverImage, 10, 100, 600, 600);
+        }
+
+      }
+
+      loadImage();
+      setupKeyboardListener();
+      createEnemy();
+      main();
+
+      /*]]>*/
+    </script>
+    </div>
+  </div> <!-- total_findo -->
+</div> <!-- wrapper_findo -->
 </body>
 </html>
