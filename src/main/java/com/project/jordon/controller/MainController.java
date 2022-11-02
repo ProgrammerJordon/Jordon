@@ -97,11 +97,19 @@ public class MainController {
         return "findo_gamezone";
     }
 
-    @RequestMapping("/chat")
-    public ModelAndView chat() {
+//    @RequestMapping("/chat")
+//    public ModelAndView chat() {
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("chat");
+//        return mv;
+//    }
+
+    @RequestMapping("/community")
+    public ModelAndView community() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("chat");
+        mv.setViewName("findo_community");
         return mv;
     }
+
 
 }
