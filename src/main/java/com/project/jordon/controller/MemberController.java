@@ -3,27 +3,22 @@ package com.project.jordon.controller;
 import com.project.jordon.service.MemberService;
 import com.project.jordon.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Member;
-import java.util.List;
 
 @Controller
 public class MemberController {
 
     @Autowired
     private MemberService memberserivce;
+    private JavaMailSender javaMailSender;
 
     @RequestMapping("/login")
     public String findo_login() {
@@ -34,9 +29,9 @@ public class MemberController {
     public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request) {
 
         MemberVO m = this.memberserivce.loginMember(memberid);
-        if(m == null) {
+        if (m == null) {
             return "findo_login";
-        }else if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
+        } else if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
             System.out.println("아이디 비밀번호 둘다 같음");
             String membername1 = m.getMembername();
             System.out.println(membername1);
@@ -177,14 +172,14 @@ public class MemberController {
         }
     }
 
-    @RequestMapping(value = "/signup_form", method = { RequestMethod.GET })
+    @RequestMapping(value = "/signup_form", method = {RequestMethod.GET})
     @ResponseBody
     public int idcheck(String memberid) {
         int result = memberserivce.idcheck(memberid);
         return result;
     }
 
-    @RequestMapping(value = "/signup_form", method = { RequestMethod.POST })
+    @RequestMapping(value = "/signup_form", method = {RequestMethod.POST})
     public String findo_signup_form() {
         return "findo_signup_form";
     }
@@ -201,8 +196,4 @@ public class MemberController {
             return "findo_signup_form";
         }
     }
-
-
-
-
 }

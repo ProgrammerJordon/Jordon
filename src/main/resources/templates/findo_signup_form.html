@@ -132,33 +132,33 @@
         <script>
             function idbtnCheck() {
 
-            $('#btnCheck').click(function () {
+                $('#btnCheck').click(function () {
 
-                if ($('#memberid').val() != '') {
+                    if ($('#memberid').val() != '') {
 
-                    // 아이디를 서버로 전송 > DB 유효성 검사 > 결과 반환받기
-                    $.ajax({
+                        // 아이디를 서버로 전송 > DB 유효성 검사 > 결과 반환받기
+                        $.ajax({
 
-                        type: 'GET',
-                        url: '/signup_form',
-                        data: 'memberid=' + $('#memberid').val(),
-                        dataType: 'json',
-                        success: function (result) {
-                            if (result == '0') {
-                                $('#result').text('사용 가능한 아이디입니다.');
-                            } else {
-                                $('#result').text('이미 사용중인 아이디입니다.');
+                            type: 'GET',
+                            url: '/signup_form',
+                            data: 'memberid=' + $('#memberid').val(),
+                            dataType: 'json',
+                            success: function (result) {
+                                if (result == '0') {
+                                    $('#result').text('사용 가능한 아이디입니다.');
+                                } else {
+                                    $('#result').text('이미 사용중인 아이디입니다.');
+                                }
+                            },
+                            error: function (a, b, c) {
+                                console.log(a, b, c);
                             }
-                        },
-                        error: function (a, b, c) {
-                            console.log(a, b, c);
-                        }
-                    });
-                } else {
-                    alert('아이디를 입력하세요.');
-                    $('#memberid').focus();
-                }
-            });
+                        });
+                    } else {
+                        alert('아이디를 입력하세요.');
+                        $('#memberid').focus();
+                    }
+                });
             }
         </script>
 
@@ -221,6 +221,9 @@
                         <option name="membergender" value="other">선택안함</option>
                     </select>
                 </div>
+
+
+                <!-- 이메일 인증 완료하기 -->
                 <div class="signup_email">
                     <h2>본인확인 이메일</h2>
                 </div>
@@ -229,7 +232,7 @@
                            size="32" maxlength="35" placeholder="이메일" required/>
                     <div class="signup_email_text_eamil">
                         <input type="button"
-                               onclick="signup_email_text_confirm()"
+                               onclick="memberemail_check_ok_final()"
                                value="인증번호 발급"/>
                     </div>
                 </div>
@@ -244,7 +247,7 @@
                     </div>
                 </div>
 
-                <!-- -->
+                <!-- 이메일 인증 완료하기 -->
                 <hr>
                 <h2>우편번호</h2>
                 <hr>
