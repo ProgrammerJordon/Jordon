@@ -2093,3 +2093,85 @@ canvas {
 .game_canvas {
     text-align: center;
 }
+
+/* community_chat */
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.community_title {
+    text-align: center;
+    width: 600px;
+    border-bottom: 1px solid #5fbb91;
+}
+
+.chating {
+    width: 400px;
+    height: 500px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    background-color: #e8f4eb;
+    color: black;
+    padding: 30px 30px;
+    border-radius: 10px;
+
+}
+
+.chating p {
+    color: black;
+}
+
+
+.yourName {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.start_chatting {
+    font-size: 25px;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px 60px;
+
+}
+
+.yourMsg {
+    margin: 15px 0px;
+}
+
+.yourMsg textarea {
+    width: 475px;
+    font-size: 20px;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px 60px;
+    color: black;
+    resize: none;
+
+
+}
+
+.yourMsg button {
+    width: 600px;
+    font-size: 25px;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px 60px;
+}
+
+.non_session_community {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.start_chatting:hover {
+    background-color: #d7f5df;
+}

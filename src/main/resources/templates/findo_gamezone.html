@@ -83,7 +83,7 @@
       </div>
     </header><!-- header -->
     <div class="game_canvas">
-    <h2>Game Center!</h2>
+    <h2>* FINDO의 미니게임천국 *</h2>
     </div>
     <div class="game_canvas">
     <canvas id="game_canvas" width="400" height="700"></canvas>
@@ -96,8 +96,8 @@
       canvas = document.getElementById("game_canvas")
       ctx = canvas.getContext("2d")
 
-      canvas.width=600;
-      canvas.height=700;
+      canvas.width=500;
+      canvas.height=600;
 
       let backgroundImage,spaceshipImage,bulletImage,enemyImage,gameoverImage;
       let gameOver = false;
@@ -260,19 +260,41 @@
           render();
           requestAnimationFrame(main);
         }else {
-          ctx.drawImage(gameoverImage, 10, 100, 600, 600);
+          ctx.drawImage(gameoverImage, 10, 100, 500, 400);
         }
-
       }
 
       loadImage();
       setupKeyboardListener();
       createEnemy();
       main();
-
       /*]]>*/
     </script>
     </div>
+    <hr>
+    <div class="footer_bottom_middle">
+      <p>주식회사 핀도</p>
+      <p>사업자등록번호 502-10923-12</p>
+      <p>대표 정범수</p>
+      <p>서울특별시 강남구 강남대로 84길(역삼동)</p>
+    </div> <!-- footer_bottom_middle-->
+    <div class="footer_bottom_bottom">
+      <div class="footer_bottom_bottom_top">
+        <span>Copyright © FINDO Corp. All Rights Reserved.</span>
+      </div>
+      <div class="footer_bottom_bottom_middle">
+        <button>
+          <a th:href="@{https://www.facebook.com/}"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
+        </button>
+        <button>
+          <a th:href="@{https://www.instagram.com/}"><i
+                  class="fa-brands fa-square-instagram fa-2x"></i></a>
+        </button>
+        <button>
+          <a th:href="@{https://twitter.com/}"><i class="fa-brands fa-square-twitter fa-2x"></i></a>
+        </button>
+      </div>
+    </div> <!-- footer_bottom_bottom -->
   </div> <!-- total_findo -->
 </div> <!-- wrapper_findo -->
 </body>
