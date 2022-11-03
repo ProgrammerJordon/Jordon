@@ -34,5 +34,10 @@
         delete from member where memberid=#{memberid} and memberemail=<![CDATA[#{memberemail}]]> and memberpassword=#{memberpassword}
     </delete>
 
+    <!-- 중복아이디검색 -->
+    <select id="idcheck" parameterType="String" resultType="Integer">
+        <![CDATA[select count(*) from member where memberid = #{memberid}]]>
+    </select>
+
     
 </mapper>

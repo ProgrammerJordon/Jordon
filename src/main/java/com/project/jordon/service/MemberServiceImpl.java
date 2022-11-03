@@ -44,4 +44,9 @@ public class MemberServiceImpl implements MemberService{
         return this.memberDAO.deleteMember(m);
     }
 
+    @Override
+    public int idcheck(String memberid) {
+        return this.memberDAO.idcheck(memberid);
+    }
+
 }

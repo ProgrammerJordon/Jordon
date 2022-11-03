@@ -25,24 +25,6 @@ public class MemberController {
     @Autowired
     private MemberService memberserivce;
 
-    @RequestMapping("/signup_form")
-    public String findo_signup_form() {
-        return "findo_signup_form";
-    }
-
-
-    @RequestMapping("/findo_signup_form_ok")
-    public String findo_signup_form_ok(MemberVO m) {
-        if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2() != null && m.getMembername() != null && m.getMemberbirth() != null && m.getMembergender() != null && m.getMemberemail() != null && m.getMemberemailauth() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMemberphonenumber() != null) {
-            this.memberserivce.insertMember(m);
-            System.out.println("저장됨");
-            return "findo_signup_completement";
-        } else {
-            System.out.println("저장안됨");
-            return "findo_signup_form";
-        }
-    }
-
     @RequestMapping("/login")
     public String findo_login() {
         return "findo_login";
@@ -194,5 +176,33 @@ public class MemberController {
             return "findo_profile_delete";
         }
     }
+
+    @RequestMapping(value = "/signup_form", method = { RequestMethod.GET })
+    @ResponseBody
+    public int idcheck(String memberid) {
+        int result = memberserivce.idcheck(memberid);
+        return result;
+    }
+
+    @RequestMapping(value = "/signup_form", method = { RequestMethod.POST })
+    public String findo_signup_form() {
+        return "findo_signup_form";
+    }
+
+
+    @RequestMapping("/findo_signup_form_ok")
+    public String findo_signup_form_ok(MemberVO m) {
+        if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2() != null && m.getMembername() != null && m.getMemberbirth() != null && m.getMembergender() != null && m.getMemberemail() != null && m.getMemberemailauth() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMemberphonenumber() != null) {
+            this.memberserivce.insertMember(m);
+            System.out.println("저장됨");
+            return "findo_signup_completement";
+        } else {
+            System.out.println("저장안됨");
+            return "findo_signup_form";
+        }
+    }
+
+
+
 
 }

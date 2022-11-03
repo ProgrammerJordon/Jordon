@@ -40,5 +40,9 @@ public class MemberDAOImpl implements MemberDAO {
         return this.sqlSession.delete("member_delete", m);
     }
 
+    @Override
+    public int idcheck(String memberid) {
+        return this.sqlSession.selectOne("idcheck", memberid);
+    }
 
 }

@@ -21,5 +21,6 @@ public interface MemberDAO {
     // 회원 탈퇴
     int deleteMember(MemberVO m);
 
+    int idcheck(String memberid);
 
 }

@@ -129,6 +129,38 @@
         </header>
         <hr>
         <!-- header -->
+        <script>
+            function idbtnCheck() {
+
+            $('#btnCheck').click(function () {
+
+                if ($('#memberid').val() != '') {
+
+                    // 아이디를 서버로 전송 > DB 유효성 검사 > 결과 반환받기
+                    $.ajax({
+
+                        type: 'GET',
+                        url: '/signup_form',
+                        data: 'memberid=' + $('#memberid').val(),
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result == '0') {
+                                $('#result').text('사용 가능한 아이디입니다.');
+                            } else {
+                                $('#result').text('이미 사용중인 아이디입니다.');
+                            }
+                        },
+                        error: function (a, b, c) {
+                            console.log(a, b, c);
+                        }
+                    });
+                } else {
+                    alert('아이디를 입력하세요.');
+                    $('#memberid').focus();
+                }
+            });
+            }
+        </script>
 
         <div class="findo_signup_form">
             <form action="findo_signup_form_ok">
@@ -137,18 +169,20 @@
                 </div>
                 <div class="signup_id_text">
                     <input autofocus type="text" id="memberid" name="memberid" class="input_id"
-                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)" spellcheck="false" required/>
+                           size="32" maxlength="20" minlength="6" placeholder="ID" onkeyup="CheckInputType(this)"
+                           spellcheck="false" required/>
                     <div class="signup_id_text_button">
-                        <input type="button" id="memberid_confirm" name="memberid_confirm" value="중복확인" onclick="idcheck_confirm()"/>
+                        <input type="button" id="btnCheck" name="btnCheck" onclick="idbtnCheck()" value="중복확인"/>
                     </div>
-                    <p id="checkId"></p>
+                    <p id="result"></p>
                 </div>
                 <div class="signup_password">
                     <h2>비밀번호</h2>
                 </div>
                 <div class="signup_password_text">
                     <input type="password" id="memberpassword" name="memberpassword"
-                           size="32" minlength="8" maxlength="20" onchange="check_pw()" placeholder="PASSWORD" required/>
+                           size="32" minlength="8" maxlength="20" onchange="check_pw()" placeholder="PASSWORD"
+                           required/>
                 </div>
                 <span>* 특수문자를 포함한 8자리 이상의 비밀번호를 입력하세요.</span>
                 <div class="signup_password_confirm">
@@ -156,7 +190,7 @@
                 </div>
                 <div class="signup_password_confirm_text">
                     <input type="password" id="memberpassword2" name="memberpassword2"
-                            size="32" minlength="8" maxlength="20" onchange="check_pw()" required/>
+                           size="32" minlength="8" maxlength="20" onchange="check_pw()" required/>
                 </div>
                 <span id="check"></span>
                 <div class="signup_name">
@@ -172,7 +206,8 @@
                 <div class="signup_birth_text">
 
                     <input type="text" id="memberbirth" name="memberbirth"
-                           size="32" minlength="8" maxlength="8" placeholder="생년월일 8자리를 입력해주세요." onkeyup="onlyNumber(this)" required/>
+                           size="32" minlength="8" maxlength="8" placeholder="생년월일 8자리를 입력해주세요."
+                           onkeyup="onlyNumber(this)" required/>
 
                 </div>
                 <div class="signup_gender">
@@ -195,7 +230,7 @@
                     <div class="signup_email_text_eamil">
                         <input type="button"
                                onclick="signup_email_text_confirm()"
-                               value="인증번호 발급" />
+                               value="인증번호 발급"/>
                     </div>
                 </div>
 
@@ -218,12 +253,17 @@
                         <tr>
                             <input class="findo_signup_address_button" type="button"
                                    onClick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                            <input type="text" id="memberaddress1" name="memberaddress1" placeholder="우편번호" size="10" required>
-                            <input type="text" id="memberaddress2" name="memberaddress2" placeholder="도로명주소" size="30" required>
-                            <input type="text" id="memberaddress3" name="memberaddress3" placeholder="지번주소" size="30" required>
+                            <input type="text" id="memberaddress1" name="memberaddress1" placeholder="우편번호" size="10"
+                                   required>
+                            <input type="text" id="memberaddress2" name="memberaddress2" placeholder="도로명주소" size="30"
+                                   required>
+                            <input type="text" id="memberaddress3" name="memberaddress3" placeholder="지번주소" size="30"
+                                   required>
                             <span id="guide" style="color:#999;display:none"></span> <br>
-                            <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25" required>
-                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="건물주소" size="25" required>
+                            <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25"
+                                   required>
+                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="건물주소" size="25"
+                                   required>
                         </tr>
                     </table>
                 </div>
@@ -234,7 +274,8 @@
                 </div>
 
                 <div class="signup_phonenumber_text">
-                    <input type="text" id="memberphonenumber" name="memberphonenumber" placeholder="'-'를 제외하고 입력하세요." size="32"
+                    <input type="text" id="memberphonenumber" name="memberphonenumber" placeholder="'-'를 제외하고 입력하세요."
+                           size="32"
                            minlength="13" maxlength="13" onkeyup="onlyNumber(this)" required/>
                 </div>
 
