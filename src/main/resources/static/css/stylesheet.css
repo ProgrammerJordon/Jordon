@@ -334,6 +334,10 @@ footer_middle img{
     margin: 20px 0px;
 }
 
+.input-area i {
+    color: #5fbb91;
+}
+
 .language-area p {
     font-size: 15px;
     font-weight: bold;
@@ -2025,6 +2029,34 @@ canvas {
 /* portfolio */
 .port_cont {
     margin: 10px 0px;
+}
+
+.portfolio_stock table {
+    text-align: center;
+}
+
+.portfolio_stock table td {
+    text-align: center;
+}
+.portfolio_stock table td span {
+    text-align: center;
+}
+
+.delete_button_in_portfolio {
+    text-align: right;
+    margin: 10px 0px;
+}
+
+.delete_button_in_portfolio button {
+    font-size: 25px;
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px 20px;
+}
+
+.delete_button_in_portfolio button:hover {
+    background-color: #d7f5df;
 }
 
 .port_cont input {
