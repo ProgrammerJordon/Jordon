@@ -36,20 +36,16 @@ public class PortfolioController {
         response.setContentType("text/html;Charset=UTF-8");
         String id = (String) session.getAttribute("session");
         PrintWriter out = response.getWriter();
-        if (session == null) {
+        if (id == null) {
             return "findo";
         } else {
 //            System.out.println("login은 가능함.");
             pvo.setMemberid(id);
-
             //db에서 불러온 보유 포트폴리오 리스트
             List<PortfolioVO> plist = this.portfolioService.getPortfolioList(pvo);
-
-
             //html로 내보낼 json 객체를 담을 리스트.
             List<JSONObject> klist = new ArrayList<>();
             for (int i = 0; i < plist.size(); i++) {
-                //
                 String num = plist.get(i).getPortfolionumber();//종목코드
                 int quantity = Integer.parseInt(plist.get(i).getPortfolioquantity());//보유수량
                 int tprice = Integer.parseInt(plist.get(i).getTransactionprice());//매수금액
