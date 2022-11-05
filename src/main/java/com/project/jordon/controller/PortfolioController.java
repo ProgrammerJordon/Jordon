@@ -137,7 +137,6 @@ public class PortfolioController {
         List<SearchVO> slist = this.portfolioService.getSearchList(svo);
         System.out.println("slist : " + slist);
         return slist;
-
     }
 
     @RequestMapping("port_add")
@@ -163,7 +162,7 @@ public class PortfolioController {
             pvo.setAvgprice(String.valueOf(editAVG));
             this.portfolioService.editAvgPrice(pvo);
         }
-        return "redirect:http://localhost:7777/portfolio";
+        return "redirect:/portfolio";
     }
 
     @RequestMapping("port_del")

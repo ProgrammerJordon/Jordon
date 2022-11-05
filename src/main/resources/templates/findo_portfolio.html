@@ -10,12 +10,6 @@
             <script>
                 /*<![CDATA[*/
 
-                document.addEventListener("keypress", function (e) {
-                    if (e.keyCode == 13) { //enter press
-                        getSearchList();
-                    }
-                });
-
                 function getSearchList() {
                     $.ajax({
                         type: 'GET',
@@ -39,22 +33,30 @@
                         }
                     })
                 }
+                document.addEventListener("keypress", function (e) {
+                    if (e.keyCode == 13) { //enter press
+                        getSearchList();
+                    }
+                });
                 /*]]>*/
             </script>
-            <form name="search-form">
+            <form method="GET" name="search-form">
                 <div class="input-area">
                     <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
                            placeholder="종목번호 / 코드 입력"/>
-                    <intput type="button" onclick="getSearchList()"><i
-                            class="fa-solid fa-magnifying-glass search-icon"></i></intput>
+                    <button type="button" onclick="getSearchList()"><i
+                            class="fa-solid fa-magnifying-glass search-icon"></i></button>
                 </div>
+                <!-- 엔터누르면 submit 되는데 그걸 받아오는값이 아작스가 아나리 줌 API 에서 그냥 받아옴
+                 action으로 responsebody에 념겨봐야 JSON값으로 나와서 뷰로 다이렉트가 안됨
+                 결론적으로 뷰량 연결되는게 아닌 데이터 연산만 되고 아작스는 실행되지 않음
+                  아작스는 보여지는 뷰페이지에 그대로 적용되기 때문에 매핑해 놓은 URL 부터 적절하지 않음 -->
             </form>
-
-            <div class="search-list" align="center">
-                <table>
-                    <tbody id="stock_list"></tbody>
-                </table>
-            </div>
+                <div class="search-list" align="center">
+                    <table>
+                        <tbody id="stock_list"></tbody>
+                    </table>
+                </div>
             <script>
                 //종목번호, 이름 입력칸에 검색창에서 찾은 종목번호나 이름을 클릭하면 자동으로 입력되게 만든 함수.
                 /*<![CDATA[*/
@@ -109,7 +111,7 @@
                     <input type="text" id="quantity" name="quantity" placeholder="구매수량"><br>
                     <input type="text" id="price" name="price" placeholder="구매가격"><br>
                     <button type="submit">내 포트폴리오에 추가</button>
-                    <button type="button" id="edit_port" onclick="showEditButton();">포트폴리오 수정</button>
+                    <button type=button id="edit_port" onclick="showEditButton();">포트폴리오 수정</button>
                 </div>
             </form>
 
@@ -122,9 +124,10 @@
                     <form action="/port_del" method="post">
                         <div th:if="${klist != null}" th:each="k : ${klist}">
                             <tr>
-                                <th rowspan="4" class="select_edit" th:value="a" style="display: none">선택<input type="checkbox"
-                                                                                                                name="checkedValue"
-                                                                                                                class="select_edit" th:value="${k.id}"></label></th>
+                                <th rowspan="4" class="select_edit" th:value="a" style="display: none">선택<input
+                                        type="checkbox"
+                                        name="checkedValue"
+                                        class="select_edit" th:value="${k.id}"></label></th>
                                 <th>종목코드</th>
                                 <th>종목명</th>
                                 <th>보유수량</th>
