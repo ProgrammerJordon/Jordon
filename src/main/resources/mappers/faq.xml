@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fBoard">
+
+    <!-- 게시물 저장 -->
+    <insert id="f_in" parameterType="f"> <!-- parameterType은 전달인자 자료형 타입이고,생략이 가능함. -->
+        insert into ftbl_board (fbno,writer,title,content,regdate) values(fbno_seq.nextval,#{writer},#{title},#{content},
+        sysdate)
+    </insert> <!-- #{title}은 b.getTitle()과 같은 효과가 발생한다. -->
+
+    <!-- 총레코드 개수 -->
+    <select id="f_count" resultType="int"> <!-- mybatis에서 resultType속성은 반환 자료형 타입 -->
+        select count(*) from ftbl_board
+    </select>
+
+    <!-- 목록 -->
+    <select id="f_list" parameterType="f" resultType="f">
+        select * from (select rowNum rNum,fbno,writer,title,viewcnt,regdate,replycnt
+        from (select * from ftbl_board order by
+        fbno desc)) where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+        <!--  &gt;은 >, &lt;은 < 를 의미 => 1이상이고 10이하이다.결국 한페이지 보여지는 최대목록개수는 10개로 제한. -->
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="f_hit"> <!-- 전달인자 타입인 parameterType은 생략가능 -->
+        update ftbl_board set viewcnt=viewcnt+1 where fbno=#{fbno}
+    </update>
+
+    <!-- 내용보기 -->
+    <select id="f_cont" parameterType="int" resultType="com.project.jordon.vo.FaqVO">
+        select * from ftbl_board where fbno=#{fbno}
+    </select>
+
+    <!-- 수정 -->
+    <update id="f_edit" parameterType="f">
+        update ftbl_board set writer=#{writer}, title=#{title}, content=#{content} where fbno=#{fbno}
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="f_del"> <!-- parameterType은 생략가능함. -->
+        delete from ftbl_board where fbno=#{fbno}
+    </delete>
+
+    <!-- 댓글 개수 카운터 -->
+    <update id="fupdateReplyCnt" parameterType="java.util.Map">
+        update ftbl_board set replycnt=replycnt+#{count} where fbno=#{fbno}
+    </update>
+
+</mapper>

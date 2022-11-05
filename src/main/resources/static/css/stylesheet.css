@@ -859,6 +859,10 @@ a {
     margin: 10px 0px;
 }
 
+.findo_head_login_text p {
+    color: #010101;
+}
+
 .findo_head_login p {
     font-size: 30px;
     font-weight: bold;
@@ -2033,6 +2037,7 @@ canvas {
 
 .portfolio_stock table {
     text-align: center;
+    border-radius: 10px;
 }
 
 .portfolio_stock table td {

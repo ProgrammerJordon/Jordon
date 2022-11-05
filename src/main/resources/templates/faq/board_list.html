@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+  <div class="total_findo">
+    <div th:replace="/include/header :: headerfragment"></div>
+    <h2>FINDO FAQ</h2>
+    <hr>
+    <div class="board_table">
+      <table border="1">
+        <tr>
+          <td colspan="5" align="right"><span th:if="${totalCount != null}" th:text="'총 게시물 수 : '+${totalCount}+'개'"></span></td>
+        </tr>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>조회수</th>
+          <th>등록날짜</th>
+        </tr>
+        <th:block th:if="${list != null}">
+          <tr th:each="b : ${list}">
+            <th><span th:text="${b.fbno}"></span></th>
+            <th><a th:href="@{/faq/board_cont(fbno=${b.fbno},page=${page})}"><span th:text="${b.title}"></span></a></th>
+            <th><span th:text="${b.writer}"></span></th>
+            <th><span th:text="${b.viewcnt}"></span></th>
+            <th><span th:text="${b.regdate}"></span></th>
+          </tr>
+          </th:each>
+        </th:block>
+
+          <tr th:if="${list == null}">
+            <th colspan="5"><span th:text="${'목록이 없습니다.'}"></span></th>
+          </tr>
+          <tr>
+            <td colspan="5"><span th:if="${totalCount == null}" th:text="'목록이 삭제되었습니다.'"></span></td>
+          </tr>
+
+        <!-- 쪽번호 관련 -->
+
+        <tr>
+          <th colspan="5">
+            <span th:if="${page <= 1}" th:text="이전"></span>
+
+            <span th:if="${page > 1}"><a th:href="@{/faq/board_list(page=${page}-1)}" th:text="이전"></a></span>
+
+            <th:block th:each="a : ${endpage}"><span th:if="${a == page}" th:text="' < '+${a}+' > '"></span>
+              <span th:if="${a != page}"><a th:href="@{/faq/board_list(page=${a})}" th:text="' < '+${page}+' > '"> </a></span>
+            </th:block>
+
+            <span th:if="${page >= maxpage}"><span th:text="다음"></span></span>
+
+            <span th:if="${page < maxpage}"><a th:href="@{/faq/board_list(page=${page}+1)}" th:text="다음"></a></span>
+          </th>
+        </tr>
+
+
+        <tr>
+          <td colspan="5" align="right">
+            <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/faq/board_write(page=${page})}'|" />
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <div th:replace="/include/footer :: footerfragment"></div>
+  </div>
+</div>
+</body>
+</html>

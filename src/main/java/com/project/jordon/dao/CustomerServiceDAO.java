@@ -6,4 +6,5 @@ public interface CustomerServiceDAO {
 
     // 문의글 저장
     void insertCustomerservice(CustomerServiceVO c);
+    //List<CustomerServiceVO> getBoardList(CustomerServiceVO c);
 }

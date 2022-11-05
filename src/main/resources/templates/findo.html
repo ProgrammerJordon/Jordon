@@ -79,6 +79,64 @@
                 </div>
                 <div class="findo_head_login_text" th:unless="${session.session == null}">
                     <p th:text="${session.session}+'님 반갑습니다.'"></p>
+                    <hr>
+                    <h4 th:text="'현재 자산현황'"></h4>
+                    <hr>
+                    <div class="portfolio_stock">
+                        <table border="1">
+                                <div th:if="${klist != null}" th:each="k : ${klist}">
+                                    <tr>
+                                        <th rowspan="4" class="select_edit" th:value="a" style="display: none">선택<input
+                                                type="checkbox"
+                                                name="checkedValue"
+                                                class="select_edit" th:value="${k.id}"></label></th>
+                                        <th>종목코드</th>
+                                        <th>종목명</th>
+                                        <th>보유수량</th>
+                                        <th>평균단가</th>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <span th:text="${k.id}"></span>
+                                        </td>
+
+                                        <td style="text-align: center;">
+                                            <a th:href="@{/port_cont(portfolionumber=${k.id})}"
+                                               style="text-decoration: none; color:black;">
+                                                <span th:text="${k.name}"></span>
+                                            </a>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <span th:text="${k.quantity}"></span>
+                                        </td>
+                                        <td rowspan="3" style="text-align: center;">
+                                            <span th:text="${k.avgprice}"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>현재가</th>
+                                        <th>수익률</th>
+                                        <th>손익</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <span th:text="${k.currentPrice}"></span>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <span th:text="${k.profitAndLoss}"></span>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <span th:text="${k.eprice}"></span>
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div th:if="${klist == null}">
+                                    <tr>
+                                        <th colspan="5">보유한 종목이 없습니다.</th>
+                                    </tr>
+                                </div>
+                        </table>
+                    </div>
                 </div>
             </div>
         </header><!-- header -->
@@ -119,7 +177,7 @@
             </div>
             <div class="main_bottom_bottom">
                 <h2>Honoring The Contributors</h2>
-                <a th:href="@{/community}"><img src="/images/employee.png"></a>
+                <a th:href="@{/announcement/board_list}"><img src="/images/employee.png"></a>
             </div> <!-- main_bottom -->
         </div> <!-- findo_main -->
         <!-- footer -->
@@ -136,7 +194,7 @@
                 </div>
                 <div class="footer_top_list">
                     <li><a th:href="@{/management}">Management</a></li>
-                    <li><a th:href="@{/FAQ}">FAQ</a></li>
+                    <li><a th:href="@{/faq/board_list}">FAQ</a></li>
                 </div>
             </div> <!-- footer_top-->
             <hr>

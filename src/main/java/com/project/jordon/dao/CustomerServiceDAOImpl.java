@@ -15,4 +15,9 @@ public class CustomerServiceDAOImpl implements CustomerServiceDAO {
     public void insertCustomerservice(CustomerServiceVO c) {
         this.sqlSession.insert("customerservice_insert", c);
     }
+
+//    @Override
+//    public List<CustomerServiceVO> getBoardList(CustomerServiceVO c) {
+//        return this.sqlSession.selectList("c", c)
+//    }
 }
