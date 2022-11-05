@@ -9,6 +9,7 @@
         <typeAlias type="com.project.jordon.vo.MemberVO" alias="m"/>
         <typeAlias type="com.project.jordon.vo.CustomerServiceVO" alias="c"/>
         <typeAlias type="com.project.jordon.vo.BoardVO" alias="b"/>
+        <typeAlias type="com.project.jordon.vo.AnnouncementVO" alias="a"/>
         <typeAlias type="com.project.jordon.vo.MessageVO" alias="message"/>
         <typeAlias type="com.project.jordon.vo.ReplyVO" alias="r"/>
         <typeAlias type="com.project.jordon.vo.PortfolioVO" alias="p"/>

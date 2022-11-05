@@ -1,12 +1,8 @@
 package com.project.jordon.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -70,11 +66,6 @@ public class MainController {
     @RequestMapping("/personal_info_law")
     public String findo_personal_info_law() {
         return "findo_personal_info_law";
-    }
-
-    @RequestMapping("/management_announcement")
-    public String findo_management_announcement() {
-        return "findo_management_announcement";
     }
 
     @RequestMapping("/signup_agreement")

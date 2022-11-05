@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aBoard">
+
+    <!-- 게시물 저장 -->
+    <insert id="a_in" parameterType="a"> <!-- parameterType은 전달인자 자료형 타입이고,생략이 가능함. -->
+        insert into atbl_board (abno,writer,title,content,regdate) values(abno_seq.nextval,#{writer},#{title},#{content},
+        sysdate)
+    </insert> <!-- #{title}은 b.getTitle()과 같은 효과가 발생한다. -->
+
+    <!-- 총레코드 개수 -->
+    <select id="a_count" resultType="int"> <!-- mybatis에서 resultType속성은 반환 자료형 타입 -->
+        select count(*) from atbl_board
+    </select>
+
+    <!-- 목록 -->
+    <select id="a_list" parameterType="a" resultType="a">
+        select * from (select rowNum rNum,abno,writer,title,viewcnt,regdate,replycnt
+        from (select * from atbl_board order by
+        abno desc)) where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+        <!--  &gt;은 >, &lt;은 < 를 의미 => 1이상이고 10이하이다.결국 한페이지 보여지는 최대목록개수는 10개로 제한. -->
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="a_hit"> <!-- 전달인자 타입인 parameterType은 생략가능 -->
+        update atbl_board set viewcnt=viewcnt+1 where abno=#{abno}
+    </update>
+
+    <!-- 내용보기 -->
+    <select id="a_cont" parameterType="int" resultType="com.project.jordon.vo.AnnouncementVO">
+        select * from atbl_board where abno=#{abno}
+    </select>
+
+    <!-- 수정 -->
+    <update id="a_edit" parameterType="a">
+        update atbl_board set writer=#{writer}, title=#{title}, content=#{content} where abno=#{abno}
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="a_del"> <!-- parameterType은 생략가능함. -->
+        delete from atbl_board where abno=#{abno}
+    </delete>
+
+    <!-- 댓글 개수 카운터 -->
+    <update id="aupdateReplyCnt" parameterType="java.util.Map">
+        update atbl_board set replycnt=replycnt+#{count} where abno=#{abno}
+    </update>
+
+</mapper>

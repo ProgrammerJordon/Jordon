@@ -6,7 +6,7 @@
 <div class="wrapper_findo">
   <div class="total_findo">
     <div th:replace="/include/header :: headerfragment"></div>
-    <h2>FINDO 알림</h2>
+    <h2>FINDO 경영공지</h2>
     <hr>
     <div class="board_table">
       <table border="1">
@@ -22,8 +22,8 @@
         </tr>
         <th:block th:if="${list != null}">
           <tr th:each="b : ${list}">
-            <th><span th:text="${b.bno}"></span></th>
-            <th><a th:href="@{/board/board_cont(bno=${b.bno},page=${page})}"><span th:text="${b.title}"></span></a></th>
+            <th><span th:text="${b.abno}"></span></th>
+            <th><a th:href="@{/announcement/board_cont(abno=${b.abno},page=${page})}"><span th:text="${b.title}"></span></a></th>
             <th><span th:text="${b.writer}"></span></th>
             <th><span th:text="${b.viewcnt}"></span></th>
             <th><span th:text="${b.regdate}"></span></th>
@@ -44,22 +44,22 @@
           <th colspan="5">
             <span th:if="${page <= 1}" th:text="이전"></span>
 
-            <span th:if="${page > 1}"><a th:href="@{/board/board_list(page=${page}-1)}" th:text="이전"></a></span>
+            <span th:if="${page > 1}"><a th:href="@{/announcement/board_list(page=${page}-1)}" th:text="이전"></a></span>
 
             <th:block th:each="a : ${endpage}"><span th:if="${a == page}" th:text="' < '+${a}+' > '"></span>
-              <span th:if="${a != page}"><a th:href="@{/board/board_list(page=${a})}" th:text="' < '+${page}+' > '"> </a></span>
+              <span th:if="${a != page}"><a th:href="@{/announcement/board_list(page=${a})}" th:text="' < '+${page}+' > '"> </a></span>
             </th:block>
 
             <span th:if="${page >= maxpage}"><span th:text="다음"></span></span>
 
-            <span th:if="${page < maxpage}"><a th:href="@{/board/board_list(page=${page}+1)}" th:text="다음"></a></span>
+            <span th:if="${page < maxpage}"><a th:href="@{/announcement/board_list(page=${page}+1)}" th:text="다음"></a></span>
           </th>
         </tr>
 
 
         <tr>
           <td colspan="5" align="right">
-            <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/board/board_write(page=${page})}'|" />
+            <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/announcement/board_write(page=${page})}'|" />
           </td>
         </tr>
 
