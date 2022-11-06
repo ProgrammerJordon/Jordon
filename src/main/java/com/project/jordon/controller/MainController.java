@@ -28,7 +28,6 @@ public class MainController {
     @RequestMapping("/findo")
     public String index(Model listM, PortfolioVO pvo, HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception{
 
-
         response.setContentType("text/html;Charset=UTF-8");
         String id = (String) session.getAttribute("session");
         PrintWriter out = response.getWriter();

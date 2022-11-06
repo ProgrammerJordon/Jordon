@@ -81,6 +81,9 @@
                     <p th:text="${session.session}+'님 반갑습니다.'"></p>
                     <hr>
                     <h4 th:text="'현재 자산현황'"></h4>
+                    <div class="findo_head_login_text_h5">
+                        <p>*사용자 증권사별 수수료의 차이로 실제 수익률과 상의할 수 있습니다.*</p>
+                    </div>
                     <hr>
                     <div class="portfolio_stock">
                         <table border="1">
@@ -164,12 +167,12 @@
             </div>
             <div class="main_middle_bottom">
                 <h2>Share Information Community With Shareholders</h2>
-                <a th:href="@{/community}"><img src="/images/career2.jpg"></a>
+                <a th:href="@{//announcement/board_list}"><img src="/images/career2.jpg"></a>
             </div> <!-- main_middel -->
 
             <div class="main_bottom_top">
                 <h2>Show Me The Your Portfolio</h2>
-                <a th:href="@{/community}"><img src="/images/career3.jpg"></a>
+                <a th:href="@{/products}"><img src="/images/career3.jpg"></a>
             </div>
             <div class="main_bottom_middle">
                 <h2>Profit Rankers In Findo</h2>
@@ -177,7 +180,7 @@
             </div>
             <div class="main_bottom_bottom">
                 <h2>Honoring The Contributors</h2>
-                <a th:href="@{/announcement/board_list}"><img src="/images/employee.png"></a>
+                <a th:href="@{/company}"><img src="/images/employee.png"></a>
             </div> <!-- main_bottom -->
         </div> <!-- findo_main -->
         <!-- footer -->

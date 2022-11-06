@@ -122,6 +122,12 @@ a {
     background: #d7f5df;
 }
 
+.findo_head_login_text .findo_head_login_text_h5 p {
+    text-align: right;
+    font-size: 5px;
+    font-weight: bold;
+}
+
 .findo_head_login_text button {
     border: 2px solid #5fbb91;
     border-radius: 5px;
