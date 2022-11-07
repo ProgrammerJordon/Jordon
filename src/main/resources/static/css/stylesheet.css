@@ -2,6 +2,7 @@
 body {
     margin: 0px;
 }
+
 .wrapper_findo {
     display: flex;
     justify-content: center;
@@ -41,7 +42,6 @@ a {
     width: 600px;
     height: 100vh;
 }
-
 
 
 .findo_head_icons_left button {
@@ -89,17 +89,19 @@ a {
 
 .findo_head_button a {
     color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
 }
+
 .findo_head_button a:after {
-    display:block;
+    display: block;
     content: '';
     border-bottom: 4px solid black;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
+
 .findo_head_button a:hover:after {
     transform: scaleX(1);
 }
@@ -122,9 +124,9 @@ a {
     background: #d7f5df;
 }
 
-.findo_head_login_text .findo_head_login_text_h5 p {
+.findo_head_login .findo_head_login_text .findo_head_login_text_h5 p {
     text-align: right;
-    font-size: 5px;
+    font-size: 10px;
     font-weight: bold;
 }
 
@@ -139,757 +141,7 @@ a {
     padding: 10px 20px;
     text-decoration: none;
 }
-/*header css */
-/*main.css*/
-.findo_main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 
-}
-
-.findo_main img {
-   margin: 20px;
-}
-
-main_top_top h2 {
-    text-align: left;
-}
-
-.main_top_top img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_top_middle img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_top_bottom img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_middle_top img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_middle_middle img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_middle_bottom img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_bottom_top img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_bottom_middle img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.main_bottom_bottom img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-/*main.css*/
-
-/*footer*/
-footer_middle img{
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-/*footer*/
-.footer_top {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0px;
-}
-
-/* footer_top a hover */
-
-.footer_top a {
-    color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
-}
-.footer_top a:after {
-    display:block;
-    content: '';
-    border-bottom: 4px solid black;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-.footer_top a:hover:after {
-    transform: scaleX(1);
-}
-
-/* footer_top a hover */
-
-
-.footer_top_list li {
-    list-style: none;
-    margin: 20px 0px;
-}
-
-.footer_top_list a {
-    text-decoration: none;
-    font-size: 30px;
-
-}
-
-.footer_middle {
-    border-top: 2px solid #5fbb91;
-    border-bottom: 2px solid #5fbb91;
-}
-
-.footer_middle img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.footer_bottom {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0px;
-}
-
-.footer_bottom_top_list li {
-    list-style: none;
-    margin: 20px 0px;
-}
-
-.footer_bottom_top_list a {
-    text-decoration: none;
-    font-size: 30px;
-}
-
-/* footer hover underline */
-.footer_bottom_top_list a {
-    color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
-}
-.footer_bottom_top_list a:after {
-    display:block;
-    content: '';
-    border-bottom: 4px solid black;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-.footer_bottom_top_list a:hover:after {
-    transform: scaleX(1);
-}
-/* footer hover underline */
-
-.footer_bottom_middle {
-    font-size: 20px;
-}
-
-.footer_bottom_bottom {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer_bottom_bottom_top {
-    font-size: 15px;
-}
-
-.footer_bottom_bottom_middle a {
-    font-size: 20px;
-    text-decoration: none;
-}
-
-/* findo_search */
-
-.search_main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.input-area input{
-    padding: 20px 60px;
-    font-size: 25px;
-    text-align: center;
-    margin: 20px 0px;
-}
-
-.input-area i {
-    color: #5fbb91;
-}
-
-.language-area p {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.input-area i {
-    font-size: 40px;
-}
-
-.search_main_advertise img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-/* findo_search */
-
-/* findo_investment */
-.findo_investment_wrapper {
-    text-align: center;
-    border-top: 1px solid #5fbb91;
-}
-
-.findo_investment_wrapper img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.findo_investment_wrapper h2 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #5fbb91;
-}
-
-.findo_investment_main_top {
-    margin-top: 20px;
-}
-
-.findo_investment_main_top img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.findo_investment_main_middle img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.findo_investment_main_bottom img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.findo_investment_advertisement img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-/* findo_investment */
-
-/* findo_company */
-.findo_company_wrapper h2 {
-    text-align: center;
-}
-
-.findo_company_wrapper p {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.findo_company_main_top img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main_middle img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main_bottom img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-top img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-middle img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-middle-middel img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-middle-bottom img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-bottom img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-
-.findo_company_main-footer-bottom-bottom img {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-}
-/* findo_company */
-
-/* findo_login */
-
-.wrapper_total_login {
-    display: flex;
-    justify-content: center;
-}
-
-.wrapper_login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.login_main {
-    text-align: center;
-    color: #5fbb91;
-}
-
-.login_main_login_id input {
-    font-size: 20px;
-    padding: 20px 40px;
-    margin-bottom: 10px;
-    border: 2px solid #5fbb91;
-}
-
-.login_main_login_password input {
-    font-size: 20px;
-    padding: 20px 40px;
-    margin: 10px 0px;
-    border: 2px solid #5fbb91;
-}
-
-.login_main_function {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    color: #5fbb91;
-}
-
-.login_main_button input {
-    text-align: center;
-    font-size: 20px;
-    padding: 10px 40px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #5fbb91;
-    color: #5fbb91;
-}
-
-.login_main_button input:hover {
-    background-color: #d7f5df;
-    color: #5fbb91;
-}
-
-.login_search {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.login_search li {
-    display: flex;
-    list-style: none;
-}
-
-.login_search a {
-    text-decoration: none;
-}
-
-.login_advertisement img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.login_logo img {
-    width: 600px;
-    height: 200px;
-}
-.login_law {
-    display: flex;
-}
-
-.login_law li{
-    list-style: none;
-    text-decoration: none;
-}
-
-.login_law a{
-    text-decoration: none;
-}
-/* findo_login */
-
-/* findo_signup_agreement */
-.signup_agreement_form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.signup_agreement_logo img {
-    width: 600px;
-    height: 200px;
-}
-
-.signup_agreement_title h2 {
-    color: #5fbb91;
-}
-
-.signup_agreement_form textarea {
-    margin: 10px 0px;
-    border: 2px solid #5fbb91;
-}
-
-.signup_agreement_form_button input {
-    font-size: 30px;
-    padding: 10px 30px;
-    background-color: white;
-    border: 2px solid #5fbb91;
-    color: #5fbb91;
-    border-radius: 5px;
-    margin-right: 20px;
-}
-
-.signup_agreement_form_button input:hover {
-    background-color: #d7f5df;
-}
-.signup_agreement_submit_footer {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* show menu */
-.menu_bg {
-    width: 75%;
-    height: 100vh;
-    position: fixed;
-    top:0px;
-    left:0px;
-    overflow: hidden;
-    display: none;
-}
-.menu {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:50%;
-    height: 100%;
-    background-color:#5fbb91;
-}
-.menu > div {
-    padding: 2%;
-}
-
-.hidemenu {
-    width: 96%;
-    text-align: right;
-}
-
-.hidemenu_login {
-    background-color: #5fbb91;
-}
-
-.hidemenu_login_text span{
-    margin: 10px 0px;
-    padding: 10px 0px;
-}
-
-.hidemenu_login_text button {
-    border-radius: 5px;
-}
-
-.hidemenu_login_text p {
-    font-size: 20px;
-}
-
-.hidemenu_login button {
-    font-size: 40px;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.hidemenu_login button a {
-    text-decoration: none;
-}
-
-.hidemenu_login span {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 20px 0px;
-    margin: 10px 0px;
-}
-
-.hidemenu_login p {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-.hidemenu_login a {
-    color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
-}
-.hidemenu_login a:after {
-    display:block;
-    content: '';
-    border-bottom: 4px solid black;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-.hidemenu_login a:hover:after {
-    transform: scaleX(1);
-}
-
-/* show menu */
-
-/* findo_products */
-.index_product_wrapper {
-    text-align: center;
-}
-
-.index_product_wrapper img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-    cursor: grabbing;
-}
-
-.index_product_wrapper p {
-    font-size: 20px;
-    font-weight: bold;
-}
-/* findo_products */
-
-/* findo_management */
-
-.findo_management_wrapper {
-    border-top: 1px solid #5fbb91;
-    padding-top : 20px;
-}
-
-.findo_management_wrapper img {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.findo_management_wrapper h2 {
-    text-align: center;
-}
-
-.findo_management_wrapper p {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-/* findo_management */
-
-/*header css */
-body {
-    margin: 0px;
-}
-.wrapper_findo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.wrapper_findo a {
-    cursor: grabbing;
-}
-
-p {
-    color: #5fbb91;
-}
-
-span {
-    color: #5fbb91;
-}
-
-button {
-    color: #5fbb91;
-    background: white;
-    border: none;
-    font-weight: bold;
-}
-
-li {
-    color: #5fbb91;
-    font-weight: bold;
-}
-
-a {
-    color: #5fbb91;
-    font-weight: bold;
-}
-
-.total_findo {
-    width: 600px;
-    height: 100vh;
-}
-
-
-
-.findo_head_icons_left button {
-    font-size: 20px;
-}
-
-.findo_head_icons_right a {
-    font-size: 20px;
-}
-
-.findo_head_icons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-}
-
-.findo_head_icons button:hover {
-    color: #5fbb91;
-    background: #d7f5df;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px
-}
-
-.findo_head_logo img {
-    width: 600px;
-    height: 200px;
-}
-
-.findo_head_button {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding: 20px 0px 0px 0px;
-    border-top: 2px solid #5fbb91;
-}
-
-.findo_head_button a {
-    font-size: 30px;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
-/* findo_head_button hover */
-
-.findo_head_button a {
-    color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
-}
-.findo_head_button a:after {
-    display:block;
-    content: '';
-    border-bottom: 4px solid black;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-.findo_head_button a:hover:after {
-    transform: scaleX(1);
-}
-
-/* findo_head_button hover */
-
-.findo_head_login {
-    font-size: 30px;
-    margin: 20px 0px;
-    border-top: 2px solid #5fbb91;
-    border-bottom: 1px solid #5fbb91;
-}
-
-.findo_head_login_text {
-    text-align: center;
-    margin: 10px 0px;
-}
-
-.findo_head_login_text p {
-    color: #010101;
-}
-
-.findo_head_login p {
-    font-size: 30px;
-    font-weight: bold;
-
-}
-
-.findo_head_login_text button:hover {
-    background: #d7f5df;
-}
-
-.findo_head_login_text button {
-    border: 2px solid #5fbb91;
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-
-.findo_head_login_text a {
-    font-size: 30px;
-    padding: 10px 20px;
-    text-decoration: none;
-}
 /*header css */
 /*main.css*/
 .findo_main {
@@ -966,11 +218,12 @@ main_top_top h2 {
 /*main.css*/
 
 /*footer*/
-footer_middle img{
+footer_middle img {
     width: 600px;
     height: 500px;
     border-radius: 20px;
 }
+
 /*footer*/
 .footer_top {
     display: flex;
@@ -982,17 +235,19 @@ footer_middle img{
 
 .footer_top a {
     color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
 }
+
 .footer_top a:after {
-    display:block;
+    display: block;
     content: '';
     border-bottom: 4px solid black;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
+
 .footer_top a:hover:after {
     transform: scaleX(1);
 }
@@ -1041,20 +296,23 @@ footer_middle img{
 /* footer hover underline */
 .footer_bottom_top_list a {
     color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
 }
+
 .footer_bottom_top_list a:after {
-    display:block;
+    display: block;
     content: '';
     border-bottom: 4px solid black;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
+
 .footer_bottom_top_list a:hover:after {
     transform: scaleX(1);
 }
+
 /* footer hover underline */
 
 .footer_bottom_middle {
@@ -1068,10 +326,6 @@ footer_middle img{
 
 .footer_bottom_bottom_top {
     font-size: 15px;
-}
-
-.footer_bottom_bottom_middle {
-    margin-bottom: 20px;
 }
 
 .footer_bottom_bottom_middle a {
@@ -1088,11 +342,15 @@ footer_middle img{
     align-items: center;
 }
 
-.input-area input{
+.input-area input {
     padding: 20px 60px;
     font-size: 25px;
     text-align: center;
     margin: 20px 0px;
+}
+
+.input-area i {
+    color: #5fbb91;
 }
 
 .language-area p {
@@ -1109,6 +367,7 @@ footer_middle img{
     height: 500px;
     border-radius: 20px;
 }
+
 /* findo_search */
 
 /* findo_investment */
@@ -1229,6 +488,778 @@ footer_middle img{
     height: 400px;
     border-radius: 20px;
 }
+
+/* findo_company */
+
+/* findo_login */
+
+.wrapper_total_login {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_main {
+    text-align: center;
+    color: #5fbb91;
+}
+
+.login_main_login_id input {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin-bottom: 10px;
+    border: 2px solid #5fbb91;
+}
+
+.login_main_login_password input {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin: 10px 0px;
+    border: 2px solid #5fbb91;
+}
+
+.login_main_function {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #5fbb91;
+}
+
+.login_main_button input {
+    text-align: center;
+    font-size: 20px;
+    padding: 20px 60px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #5fbb91;
+    color: #5fbb91;
+}
+
+.login_main_button input:hover {
+    background-color: #d7f5df;
+    color: #5fbb91;
+}
+
+.login_search {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.login_search li {
+    display: flex;
+    list-style: none;
+}
+
+.login_search a {
+    text-decoration: none;
+}
+
+.login_advertisement img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.login_logo img {
+    width: 600px;
+    height: 200px;
+}
+
+.login_law {
+    display: flex;
+}
+
+.login_law li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.login_law a {
+    text-decoration: none;
+}
+
+/* findo_login */
+
+/* findo_signup_agreement */
+.signup_agreement_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_agreement_logo img {
+    width: 600px;
+    height: 200px;
+}
+
+.signup_agreement_title h2 {
+    color: #5fbb91;
+}
+
+.signup_agreement_form textarea {
+    margin: 10px 0px;
+    border: 2px solid #5fbb91;
+}
+
+.signup_agreement_form_button input {
+    font-size: 30px;
+    padding: 10px 30px;
+    background-color: white;
+    border: 2px solid #5fbb91;
+    color: #5fbb91;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.signup_agreement_form_button input:hover {
+    background-color: #d7f5df;
+}
+
+.signup_agreement_submit_footer {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* show menu */
+.menu_bg {
+    width: 75%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background-color: #5fbb91;
+}
+
+.menu > div {
+    padding: 2%;
+}
+
+.hidemenu {
+    width: 96%;
+    text-align: right;
+}
+
+.hidemenu_login {
+    background-color: #5fbb91;
+}
+
+.hidemenu_login_text span {
+    margin: 10px 0px;
+    padding: 10px 0px;
+}
+
+.hidemenu_login_text button {
+    border-radius: 5px;
+}
+
+.hidemenu_login_text p {
+    font-size: 20px;
+}
+
+.hidemenu_login button {
+    font-size: 40px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.hidemenu_login button a {
+    text-decoration: none;
+}
+
+.hidemenu_login span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 20px 0px;
+    margin: 10px 0px;
+}
+
+.hidemenu_login p {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.hidemenu_login a {
+    color: #5fbb91;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.hidemenu_login a:after {
+    display: block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.hidemenu_login a:hover:after {
+    transform: scaleX(1);
+}
+
+/* show menu */
+
+/* findo_products */
+.index_product_wrapper {
+    text-align: center;
+}
+
+.index_product_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    cursor: grabbing;
+}
+
+.index_product_wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* findo_products */
+
+/* findo_management */
+
+.findo_management_wrapper {
+    border-top: 1px solid #5fbb91;
+    padding-top: 20px;
+}
+
+.findo_management_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_management_wrapper h2 {
+    text-align: center;
+}
+
+.findo_management_wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* findo_management */
+
+/*header css */
+body {
+    margin: 0px;
+}
+
+.wrapper_findo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper_findo a {
+    cursor: grabbing;
+}
+
+p {
+    color: #5fbb91;
+}
+
+span {
+    color: #5fbb91;
+}
+
+button {
+    color: #5fbb91;
+    background: white;
+    border: none;
+    font-weight: bold;
+}
+
+li {
+    color: #5fbb91;
+    font-weight: bold;
+}
+
+a {
+    color: #5fbb91;
+    font-weight: bold;
+}
+
+.total_findo {
+    width: 600px;
+    height: 100vh;
+}
+
+
+.findo_head_icons_left button {
+    font-size: 20px;
+}
+
+.findo_head_icons_right a {
+    font-size: 20px;
+}
+
+.findo_head_icons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.findo_head_icons button:hover {
+    color: #5fbb91;
+    background: #d7f5df;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px
+}
+
+.findo_head_logo img {
+    width: 600px;
+    height: 200px;
+}
+
+.findo_head_button {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+    border-top: 2px solid #5fbb91;
+}
+
+.findo_head_button a {
+    font-size: 30px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+/* findo_head_button hover */
+
+.findo_head_button a {
+    color: #5fbb91;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.findo_head_button a:after {
+    display: block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.findo_head_button a:hover:after {
+    transform: scaleX(1);
+}
+
+/* findo_head_button hover */
+
+.findo_head_login {
+    font-size: 30px;
+    margin: 20px 0px;
+    border-top: 2px solid #5fbb91;
+    border-bottom: 1px solid #5fbb91;
+}
+
+.findo_head_login_text {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.findo_head_login_text p {
+    color: #010101;
+}
+
+.findo_head_login p {
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.findo_head_login_text button:hover {
+    background: #d7f5df;
+}
+
+.findo_head_login_text button {
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.findo_head_login_text a {
+    font-size: 30px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+/*header css */
+/*main.css*/
+.findo_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.findo_main img {
+    margin: 20px;
+}
+
+main_top_top h2 {
+    text-align: left;
+}
+
+.main_top_top img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_top_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_top_bottom img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_middle_top img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_middle_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_middle_bottom img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_bottom_top img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_bottom_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.main_bottom_bottom img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+/*main.css*/
+
+/*footer*/
+footer_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+/*footer*/
+.footer_top {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+/* footer_top a hover */
+
+.footer_top a {
+    color: #5fbb91;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.footer_top a:after {
+    display: block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.footer_top a:hover:after {
+    transform: scaleX(1);
+}
+
+/* footer_top a hover */
+
+
+.footer_top_list li {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+.footer_top_list a {
+    text-decoration: none;
+    font-size: 30px;
+
+}
+
+.footer_middle {
+    border-top: 2px solid #5fbb91;
+    border-bottom: 2px solid #5fbb91;
+}
+
+.footer_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.footer_bottom_top_list li {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+.footer_bottom_top_list a {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+/* footer hover underline */
+.footer_bottom_top_list a {
+    color: #5fbb91;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.footer_bottom_top_list a:after {
+    display: block;
+    content: '';
+    border-bottom: 4px solid black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.footer_bottom_top_list a:hover:after {
+    transform: scaleX(1);
+}
+
+/* footer hover underline */
+
+.footer_bottom_middle {
+    font-size: 20px;
+}
+
+.footer_bottom_bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_bottom_bottom_top {
+    font-size: 15px;
+}
+
+.footer_bottom_bottom_middle {
+    margin-bottom: 20px;
+}
+
+.footer_bottom_bottom_middle a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* findo_search */
+
+.search_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area input {
+    padding: 20px 60px;
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.language-area p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.input-area i {
+    font-size: 40px;
+}
+
+.search_main_advertise img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+/* findo_search */
+
+/* findo_investment */
+.findo_investment_wrapper {
+    text-align: center;
+    border-top: 1px solid #5fbb91;
+}
+
+.findo_investment_wrapper img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_wrapper h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5fbb91;
+}
+
+.findo_investment_main_top {
+    margin-top: 20px;
+}
+
+.findo_investment_main_top img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_main_middle img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_main_bottom img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.findo_investment_advertisement img {
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+/* findo_investment */
+
+/* findo_company */
+.findo_company_wrapper h2 {
+    text-align: center;
+}
+
+.findo_company_wrapper p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.findo_company_main_top img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main_middle img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main_bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-top img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle-middel img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-middle-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.findo_company_main-footer-bottom-bottom img {
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
 /* findo_company */
 
 /* findo_login */
@@ -1310,18 +1341,20 @@ footer_middle img{
     width: 600px;
     height: 200px;
 }
+
 .login_law {
     display: flex;
 }
 
-.login_law li{
+.login_law li {
     list-style: none;
     text-decoration: none;
 }
 
-.login_law a{
+.login_law a {
     text-decoration: none;
 }
+
 /* findo_login */
 
 /* findo_signup_agreement */
@@ -1358,6 +1391,7 @@ footer_middle img{
 .signup_agreement_form_button input:hover {
     background-color: #d7f5df;
 }
+
 .signup_agreement_submit_footer {
     margin-bottom: 40px;
     text-align: center;
@@ -1368,19 +1402,21 @@ footer_middle img{
     width: 75%;
     height: 100vh;
     position: fixed;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
     overflow: hidden;
     display: none;
 }
+
 .menu {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
     height: 100%;
-    background-color:#5fbb91;
+    background-color: #5fbb91;
 }
+
 .menu > div {
     padding: 2%;
 }
@@ -1419,17 +1455,19 @@ footer_middle img{
 
 .hidemenu_login a {
     color: #5fbb91;
-    display:inline-block;
-    margin:0;
-    text-transform:uppercase;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
 }
+
 .hidemenu_login a:after {
-    display:block;
+    display: block;
     content: '';
     border-bottom: 4px solid black;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
+
 .hidemenu_login a:hover:after {
     transform: scaleX(1);
 }
@@ -1452,13 +1490,14 @@ footer_middle img{
     font-size: 20px;
     font-weight: bold;
 }
+
 /* findo_products */
 
 /* findo_management */
 
 .findo_management_wrapper {
     border-top: 1px solid #5fbb91;
-    padding-top : 20px;
+    padding-top: 20px;
 }
 
 .findo_management_wrapper img {
@@ -1476,6 +1515,7 @@ footer_middle img{
     font-weight: bold;
     text-align: center;
 }
+
 /* findo_management */
 
 /* findo_signup_form */
@@ -1490,7 +1530,7 @@ footer_middle img{
     height: 250px;
 }
 
-.findo_signup_form div{
+.findo_signup_form div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1609,6 +1649,7 @@ footer_middle img{
     border: 2px solid #5fbb91;
     color: #5fbb91;
 }
+
 /* findo_signup_completement */
 
 /* address API */
@@ -1697,6 +1738,7 @@ footer_middle img{
     margin-bottom: 10px;
     border-bottom: 2px solid #5fbb91;
 }
+
 .chart input {
     font-size: 20px;
     font-weight: bold;
@@ -1737,6 +1779,7 @@ footer_middle img{
     padding: 20px 20px;
     color: black;
 }
+
 /* search_cont */
 
 canvas {
@@ -1915,6 +1958,7 @@ canvas {
     background-color: white;
     padding: 10px 20px;
 }
+
 .board_cont2 th input:hover {
     background-color: #d7f5df;
 }
@@ -1962,6 +2006,7 @@ canvas {
 .board_write tr th input:hover {
     background-color: #d7f5df;
 }
+
 /* board_write*/
 
 /* board_edit*/
@@ -2004,6 +2049,7 @@ canvas {
     font-size: 20px;
     width: 99%;
 }
+
 /* board_edit*/
 
 /* search */
@@ -2024,6 +2070,7 @@ canvas {
 .seaech_id_wrapper a input:hover {
     background-color: #d7f5df;
 }
+
 .search_password_wrapper {
     text-align: center;
 }
@@ -2041,6 +2088,7 @@ canvas {
 .search_password_wrapper a input:hover {
     background-color: #d7f5df;
 }
+
 /* portfolio */
 .port_cont {
     margin: 10px 0px;
@@ -2054,6 +2102,7 @@ canvas {
 .portfolio_stock table td {
     text-align: center;
 }
+
 .portfolio_stock table td span {
     text-align: center;
 }
@@ -2139,6 +2188,7 @@ canvas {
     justify-content: center;
     align-items: center;
 }
+
 .game_canvas {
     text-align: center;
 }
@@ -2271,12 +2321,10 @@ canvas {
 }
 
 
-
 /* 미디어쿼리 반응형 작업 */
 
 
-
-@media (max-width: 386px) {
+@media (max-width: 610px) {
 
     /*header css */
     body {
@@ -2292,6 +2340,7 @@ canvas {
         font-size: 15px;
         font-weight: bold;
     }
+
     .wrapper_findo {
         display: flex;
         justify-content: center;
@@ -2331,7 +2380,6 @@ canvas {
         width: 320px;
         height: 100vh;
     }
-
 
 
     .findo_head_icons_left button {
@@ -2376,26 +2424,26 @@ canvas {
     }
 
     /* findo_head_button hover */
-
     .findo_head_button a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .findo_head_button a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .findo_head_button a:hover:after {
         transform: scaleX(1);
     }
 
     /* findo_head_button hover */
-
     .findo_head_login {
         font-size: 15px;
         margin: 10px 0px;
@@ -2412,10 +2460,9 @@ canvas {
         background: #d7f5df;
     }
 
-    .findo_head_login_text .findo_head_login_text_h5 p {
+    .findo_head_login .findo_head_login_text .findo_head_login_text_h5 p {
         text-align: right;
         font-size: 5px;
-        font-weight: bold;
     }
 
     .findo_head_login_text button {
@@ -2429,6 +2476,7 @@ canvas {
         padding: 5px 10px;
         text-decoration: none;
     }
+
     /*header css */
     /*main.css*/
     .findo_main {
@@ -2503,13 +2551,13 @@ canvas {
     }
 
     /*main.css*/
-
     /*footer*/
-    footer_middle img{
+    footer_middle img {
         width: 320px;
         height: 200px;
         border-radius: 20px;
     }
+
     /*footer*/
     .footer_top {
         display: flex;
@@ -2518,27 +2566,26 @@ canvas {
     }
 
     /* footer_top a hover */
-
     .footer_top a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .footer_top a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .footer_top a:hover:after {
         transform: scaleX(1);
     }
 
     /* footer_top a hover */
-
-
     .footer_top_list li {
         list-style: none;
         margin: 10px 0px;
@@ -2580,23 +2627,25 @@ canvas {
     /* footer hover underline */
     .footer_bottom_top_list a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
         font-size: 15px;
     }
+
     .footer_bottom_top_list a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .footer_bottom_top_list a:hover:after {
         transform: scaleX(1);
     }
-    /* footer hover underline */
 
+    /* footer hover underline */
     .footer_bottom_middle {
         font-size: 10px;
     }
@@ -2616,7 +2665,6 @@ canvas {
     }
 
     /* findo_search */
-
     .search_main {
         display: flex;
         flex-direction: column;
@@ -2624,7 +2672,7 @@ canvas {
         align-items: center;
     }
 
-    .input-area input{
+    .input-area input {
         padding: 10px 30px;
         font-size: 15px;
         text-align: center;
@@ -2649,8 +2697,8 @@ canvas {
         height: 200px;
         border-radius: 20px;
     }
-    /* findo_search */
 
+    /* findo_search */
     /* findo_investment */
     .findo_investment_wrapper {
         text-align: center;
@@ -2698,7 +2746,6 @@ canvas {
     }
 
     /* findo_investment */
-
     /* findo_company */
     .findo_company_wrapper h2 {
         text-align: center;
@@ -2769,10 +2816,9 @@ canvas {
         height: 200px;
         border-radius: 20px;
     }
+
     /* findo_company */
-
     /* findo_login */
-
     .wrapper_total_login {
         display: flex;
         justify-content: center;
@@ -2809,12 +2855,13 @@ canvas {
         justify-content: space-between;
         margin-bottom: 20px;
         color: #5fbb91;
+        font-size: 8px;
     }
 
     .login_main_button input {
         text-align: center;
         font-size: 10px;
-        padding: 10px 20px;
+        padding: 10px 40px;
         margin-bottom: 20px;
         background-color: white;
         border-radius: 5px;
@@ -2839,33 +2886,42 @@ canvas {
 
     .login_search a {
         text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
     }
 
     .login_advertisement img {
-        width: 320px;
+        width: 200px;
         height: 200px;
         border-radius: 20px;
         margin-bottom: 20px;
     }
 
     .login_logo img {
-        width: 320px;
+        width: 200px;
         height: 200px;
     }
+
     .login_law {
         display: flex;
     }
 
-    .login_law li{
+    .login_law li {
         list-style: none;
         text-decoration: none;
     }
 
-    .login_law a{
+    .login_law a {
         text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
     }
-    /* findo_login */
 
+    .login_copyright p {
+        font-size: 8px;
+    }
+
+    /* findo_login */
     /* findo_signup_agreement */
     .signup_agreement_form {
         display: flex;
@@ -2901,6 +2957,7 @@ canvas {
     .signup_agreement_form_button input:hover {
         background-color: #d7f5df;
     }
+
     .signup_agreement_submit_footer {
         margin-bottom: 40px;
         text-align: center;
@@ -2911,19 +2968,21 @@ canvas {
         width: 75%;
         height: 100vh;
         position: fixed;
-        top:0px;
-        left:0px;
+        top: 0px;
+        left: 0px;
         overflow: hidden;
         display: none;
     }
+
     .menu {
-        position:absolute;
-        top:0px;
-        left:0px;
-        width:50%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50%;
         height: 100%;
-        background-color:#5fbb91;
+        background-color: #5fbb91;
     }
+
     .menu > div {
         padding: 2%;
     }
@@ -2937,7 +2996,7 @@ canvas {
         background-color: #5fbb91;
     }
 
-    .hidemenu_login_text span{
+    .hidemenu_login_text span {
         margin: 10px 0px;
         padding: 10px 0px;
     }
@@ -2977,23 +3036,24 @@ canvas {
 
     .hidemenu_login a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .hidemenu_login a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .hidemenu_login a:hover:after {
         transform: scaleX(1);
     }
 
     /* show menu */
-
     /* findo_products */
     .index_product_wrapper {
         text-align: center;
@@ -3010,13 +3070,12 @@ canvas {
         font-size: 10px;
         font-weight: bold;
     }
+
     /* findo_products */
-
     /* findo_management */
-
     .findo_management_wrapper {
         border-top: 1px solid #5fbb91;
-        padding-top : 20px;
+        padding-top: 20px;
     }
 
     .findo_management_wrapper img {
@@ -3034,12 +3093,13 @@ canvas {
         font-weight: bold;
         text-align: center;
     }
-    /* findo_management */
 
+    /* findo_management */
     /*header css */
     body {
         margin: 0px;
     }
+
     .wrapper_findo {
         display: flex;
         justify-content: center;
@@ -3079,7 +3139,6 @@ canvas {
         width: 320px;
         height: 100vh;
     }
-
 
 
     .findo_head_icons_left button {
@@ -3124,26 +3183,26 @@ canvas {
     }
 
     /* findo_head_button hover */
-
     .findo_head_button a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .findo_head_button a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .findo_head_button a:hover:after {
         transform: scaleX(1);
     }
 
     /* findo_head_button hover */
-
     .findo_head_login {
         font-size: 15px;
         margin: 20px 0px;
@@ -3158,6 +3217,8 @@ canvas {
 
     .findo_head_login_text p {
         color: #010101;
+        font-size: 8px;
+
     }
 
     .findo_head_login p {
@@ -3181,6 +3242,7 @@ canvas {
         padding: 5px 10px;
         text-decoration: none;
     }
+
     /*header css */
     /*main.css*/
     .findo_main {
@@ -3255,13 +3317,13 @@ canvas {
     }
 
     /*main.css*/
-
     /*footer*/
-    footer_middle img{
+    footer_middle img {
         width: 320px;
         height: 200px;
         border-radius: 20px;
     }
+
     /*footer*/
     .footer_top {
         display: flex;
@@ -3270,27 +3332,26 @@ canvas {
     }
 
     /* footer_top a hover */
-
     .footer_top a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .footer_top a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .footer_top a:hover:after {
         transform: scaleX(1);
     }
 
     /* footer_top a hover */
-
-
     .footer_top_list li {
         list-style: none;
         margin: 20px 0px;
@@ -3328,22 +3389,24 @@ canvas {
     /* footer hover underline */
     .footer_bottom_top_list a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .footer_bottom_top_list a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .footer_bottom_top_list a:hover:after {
         transform: scaleX(1);
     }
-    /* footer hover underline */
 
+    /* footer hover underline */
     .footer_bottom_middle {
         font-size: 10px;
     }
@@ -3367,7 +3430,6 @@ canvas {
     }
 
     /* findo_search */
-
     .search_main {
         display: flex;
         flex-direction: column;
@@ -3375,7 +3437,7 @@ canvas {
         align-items: center;
     }
 
-    .input-area input{
+    .input-area input {
         padding: 10px 30px;
         font-size: 15px;
         text-align: center;
@@ -3396,8 +3458,8 @@ canvas {
         height: 200px;
         border-radius: 20px;
     }
-    /* findo_search */
 
+    /* findo_search */
     /* findo_investment */
     .findo_investment_wrapper {
         text-align: center;
@@ -3445,7 +3507,6 @@ canvas {
     }
 
     /* findo_investment */
-
     /* findo_company */
     .findo_company_wrapper h2 {
         text-align: center;
@@ -3516,10 +3577,9 @@ canvas {
         height: 200px;
         border-radius: 20px;
     }
+
     /* findo_company */
-
     /* findo_login */
-
     .wrapper_total_login {
         display: flex;
         justify-content: center;
@@ -3597,20 +3657,21 @@ canvas {
         width: 320px;
         height: 200px;
     }
+
     .login_law {
         display: flex;
     }
 
-    .login_law li{
+    .login_law li {
         list-style: none;
         text-decoration: none;
     }
 
-    .login_law a{
+    .login_law a {
         text-decoration: none;
     }
-    /* findo_login */
 
+    /* findo_login */
     /* findo_signup_agreement */
     .signup_agreement_form {
         display: flex;
@@ -3645,6 +3706,7 @@ canvas {
     .signup_agreement_form_button input:hover {
         background-color: #d7f5df;
     }
+
     .signup_agreement_submit_footer {
         margin-bottom: 40px;
         text-align: center;
@@ -3655,19 +3717,21 @@ canvas {
         width: 75%;
         height: 100vh;
         position: fixed;
-        top:0px;
-        left:0px;
+        top: 0px;
+        left: 0px;
         overflow: hidden;
         display: none;
     }
+
     .menu {
-        position:absolute;
-        top:0px;
-        left:0px;
-        width:50%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50%;
         height: 100%;
-        background-color:#5fbb91;
+        background-color: #5fbb91;
     }
+
     .menu > div {
         padding: 2%;
     }
@@ -3706,23 +3770,24 @@ canvas {
 
     .hidemenu_login a {
         color: #5fbb91;
-        display:inline-block;
-        margin:0;
-        text-transform:uppercase;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
     }
+
     .hidemenu_login a:after {
-        display:block;
+        display: block;
         content: '';
         border-bottom: 4px solid black;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
     }
+
     .hidemenu_login a:hover:after {
         transform: scaleX(1);
     }
 
     /* show menu */
-
     /* findo_products */
     .index_product_wrapper {
         text-align: center;
@@ -3739,13 +3804,12 @@ canvas {
         font-size: 10px;
         font-weight: bold;
     }
+
     /* findo_products */
-
     /* findo_management */
-
     .findo_management_wrapper {
         border-top: 1px solid #5fbb91;
-        padding-top : 20px;
+        padding-top: 20px;
     }
 
     .findo_management_wrapper img {
@@ -3763,8 +3827,8 @@ canvas {
         font-weight: bold;
         text-align: center;
     }
-    /* findo_management */
 
+    /* findo_management */
     /* findo_signup_form */
     .signup_wrapper {
         display: flex;
@@ -3772,12 +3836,16 @@ canvas {
         justify-content: center;
     }
 
+    .spanfontsize {
+        font-size: 8px;
+    }
+
     .signup_logo img {
         width: 320px;
         height: 200px;
     }
 
-    .findo_signup_form div{
+    .findo_signup_form div {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -3862,7 +3930,6 @@ canvas {
     }
 
     /* findo_signup_form */
-
     /* findo_signup_completement */
     .findo_signup_completement_logo img {
         width: 320px;
@@ -3896,10 +3963,9 @@ canvas {
         border: 2px solid #5fbb91;
         color: #5fbb91;
     }
+
     /* findo_signup_completement */
-
     /* address API */
-
     .findo_signup_address input {
         border: 2px solid #5fbb91;
         margin: 10px 15px;
@@ -3917,7 +3983,6 @@ canvas {
     }
 
     /* address API */
-
     /* customerservice */
     .findo_customerservice_announce {
         text-align: center;
@@ -3944,7 +4009,6 @@ canvas {
     }
 
     /* customerservice */
-
     /* session */
     .hidemenu_login_text p {
         color: white;
@@ -3978,12 +4042,12 @@ canvas {
     }
 
     /* serch_list */
-
     /* search_cont */
     #bCont_wrap {
         margin-bottom: 10px;
         border-bottom: 2px solid #5fbb91;
     }
+
     .chart input {
         font-size: 10px;
         font-weight: bold;
@@ -4024,8 +4088,8 @@ canvas {
         padding: 10px 10px;
         color: black;
     }
-    /* search_cont */
 
+    /* search_cont */
     canvas {
         margin-top: 20px;
         border: 2px solid #5fbb91;
@@ -4038,7 +4102,6 @@ canvas {
     }
 
     /* findo_profile */
-
     /* findo_id_search */
     .search_id input {
         background-color: white;
@@ -4054,7 +4117,6 @@ canvas {
     }
 
     /* findo_id_search */
-
     /* findo_password_search */
     .search_password input {
         background-color: white;
@@ -4070,7 +4132,6 @@ canvas {
     }
 
     /* findo_password_search */
-
     /*댓글 수정화면 영역*/
     #modDiv {
         width: 300px;
@@ -4086,9 +4147,7 @@ canvas {
     }
 
     /*댓글 수정화면 영역*/
-
     /* board_announcement */
-
     .board_table table {
         width: 320px;
         border: 2px;
@@ -4202,6 +4261,7 @@ canvas {
         background-color: white;
         padding: 5px 10px;
     }
+
     .board_cont2 th input:hover {
         background-color: #d7f5df;
     }
@@ -4249,8 +4309,8 @@ canvas {
     .board_write tr th input:hover {
         background-color: #d7f5df;
     }
-    /* board_write*/
 
+    /* board_write*/
     /* board_edit*/
     .board_edit table {
         width: 100%;
@@ -4291,8 +4351,8 @@ canvas {
         font-size: 10px;
         width: 97%;
     }
-    /* board_edit*/
 
+    /* board_edit*/
     /* search */
     .seaech_id_wrapper {
         text-align: center;
@@ -4311,6 +4371,7 @@ canvas {
     .seaech_id_wrapper a input:hover {
         background-color: #d7f5df;
     }
+
     .search_password_wrapper {
         text-align: center;
     }
@@ -4328,6 +4389,7 @@ canvas {
     .search_password_wrapper a input:hover {
         background-color: #d7f5df;
     }
+
     /* portfolio */
     .port_cont {
         margin: 10px 0px;
@@ -4341,6 +4403,7 @@ canvas {
     .portfolio_stock table td {
         text-align: center;
     }
+
     .portfolio_stock table td span {
         text-align: center;
     }
@@ -4426,12 +4489,12 @@ canvas {
         justify-content: center;
         align-items: center;
     }
+
     .game_canvas {
         text-align: center;
     }
 
     /* community_chat */
-
     .container {
         display: flex;
         align-items: center;
@@ -4518,7 +4581,6 @@ canvas {
     }
 
     /* new_write*/
-
     .news_write table td input {
         width: 97%;
         padding: 10px 0px;
