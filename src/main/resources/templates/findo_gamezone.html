@@ -96,7 +96,7 @@
       canvas = document.getElementById("game_canvas")
       ctx = canvas.getContext("2d")
 
-      canvas.width=500;
+      canvas.width=380;
       canvas.height=600;
 
       let backgroundImage,spaceshipImage,bulletImage,enemyImage,gameoverImage;
@@ -260,7 +260,7 @@
           render();
           requestAnimationFrame(main);
         }else {
-          ctx.drawImage(gameoverImage, 10, 100, 500, 400);
+          ctx.drawImage(gameoverImage, 10, 100, 380, 400);
         }
       }
 

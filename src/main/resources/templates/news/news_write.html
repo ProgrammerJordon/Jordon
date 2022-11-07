@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+    <div class="total_findo">
+        <div th:replace="/include/header :: headerfragment"></div>
+        <form action="/news/news_write" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+            <div class="news_write">
+                <table board="1">
+                    <tr>
+                        <th colspan="2"><h2>FINDO NEWS</h2></th>
+                    </tr>
+                    <tr align="left">
+                        <th><h2>글쓴이</h2></th>
+                    </tr>
+                    <tr>
+                        <td><input name="nwriter" id="nwriter" size="14" th:value="${session.session}" readonly></td>
+                    </tr>
+                    <tr align="left">
+                        <th><h2>글제목</h2></th>
+                    </tr>
+                    <tr>
+                        <td><input name="ntitle" id="ntitle" size="14" spellcheck="false"></td>
+                    </tr>
+                    <tr>
+                        <td><h2>업로드 파일</h2></td>
+                    </tr>
+                    <tr>
+                        <td><input class="fileuploadbutton" type="file" multiple="multiple" name="uploadFile"></td>
+                    </tr>
+                    <tr align="left">
+                        <th><h2>글내용</h2></th>
+                    </tr>
+                    <tr>
+                        <td><textarea class="ncontent" name="ncontent" id="ncontent" rows="20" cols="48" style="resize:none;" spellcheck="false"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2" align="right" class="fileuploadbtn">
+                            <input type="submit" value="글쓰기" />
+                            <input type="reset" value="취소" />
+                            <input type="button" value="목록" th:onclick="|location.href='@{/news/news(page=${page})}'|" />
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        <div th:replace="/include/footer :: footerfragment"></div>
+    </div>
+</div>
+</body>
+</html>

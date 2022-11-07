@@ -36,8 +36,8 @@
                                 <hr>
                                 <a th:href="@{/profile}"><p>Profile</p></a>
                                 <hr>
-                                <a th:href="@{/event}"><p>Event</p></a>
-                                <hr>
+                                <!--                                <a th:href="@{/event}"><p>Event</p></a>-->
+                                <!--                                <hr>-->
                                 <a th:href="@{/gamezone}"><p>GameZone</p></a>
                                 <hr>
                                 <a th:href="@{/board/board_list}"><p>Announcement</p></a>
@@ -69,7 +69,7 @@
                 <button><a th:href="@{/findo}">홈</a></button>
                 <button><a th:href="@{/portfolio}">포트폴리오</a></button>
                 <button><a th:href="@{/community}">커뮤니티</a></button>
-                <button><a th:href="@{/news}">뉴스</a></button>
+                <button><a th:href="@{/news/news}">뉴스</a></button>
             </div>
             <div class="findo_head_login">
                 <hr>
@@ -86,59 +86,60 @@
                     </div>
                     <hr>
                     <div class="portfolio_stock">
-                        <table border="1">
-                                <div th:if="${klist != null}" th:each="k : ${klist}">
-                                    <tr>
-                                        <th rowspan="4" class="select_edit" th:value="a" style="display: none">선택<input
-                                                type="checkbox"
-                                                name="checkedValue"
-                                                class="select_edit" th:value="${k.id}"></label></th>
-                                        <th>종목코드</th>
-                                        <th>종목명</th>
-                                        <th>보유수량</th>
-                                        <th>평균단가</th>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">
-                                            <span th:text="${k.id}"></span>
-                                        </td>
+                        <div th:if="${klist != null}" th:each="k : ${klist}">
+                            <table border="1">
+                                <tr>
+                                    <th rowspan="4" class="select_edit" th:value="a" style="display: none; width:10%;">선택<input
+                                            type="checkbox"
+                                            name="checkedValue"
+                                            class="select_edit" th:value="${k.id}"></label></th>
+                                    <th style="width:20%;">종목코드</th>
+                                    <th style="width:35%;">종목명</th>
+                                    <th style="width:15%;">보유수량</th>
+                                    <th style="width:20%;">평균단가</th>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="width:20%;">
+                                        <span th:text="${k.id}"></span>
+                                    </td>
 
-                                        <td style="text-align: center;">
-                                            <a th:href="@{/port_cont(portfolionumber=${k.id})}"
-                                               style="text-decoration: none; color:black;">
-                                                <span th:text="${k.name}"></span>
-                                            </a>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <span th:text="${k.quantity}"></span>
-                                        </td>
-                                        <td rowspan="3" style="text-align: center;">
-                                            <span th:text="${k.avgprice}"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>현재가</th>
-                                        <th>수익률</th>
-                                        <th>손익</th>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: center;">
-                                            <span th:text="${k.currentPrice}"></span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <span th:text="${k.profitAndLoss}"></span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <span th:text="${k.eprice}"></span>
-                                        </td>
-                                    </tr>
-                                </div>
+                                    <td style="text-align: center; width:35%;">
+                                        <a th:href="@{/port_cont(portfolionumber=${k.id})}"
+                                           style="text-decoration: none; color:black;">
+                                            <span th:text="${k.name}"></span>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: center; width:15%;">
+                                        <span th:text="${k.quantity}"></span>
+                                    </td>
+                                    <td rowspan="3" style="text-align: center; width:20%;">
+                                        <span th:text="${k.avgprice}"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:20%;">현재가</th>
+                                    <th style="width:35%;">수익률</th>
+                                    <th style="width:15%;">손익</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center; width:20%;">
+                                        <span th:text="${k.currentPrice}"></span>
+                                    </td>
+                                    <td style="text-align: center; width:35%;">
+                                        <span th:text="${k.profitAndLoss}"></span>
+                                    </td>
+                                    <td style="text-align: center; width:15%;">
+                                        <span th:text="${k.eprice}"></span>
+                                    </td>
+                                </tr>
+                                <br>
                                 <div th:if="${klist == null}">
                                     <tr>
-                                        <th colspan="5">보유한 종목이 없습니다.</th>
+                                        <th colspan="5">보유중인 종목이 없습니다.</th>
                                     </tr>
                                 </div>
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,7 +159,7 @@
             </div> <!-- main_top -->
 
             <div class="main_middle_top">
-                <h2>Get The world Fastest News In Findo</h2>
+                <h2>Get The World Fastest News In Findo</h2>
                 <a th:href="@{/management}"><img src="/images/newspaper.jpg"></a>
             </div>
             <div class="main_middle_middle">
@@ -167,16 +168,16 @@
             </div>
             <div class="main_middle_bottom">
                 <h2>Share Information Community With Shareholders</h2>
-                <a th:href="@{//announcement/board_list}"><img src="/images/career2.jpg"></a>
+                <a th:href="@{/announcement/board_list}"><img src="/images/career2.jpg"></a>
             </div> <!-- main_middel -->
 
             <div class="main_bottom_top">
-                <h2>Show Me The Your Portfolio</h2>
+                <h2>Show Me Your Portfolio</h2>
                 <a th:href="@{/products}"><img src="/images/career3.jpg"></a>
             </div>
             <div class="main_bottom_middle">
                 <h2>Profit Rankers In Findo</h2>
-                <a th:href="@{/community}"><img src="/images/career4.jpg"></a>
+                <a th:href="@{/news/news}"><img src="/images/career4.jpg"></a>
             </div>
             <div class="main_bottom_bottom">
                 <h2>Honoring The Contributors</h2>

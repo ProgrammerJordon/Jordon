@@ -1,20 +1,21 @@
 package com.project.jordon.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.project.jordon.service.BoardService;
+import com.project.jordon.vo.BoardVO;
 import com.project.jordon.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.jordon.service.BoardService;
-import com.project.jordon.vo.BoardVO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller //@Controller애노테이션에 의해서 스프링에 컨트롤러로 인식됨. =>스프링 MVC게시판 컨트롤러 클래스
 @RequestMapping("/board/*") //컨트롤 자체에 매핑주소
@@ -145,12 +146,12 @@ public class BoardController {
 
     //게시물 삭제
     @GetMapping("board_del") //board_del 매핑주소 등록, get으로 접근하는 매핑주소를 처리
-    public ModelAndView board_del(int bno, int page,RedirectAttributes rttr, HttpSession session, MemberVO m) {
+    public ModelAndView board_del(int bno, int page, RedirectAttributes rttr, HttpSession session, MemberVO m) {
         String memberid = (String) session.getAttribute("session");
         session.setAttribute("session", memberid);
         boardService.deleteBoard(bno);//게시물 삭제
         ModelAndView dm=new ModelAndView();
-        dm.setViewName("/board/board_list");
+        dm.setViewName("redirect:/board/board_list");
         return dm;
     }//board_del()
 }

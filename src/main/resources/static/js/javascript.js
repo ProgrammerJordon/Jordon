@@ -103,6 +103,7 @@ $("#membername").keyup(function (event) { regexp = /[a-z0-9]|[ \[\]{}()<>?|`~!@#
     v = $(this).val();
     if (regexp.test(v)) {alert("실명을 입력하여 주세요\n한글만 입력가능 합니다.");
     $(this).val(v.replace(regexp, ''));} });
+
 ////////////////////////////////////////////////////////////////////////
 function idcheck_confirm() {
 

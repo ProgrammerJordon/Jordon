@@ -44,6 +44,7 @@ public class MemberController {
             session.setAttribute("memberbirth", m.getMemberbirth());
             session.setAttribute("membergender", m.getMembergender());
             session.setAttribute("memberemail", m.getMemberemail());
+            session.setAttribute("memberemailauth", m.getMemberemailauth());
             session.setAttribute("memberaddress1", m.getMemberaddress1());
             session.setAttribute("memberaddress2", m.getMemberaddress2());
             session.setAttribute("memberaddress3", m.getMemberaddress3());

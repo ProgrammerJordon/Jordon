@@ -146,6 +146,8 @@
                             success: function (result) {
                                 if (result == '0') {
                                     $('#result').text('사용 가능한 아이디입니다.');
+                                    // let targetbtn = document.getElementById('#sign_up_button2');
+                                    // targetbtn.disabled=false;
                                 } else {
                                     $('#result').text('이미 사용중인 아이디입니다.');
                                 }
@@ -230,18 +232,18 @@
                 <div class="signup_email_text">
                     <input type="text" id="memberemail" name="memberemail"
                            size="32" maxlength="35" placeholder="이메일" required/>
-                    <div class="signup_email_text_eamil">
-                        <input type="button"
+                    <div hidden class="signup_email_text_eamil">
+                        <input hidden type="button"
                                onclick="memberemail_check_ok_final()"
                                value="인증번호 발급"/>
                     </div>
                 </div>
 
                 <div class="signup_auth_email_text">
-                    <input type="text" id="memberemailauth" name="memberemailauth"
+                    <input hidden type="text" id="memberemailauth" name="memberemailauth" value="1"
                            size="32" maxlength="24" placeholder="인증번호" onkeyup="CheckInputType(this)" required/>
                     <div class="signup_auth_email">
-                        <input type="button"
+                        <input hidden type="button"
                                onclick="signup_email_text_confirm()"
                                value="인증번호 확인"/>
                     </div>
@@ -265,7 +267,7 @@
                             <span id="guide" style="color:#999;display:none"></span> <br>
                             <input type="text" id="memberaddress4" name="memberaddress4" placeholder="상세주소" size="25"
                                    required>
-                            <input type="text" id="memberaddress5" name="memberaddress5" placeholder="건물주소" size="25"
+                            <input hidden type="text" id="memberaddress5" name="memberaddress5" value="references_address" placeholder="동/호수" size="25"
                                    required>
                         </tr>
                     </table>
@@ -283,9 +285,12 @@
                 </div>
 
                 <div class="signup_button">
-                    <input type="submit" value="가입하기"/>
+                    <input type="submit" value="가입하기" id="sign_up_button2" name="sign_up_button2" />
                 </div>
             </form>
+            <script>
+
+            </script>
         </div>
 
         <!-- footer -->

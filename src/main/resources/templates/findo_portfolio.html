@@ -33,6 +33,7 @@
                         }
                     })
                 }
+
                 document.addEventListener("keypress", function (e) {
                     if (e.keyCode == 13) { //enter press
                         getSearchList();
@@ -52,11 +53,11 @@
                  결론적으로 뷰량 연결되는게 아닌 데이터 연산만 되고 아작스는 실행되지 않음
                   아작스는 보여지는 뷰페이지에 그대로 적용되기 때문에 매핑해 놓은 URL 부터 적절하지 않음 -->
             </form>
-                <div class="search-list" align="center">
-                    <table>
-                        <tbody id="stock_list"></tbody>
-                    </table>
-                </div>
+            <div class="search-list" align="center">
+                <table>
+                    <tbody id="stock_list"></tbody>
+                </table>
+            </div>
             <script>
                 //종목번호, 이름 입력칸에 검색창에서 찾은 종목번호나 이름을 클릭하면 자동으로 입력되게 만든 함수.
                 /*<![CDATA[*/
@@ -105,11 +106,14 @@
 
             <form action="/port_add">
                 <div class="port_cont" id="port_cont" name="port_cont">
-                    <input type="text" id="stock_number" name="stock_number" placeholder="종목번호"><br>
-                    <input type="text" id="stock_name" name="stock_name" placeholder="종목명"><br>
-                    <input type="date" id="date" name="date" placeholder="구매날짜"><br>
-                    <input type="text" id="quantity" name="quantity" placeholder="구매수량"><br>
-                    <input type="text" id="price" name="price" placeholder="구매가격"><br>
+                    <input type="text" id="stock_number" name="stock_number" placeholder="종목번호" maxlength="6"
+                           onkeyup="onlyNumber(this)" required><br>
+                    <input type="text" id="stock_name" name="stock_name" placeholder="종목명" required><br>
+                    <input type="date" id="date" name="date" placeholder="구매날짜" required><br>
+                    <input type="text" id="quantity" name="quantity" placeholder="구매수량" onkeyup="onlyNumber(this)"
+                           required><br>
+                    <input type="text" id="price" name="price" placeholder="구매가격" onkeyup="onlyNumber(this)"
+                           required><br>
                     <button type="submit">내 포트폴리오에 추가</button>
                     <button type=button id="edit_port" onclick="showEditButton();">포트폴리오 수정</button>
                 </div>
@@ -120,67 +124,65 @@
             <br>
 
             <div class="portfolio_stock">
-                <table border="1">
-                    <form action="/port_del" method="post">
-                        <div th:if="${klist != null}" th:each="k : ${klist}">
+                <form action="/port_del" method="post">
+                    <div th:if="${klist != null}" th:each="k : ${klist}">
+                        <table border="1">
                             <tr>
-                                <th rowspan="4" class="select_edit" th:value="a" style="display: none">선택<input
+                                <th rowspan="4" class="select_edit" th:value="a" style="display: none; width:15%;">선택<input
                                         type="checkbox"
                                         name="checkedValue"
                                         class="select_edit" th:value="${k.id}"></label></th>
-                                <th>종목코드</th>
-                                <th>종목명</th>
-                                <th>보유수량</th>
-                                <th>평균단가</th>
+                                <th style="width:20%;">종목코드</th>
+                                <th style="width:30%;">종목명</th>
+                                <th style="width:15%;">보유수량</th>
+                                <th style="width:20%;">평균단가</th>
                             </tr>
                             <tr>
-                                <td align="center">
+                                <td align="center" style="width:20%;">
                                     <span th:text="${k.id}"></span>
                                 </td>
 
-                                <td style="text-align: center;">
+                                <td style="text-align: center; width:30%;">
                                     <a th:href="@{/port_cont(portfolionumber=${k.id})}"
                                        style="text-decoration: none; color:black;">
                                         <span th:text="${k.name}"></span>
                                     </a>
                                 </td>
-                                <td style="text-align: center;">
+                                <td style="text-align: center; width:15%;">
                                     <span th:text="${k.quantity}"></span>
                                 </td>
-                                <td rowspan="3" style="text-align: center;">
+                                <td rowspan="3" style="text-align: center; width:20%;">
                                     <span th:text="${k.avgprice}"></span>
                                 </td>
                             </tr>
                             <tr>
-                                <th>현재가</th>
-                                <th>수익률</th>
-                                <th>손익</th>
+                                <th style="width:20%;">현재가</th>
+                                <th style="width:30%;">수익률</th>
+                                <th style="width:15%;">손익</th>
                             </tr>
                             <tr>
-                                <td style="text-align: center;">
+                                <td style="text-align: center; width:20%;">
                                     <span th:text="${k.currentPrice}"></span>
                                 </td>
-                                <td style="text-align: center;">
+                                <td style="text-align: center; width:30%;">
                                     <span th:text="${k.profitAndLoss}"></span>
                                 </td>
-                                <td style="text-align: center;">
+                                <td style="text-align: center; width:15%;">
                                     <span th:text="${k.eprice}"></span>
                                 </td>
                             </tr>
-                        </div>
-                        <div class="delete_button_in_portfolio">
-                            <button type="submit" id="del_port" class="select_edit" style="display: none">삭제</button>
-                        </div>
-                    </form>
-
-
-                    <div th:if="${klist == null}">
-                        <tr>
-                            <th colspan="5">검색한 종목이 없습니다.</th>
-                        </tr>
+                            <br>
+                            <div th:if="${klist == null}">
+                                <tr>
+                                    <th colspan="5">검색한 종목이 없습니다.</th>
+                                </tr>
+                            </div>
+                        </table>
                     </div>
-
-                </table>
+                    <div class="delete_button_in_portfolio">
+                        <button type="submit" id="del_port" class="select_edit" style="display: none">삭제</button>
+                    </div>
+                </form>
             </div>
         </div>
         <hr>

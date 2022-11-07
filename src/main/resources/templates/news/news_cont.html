@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+  <div class="total_findo">
+    <div th:replace="/include/header :: headerfragment"></div>
+    <div class="board_cont2">
+
+      <table border="2">
+        <tr>
+          <th colspan="4">내용보기</th>
+        </tr>
+
+        <tr>
+          <th>제목</th>
+          <td><span th:text="${b.ntitle}"></span></td>
+          <th rowspan="2">조회수</th>
+          <td rowspan="2" align="center"><span th:text="${b.nviewcnt}"></span></td>
+        </tr>
+        <tr>
+          <th>자료</th>
+          <td >
+            <a th:each="file : ${NfileL}" th:href="@{/news/download(uuidname=${file.uuidname},nno=${file.nno})}" style="text-decoration: none">
+              <span th:text="${file.fileoriginname}" ></span></br>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td colspan="3"><span th:text="${cont}"></span></td>
+        </tr>
+        <tr>
+          <th colspan="4" align="right">
+            <input th:if="${session.session == b.getNwriter()}" type="button" value="수정"
+                   th:onclick="|location.href='@{/news/news_edit(nno=${b.nno},page=${page})}'|"/>
+            <input th:if="${session.session == b.getNwriter()}" type="button" value="삭제"
+                   th:onclick="|location.href='@{/news/news_del(nno=${b.nno},page=${page})}'|"/>
+            <input type="button" value="목록"
+                   th:onclick="|location.href='@{/news/news(page=${page})}'|"/>
+          </th>
+        </tr>
+      </table>
+    </div>
+    <div th:replace="/include/footer :: footerfragment"></div>
+  </div>
+</div>
+</body>
+</html>

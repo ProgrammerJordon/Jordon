@@ -88,11 +88,9 @@ public class MainController {
                 } else {
                     objectdetail.put("eprice", df.format(eprice) + "%");
                 }
-
                 //평균가격에
                 objectdetail.put("avgprice", "₩" + df.format(avgprice));
                 klist.add(objectdetail);
-
             }
             listM.addAttribute("plist", plist);
             listM.addAttribute("klist", klist);
@@ -101,14 +99,8 @@ public class MainController {
 //            listM.addAttribute("plist",plist);
 //            List<String> numlist;
 //            String portNum = (String) plist.get(i).
-
         return "findo";
         }
-    }
-
-    @RequestMapping("/news")
-    public String findo_news() {
-        return "findo_news";
     }
 
     @RequestMapping("/search")

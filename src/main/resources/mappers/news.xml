@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="News">
+    <select id="listCount" resultType="int">
+        select count(*) from news
+    </select>
+
+    <select id="getNewsList" resultType="com.project.jordon.vo.NewsVO">
+        select * from news order by nno desc
+    </select>
+
+    <insert id="insertNews">
+        insert into news (nno, nwriter, ntitle, ncontent, nregdate) values (news_seq.nextval,#{nwriter},#{ntitle},#{ncontent},sysdate)
+    </insert>
+
+    <select id="getNewCont" resultType="com.project.jordon.vo.NewsVO">
+        select * from news where nno=#{nno}
+    </select>
+
+    <update id="updateNewsHit">
+        update news set nviewcnt = nviewcnt+1 where nno=#{nno}
+    </update>
+
+    <update id="updateNews">
+        update news set ntitle=#{ntitle}, ncontent=#{ncontent} where nno=#{nno}
+    </update>
+
+    <delete id="delNews">
+        delete from news where nno=#{nno}
+    </delete>
+
+    <insert id="insertFiles">
+        insert into uploadfile (fid, nno ,fileoriginname, uuidname) values (uploadfile_seq.nextval, (SELECT
+                                                                                                         LAST_NUMBER
+                                                                                                     FROM
+                                                                                                         USER_SEQUENCES
+                                                                                                     WHERE
+                                                                                                         SEQUENCE_NAME = 'NEWS_SEQ')-1 ,#{fileoriginname}, #{uuidname})
+    </insert>
+
+    <select id="getFiles" resultType="com.project.jordon.vo.NewsVO">
+        select * from uploadfile where nno=#{nno}-1
+    </select>
+
+    <select id="getOriginName" resultType="String">
+        select fileoriginname from uploadfile where uuidname=#{uuidname}
+    </select>
+
+</mapper>

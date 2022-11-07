@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="/include/header :: headfragment">
+</head>
+<body>
+<div class="wrapper_findo">
+  <div class="total_findo">
+    <div th:replace="/include/header :: headerfragment"></div>
+    <form th:action="@{/news/news_edit_ok(nno=${eb.nno},page=${page})}" method="post">
+      <div class="board_edit">
+        <table border="1">
+          <tr>
+            <th colspan="2">Announcement Board Edit</th>
+          </tr>
+          <tr>
+            <th>글쓴이</th>
+            <td><input name="nwriter" id="nwriter" size="14" th:value="${eb.nwriter}" readonly/></td>
+          </tr>
+
+          <tr>
+            <th>글제목</th>
+            <td><input name="ntitle" id="ntitle" size="14" th:value="${eb.ntitle}"/></td>
+          </tr>
+
+          <tr>
+            <th>글내용</th>
+            <td><textarea name="ncontent" id="ncontent" rows="10" cols="60" th:text="${eb.ncontent}" style="resize: none;"></textarea></td>
+          </tr>
+
+          <tr align="right">
+            <th colspan="2">
+              <input type="submit" value="글수정"/>
+              <input type="reset" value="취소"/>
+              <input type="button" value="목록"
+                     th:onclick="|location.href='@{/news/news(page=${page})}'|"/>
+            </th>
+          </tr>
+        </table>
+      </div>
+    </form>
+    <div th:replace="/include/footer :: footerfragment"></div>
+  </div>
+</div>
+</body>
+</html>

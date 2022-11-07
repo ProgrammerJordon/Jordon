@@ -1926,13 +1926,18 @@ canvas {
     border: 2px solid #5fbb91;
 }
 
+.board_write table td textarea {
+    width: 99%;
+    border: 2px solid #5fbb91;
+}
+
 .board_write table th {
     padding: 20px 0px;
     font-size: 20px;
 }
 
 .board_write table tr td input {
-    width: 100%;
+    width: 99%;
     padding: 10px 0px;
     font-weight: bold;
     font-size: 20px;
@@ -1951,6 +1956,7 @@ canvas {
     background-color: white;
     border: 2px solid #5fbb91;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .board_write tr th input:hover {
@@ -1968,7 +1974,7 @@ canvas {
 .board_edit table tr td input {
     font-size: 20px;
     border: 2px solid #5fbb91;
-    width: 100%;
+    width: 99%;
     font-weight: bold;
 }
 
@@ -1993,11 +1999,10 @@ canvas {
 }
 
 .board_edit table tr td textarea {
-    border-radius: 10px;
     border: 2px solid #5fbb91;
     font-weight: bold;
     font-size: 20px;
-    width: 100%;
+    width: 99%;
 }
 /* board_edit*/
 
@@ -2071,7 +2076,7 @@ canvas {
 }
 
 .port_cont input {
-    width: 100%;
+    width: 99%;
     text-align: center;
     border-radius: 10px;
     border: 2px solid #5fbb91;
@@ -2099,11 +2104,12 @@ canvas {
 /* portfolio_stock */
 .portfolio_stock {
     margin: 10px 0px;
+    border: 1px;
 }
 
 .portfolio_stock table {
     width: 100%;
-    border: 2px solid #5fbb91;
+    border: 1px solid #5fbb91;
 }
 
 .portfolio_stock table tr th {
@@ -2217,4 +2223,2338 @@ canvas {
 
 .start_chatting:hover {
     background-color: #d7f5df;
+}
+
+.blank_td {
+    padding: 10px 0px;
+    border: 0px solid white;
+}
+
+/* new_write*/
+
+.news_write table td input {
+    width: 99%;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #5fbb91;
+}
+
+.fileuploadbutton {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #5fbb91;
+}
+
+.fileuploadbtn input {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #5fbb91;
+}
+
+.fileuploadbtn input:hover {
+    background-color: #d7f5df;
+}
+
+.ncontent {
+    border: 2px solid #5fbb91;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+/* 미디어쿼리 반응형 작업 */
+
+
+
+@media (max-width: 386px) {
+
+    /*header css */
+    body {
+        margin: 0px;
+    }
+
+    body h1 {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    body h2 {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .wrapper_findo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper_findo a {
+        cursor: grabbing;
+    }
+
+    p {
+        color: #5fbb91;
+    }
+
+    span {
+        color: #5fbb91;
+    }
+
+    button {
+        color: #5fbb91;
+        background: white;
+        border: none;
+        font-weight: bold;
+    }
+
+    li {
+        color: #5fbb91;
+        font-weight: bold;
+    }
+
+    a {
+        color: #5fbb91;
+        font-weight: bold;
+    }
+
+    .total_findo {
+        width: 320px;
+        height: 100vh;
+    }
+
+
+
+    .findo_head_icons_left button {
+        font-size: 10px;
+    }
+
+    .findo_head_icons_right a {
+        font-size: 10px;
+    }
+
+    .findo_head_icons {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+    }
+
+    .findo_head_icons button:hover {
+        color: #5fbb91;
+        background: #d7f5df;
+        padding: 2px 5px;
+        border: none;
+        border-radius: 5px
+    }
+
+    .findo_head_logo img {
+        width: 320px;
+        height: 100px;
+    }
+
+    .findo_head_button {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        padding: 10px 0px 0px 0px;
+        border-top: 2px solid #5fbb91;
+    }
+
+    .findo_head_button a {
+        font-size: 15px;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+    /* findo_head_button hover */
+
+    .findo_head_button a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .findo_head_button a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .findo_head_button a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* findo_head_button hover */
+
+    .findo_head_login {
+        font-size: 15px;
+        margin: 10px 0px;
+        border-top: 2px solid #5fbb91;
+        border-bottom: 1px solid #5fbb91;
+    }
+
+    .findo_head_login_text {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .findo_head_login_text button:hover {
+        background: #d7f5df;
+    }
+
+    .findo_head_login_text .findo_head_login_text_h5 p {
+        text-align: right;
+        font-size: 5px;
+        font-weight: bold;
+    }
+
+    .findo_head_login_text button {
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+    .findo_head_login_text a {
+        font-size: 15px;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+    /*header css */
+    /*main.css*/
+    .findo_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .findo_main img {
+        margin: 20px;
+    }
+
+    main_top_top h2 {
+        text-align: left;
+    }
+
+    .main_top_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_top_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_top_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    /*main.css*/
+
+    /*footer*/
+    footer_middle img{
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /*footer*/
+    .footer_top {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px;
+    }
+
+    /* footer_top a hover */
+
+    .footer_top a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .footer_top a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .footer_top a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* footer_top a hover */
+
+
+    .footer_top_list li {
+        list-style: none;
+        margin: 10px 0px;
+    }
+
+    .footer_top_list a {
+        text-decoration: none;
+        font-size: 15px;
+
+    }
+
+    .footer_middle {
+        border-top: 2px solid #5fbb91;
+        border-bottom: 2px solid #5fbb91;
+    }
+
+    .footer_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .footer_bottom {
+        display: flex;
+        justify-content: space-around;
+        margin: 10px 0px;
+    }
+
+    .footer_bottom_top_list li {
+        list-style: none;
+        margin: 10px 0px;
+    }
+
+    .footer_bottom_top_list a {
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    /* footer hover underline */
+    .footer_bottom_top_list a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+        font-size: 15px;
+    }
+    .footer_bottom_top_list a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .footer_bottom_top_list a:hover:after {
+        transform: scaleX(1);
+    }
+    /* footer hover underline */
+
+    .footer_bottom_middle {
+        font-size: 10px;
+    }
+
+    .footer_bottom_bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer_bottom_bottom_top {
+        font-size: 10px;
+    }
+
+    .footer_bottom_bottom_middle a {
+        font-size: 10px;
+        text-decoration: none;
+    }
+
+    /* findo_search */
+
+    .search_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-area input{
+        padding: 10px 30px;
+        font-size: 15px;
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    .input-area i {
+        color: #5fbb91;
+    }
+
+    .language-area p {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .input-area i {
+        font-size: 20px;
+    }
+
+    .search_main_advertise img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /* findo_search */
+
+    /* findo_investment */
+    .findo_investment_wrapper {
+        text-align: center;
+        border-top: 1px solid #5fbb91;
+    }
+
+    .findo_investment_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_wrapper h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #5fbb91;
+    }
+
+    .findo_investment_main_top {
+        margin-top: 20px;
+    }
+
+    .findo_investment_main_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_main_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_main_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_advertisement img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    /* findo_investment */
+
+    /* findo_company */
+    .findo_company_wrapper h2 {
+        text-align: center;
+    }
+
+    .findo_company_wrapper p {
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .findo_company_main_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main_bottom img {
+        width: 320px;
+        height: 400px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle-middel img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-bottom-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /* findo_company */
+
+    /* findo_login */
+
+    .wrapper_total_login {
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrapper_login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login_main {
+        text-align: center;
+        color: #5fbb91;
+    }
+
+    .login_main_login_id input {
+        font-size: 10px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        border: 2px solid #5fbb91;
+    }
+
+    .login_main_login_password input {
+        font-size: 10px;
+        padding: 10px 20px;
+        margin: 10px 0px;
+        border: 2px solid #5fbb91;
+    }
+
+    .login_main_function {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        color: #5fbb91;
+    }
+
+    .login_main_button input {
+        text-align: center;
+        font-size: 10px;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid #5fbb91;
+        color: #5fbb91;
+    }
+
+    .login_main_button input:hover {
+        background-color: #d7f5df;
+        color: #5fbb91;
+    }
+
+    .login_search {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .login_search li {
+        display: flex;
+        list-style: none;
+    }
+
+    .login_search a {
+        text-decoration: none;
+    }
+
+    .login_advertisement img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .login_logo img {
+        width: 320px;
+        height: 200px;
+    }
+    .login_law {
+        display: flex;
+    }
+
+    .login_law li{
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .login_law a{
+        text-decoration: none;
+    }
+    /* findo_login */
+
+    /* findo_signup_agreement */
+    .signup_agreement_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .signup_agreement_logo img {
+        width: 320px;
+        height: 200px;
+    }
+
+    .signup_agreement_title h2 {
+        color: #5fbb91;
+    }
+
+    .signup_agreement_form textarea {
+        margin: 10px 0px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_agreement_form_button input {
+        font-size: 15px;
+        padding: 5px 15px;
+        background-color: white;
+        border: 2px solid #5fbb91;
+        color: #5fbb91;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .signup_agreement_form_button input:hover {
+        background-color: #d7f5df;
+    }
+    .signup_agreement_submit_footer {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    /* show menu */
+    .menu_bg {
+        width: 75%;
+        height: 100vh;
+        position: fixed;
+        top:0px;
+        left:0px;
+        overflow: hidden;
+        display: none;
+    }
+    .menu {
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:50%;
+        height: 100%;
+        background-color:#5fbb91;
+    }
+    .menu > div {
+        padding: 2%;
+    }
+
+    .hidemenu {
+        width: 96%;
+        text-align: right;
+    }
+
+    .hidemenu_login {
+        background-color: #5fbb91;
+    }
+
+    .hidemenu_login_text span{
+        margin: 10px 0px;
+        padding: 10px 0px;
+    }
+
+    .hidemenu_login_text button {
+        border-radius: 5px;
+    }
+
+    .hidemenu_login_text p {
+        font-size: 10px;
+    }
+
+    .hidemenu_login button {
+        font-size: 20px;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .hidemenu_login button a {
+        text-decoration: none;
+    }
+
+    .hidemenu_login span {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+        padding: 20px 0px;
+        margin: 10px 0px;
+    }
+
+    .hidemenu_login p {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .hidemenu_login a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .hidemenu_login a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .hidemenu_login a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* show menu */
+
+    /* findo_products */
+    .index_product_wrapper {
+        text-align: center;
+    }
+
+    .index_product_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+        cursor: grabbing;
+    }
+
+    .index_product_wrapper p {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    /* findo_products */
+
+    /* findo_management */
+
+    .findo_management_wrapper {
+        border-top: 1px solid #5fbb91;
+        padding-top : 20px;
+    }
+
+    .findo_management_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_management_wrapper h2 {
+        text-align: center;
+    }
+
+    .findo_management_wrapper p {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+    /* findo_management */
+
+    /*header css */
+    body {
+        margin: 0px;
+    }
+    .wrapper_findo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper_findo a {
+        cursor: grabbing;
+    }
+
+    p {
+        color: #5fbb91;
+    }
+
+    span {
+        color: #5fbb91;
+    }
+
+    button {
+        color: #5fbb91;
+        background: white;
+        border: none;
+        font-weight: bold;
+    }
+
+    li {
+        color: #5fbb91;
+        font-weight: bold;
+    }
+
+    a {
+        color: #5fbb91;
+        font-weight: bold;
+    }
+
+    .total_findo {
+        width: 320px;
+        height: 100vh;
+    }
+
+
+
+    .findo_head_icons_left button {
+        font-size: 10px;
+    }
+
+    .findo_head_icons_right a {
+        font-size: 10px;
+    }
+
+    .findo_head_icons {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+
+    .findo_head_icons button:hover {
+        color: #5fbb91;
+        background: #d7f5df;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px
+    }
+
+    .findo_head_logo img {
+        width: 320px;
+        height: 100px;
+    }
+
+    .findo_head_button {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        padding: 20px 0px 0px 0px;
+        border-top: 2px solid #5fbb91;
+    }
+
+    .findo_head_button a {
+        font-size: 15px;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+    /* findo_head_button hover */
+
+    .findo_head_button a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .findo_head_button a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .findo_head_button a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* findo_head_button hover */
+
+    .findo_head_login {
+        font-size: 15px;
+        margin: 20px 0px;
+        border-top: 2px solid #5fbb91;
+        border-bottom: 1px solid #5fbb91;
+    }
+
+    .findo_head_login_text {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .findo_head_login_text p {
+        color: #010101;
+    }
+
+    .findo_head_login p {
+        font-size: 15px;
+        font-weight: bold;
+
+    }
+
+    .findo_head_login_text button:hover {
+        background: #d7f5df;
+    }
+
+    .findo_head_login_text button {
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .findo_head_login_text a {
+        font-size: 15px;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+    /*header css */
+    /*main.css*/
+    .findo_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .findo_main img {
+        margin: 10px 0px;
+    }
+
+    main_top_top h2 {
+        text-align: left;
+    }
+
+    .main_top_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_top_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_top_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_middle_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .main_bottom_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    /*main.css*/
+
+    /*footer*/
+    footer_middle img{
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /*footer*/
+    .footer_top {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px;
+    }
+
+    /* footer_top a hover */
+
+    .footer_top a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .footer_top a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .footer_top a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* footer_top a hover */
+
+
+    .footer_top_list li {
+        list-style: none;
+        margin: 20px 0px;
+    }
+
+    .footer_top_list a {
+        text-decoration: none;
+        font-size: 15px;
+
+    }
+
+    .footer_middle {
+        border-top: 2px solid #5fbb91;
+        border-bottom: 2px solid #5fbb91;
+    }
+
+    .footer_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .footer_bottom {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px;
+    }
+
+    .footer_bottom_top_list li {
+        list-style: none;
+        margin: 20px 0px;
+    }
+
+
+    /* footer hover underline */
+    .footer_bottom_top_list a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .footer_bottom_top_list a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .footer_bottom_top_list a:hover:after {
+        transform: scaleX(1);
+    }
+    /* footer hover underline */
+
+    .footer_bottom_middle {
+        font-size: 10px;
+    }
+
+    .footer_bottom_bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer_bottom_bottom_top {
+        font-size: 10px;
+    }
+
+    .footer_bottom_bottom_middle {
+        margin-bottom: 20px;
+    }
+
+    .footer_bottom_bottom_middle a {
+        font-size: 10px;
+        text-decoration: none;
+    }
+
+    /* findo_search */
+
+    .search_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-area input{
+        padding: 10px 30px;
+        font-size: 15px;
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    .language-area p {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .input-area i {
+        font-size: 20px;
+    }
+
+    .search_main_advertise img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /* findo_search */
+
+    /* findo_investment */
+    .findo_investment_wrapper {
+        text-align: center;
+        border-top: 1px solid #5fbb91;
+    }
+
+    .findo_investment_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_wrapper h2 {
+        font-size: 10px;
+        font-weight: bold;
+        color: #5fbb91;
+    }
+
+    .findo_investment_main_top {
+        margin-top: 20px;
+    }
+
+    .findo_investment_main_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_main_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_main_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_investment_advertisement img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    /* findo_investment */
+
+    /* findo_company */
+    .findo_company_wrapper h2 {
+        text-align: center;
+    }
+
+    .findo_company_wrapper p {
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .findo_company_main_top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main_middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main_bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-top img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle-middel img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-middle-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_company_main-footer-bottom-bottom img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    /* findo_company */
+
+    /* findo_login */
+
+    .wrapper_total_login {
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrapper_login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login_main {
+        text-align: center;
+        color: #5fbb91;
+    }
+
+    .login_main_login_id input {
+        font-size: 10px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+
+    .login_main_login_password input {
+        font-size: 10px;
+        padding: 10px 20px;
+        margin: 10px 0px;
+    }
+
+    .login_main_function {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        color: #5fbb91;
+    }
+
+    .login_main_button input {
+        text-align: center;
+        font-size: 10px;
+        padding: 5px 20px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid #5fbb91;
+        color: #5fbb91;
+    }
+
+    .login_main_button input:hover {
+        background-color: #d7f5df;
+        color: #5fbb91;
+    }
+
+    .login_search {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .login_search li {
+        display: flex;
+        list-style: none;
+    }
+
+    .login_search a {
+        text-decoration: none;
+    }
+
+    .login_advertisement img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .login_logo img {
+        width: 320px;
+        height: 200px;
+    }
+    .login_law {
+        display: flex;
+    }
+
+    .login_law li{
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .login_law a{
+        text-decoration: none;
+    }
+    /* findo_login */
+
+    /* findo_signup_agreement */
+    .signup_agreement_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .signup_agreement_logo img {
+        width: 320px;
+        height: 200px;
+    }
+
+    .signup_agreement_title h2 {
+        color: #5fbb91;
+    }
+
+    .signup_agreement_form textarea {
+        margin: 10px 0px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_agreement_form_button input {
+        font-size: 15px;
+        padding: 5px 15px;
+        background-color: white;
+        border: 2px solid #5fbb91;
+        color: #5fbb91;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .signup_agreement_form_button input:hover {
+        background-color: #d7f5df;
+    }
+    .signup_agreement_submit_footer {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    /* show menu */
+    .menu_bg {
+        width: 75%;
+        height: 100vh;
+        position: fixed;
+        top:0px;
+        left:0px;
+        overflow: hidden;
+        display: none;
+    }
+    .menu {
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:50%;
+        height: 100%;
+        background-color:#5fbb91;
+    }
+    .menu > div {
+        padding: 2%;
+    }
+
+    .hidemenu {
+        width: 96%;
+        text-align: right;
+    }
+
+    .hidemenu_login {
+        background-color: #5fbb91;
+    }
+
+    .hidemenu_login_text button {
+        border-radius: 5px;
+    }
+
+    .hidemenu_login_text p {
+    }
+
+    .hidemenu_login_text p {
+        font-size: 10px;
+    }
+
+    .hidemenu_login_text a {
+        font-size: 20px;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
+
+    .hidemenu_login p {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .hidemenu_login a {
+        color: #5fbb91;
+        display:inline-block;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .hidemenu_login a:after {
+        display:block;
+        content: '';
+        border-bottom: 4px solid black;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+    .hidemenu_login a:hover:after {
+        transform: scaleX(1);
+    }
+
+    /* show menu */
+
+    /* findo_products */
+    .index_product_wrapper {
+        text-align: center;
+    }
+
+    .index_product_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+        cursor: grabbing;
+    }
+
+    .index_product_wrapper p {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    /* findo_products */
+
+    /* findo_management */
+
+    .findo_management_wrapper {
+        border-top: 1px solid #5fbb91;
+        padding-top : 20px;
+    }
+
+    .findo_management_wrapper img {
+        width: 320px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .findo_management_wrapper h2 {
+        text-align: center;
+    }
+
+    .findo_management_wrapper p {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+    /* findo_management */
+
+    /* findo_signup_form */
+    .signup_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .signup_logo img {
+        width: 320px;
+        height: 200px;
+    }
+
+    .findo_signup_form div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .findo_signup_form div input {
+        padding: 20px 0px;
+        text-align: center;
+        font-size: 10px;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+        margin-bottom: 10px;
+
+    }
+
+    .findo_signup_form div select {
+        padding: 20px 0px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .signup_button {
+        margin-bottom: 20px;
+    }
+
+    .signup_id_text input {
+        background: white;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_id_text_button input {
+        color: #5fbb91;
+    }
+
+    .signup_id_text_button input:hover {
+        background-color: #d7f5df;
+    }
+
+    .signup_gender_text select {
+        color: #5fbb91;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_email_text input {
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_email_text_eamil input {
+        color: #5fbb91;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .signup_email_text_eamil input:hover {
+        background-color: #d7f5df;
+    }
+
+    .signup_button input {
+        background: white;
+        color: #5fbb91;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+
+    }
+
+    .signup_button input:hover {
+        background: #d7f5df;
+    }
+
+    .signup_auth_email input {
+        background-color: white;
+        color: #5fbb91;
+    }
+
+    .signup_auth_email input:hover {
+        background-color: #d7f5df;
+        color: #5fbb91;
+    }
+
+    /* findo_signup_form */
+
+    /* findo_signup_completement */
+    .findo_signup_completement_logo img {
+        width: 320px;
+        height: 200px;
+    }
+
+    .findo_signup_completement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .findo_signup_completement h2 {
+        text-align: center;
+    }
+
+    .findo_signup_completement input {
+        font-size: 15px;
+        background: white;
+        border: 2px solid #5fbb91;
+        color: #5fbb91;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .findo_signup_completement input:hover {
+        font-size: 15px;
+        background: #d7f5df;
+        border: 2px solid #5fbb91;
+        color: #5fbb91;
+    }
+    /* findo_signup_completement */
+
+    /* address API */
+
+    .findo_signup_address input {
+        border: 2px solid #5fbb91;
+        margin: 10px 15px;
+        font-size: 10px;
+    }
+
+    .findo_signup_address_button {
+        background-color: white;
+        color: #5fbb91;
+
+    }
+
+    .findo_signup_address_button:hover {
+        background-color: #d7f5df;
+    }
+
+    /* address API */
+
+    /* customerservice */
+    .findo_customerservice_announce {
+        text-align: center;
+        padding: 30px 0px;
+    }
+
+    .findo_customerservice_button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .findo_customerservice_button input {
+        color: #5fbb91;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .findo_customerservice_button input:hover {
+        background-color: #d7f5df;
+    }
+
+    /* customerservice */
+
+    /* session */
+    .hidemenu_login_text p {
+        color: white;
+    }
+
+    .hidemenu_login_text span {
+        color: white;
+        padding: 20px 0px;
+        margin: 20px 0px;
+        font-size: 10px;
+        font-width: bold;
+    }
+
+    /* serch_list */
+    .input-area {
+        text-align: center;
+    }
+
+    .search-list table th {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .search-list table span {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .search-list table span:hover {
+        color: black;
+    }
+
+    /* serch_list */
+
+    /* search_cont */
+    #bCont_wrap {
+        margin-bottom: 10px;
+        border-bottom: 2px solid #5fbb91;
+    }
+    .chart input {
+        font-size: 10px;
+        font-weight: bold;
+        align-items: flex-end;
+        padding: 5px 15px;
+        margin: 0px 5px;
+        background-color: white;
+        color: #5fbb91;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .chart input:hover {
+        background-color: #d7f5df;
+    }
+
+    .bCont_t_mover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    #bCont_t {
+        text-align: center;
+    }
+
+    #bCont_t th {
+        font-weight: bold;
+        font-size: 15px;
+        padding: 10px 10px;
+        color: #5fbb91;
+    }
+
+    #bCont_t td span {
+        font-weight: bold;
+        font-size: 15px;
+        padding: 10px 10px;
+        color: black;
+    }
+    /* search_cont */
+
+    canvas {
+        margin-top: 20px;
+        border: 2px solid #5fbb91;
+        border-radius: 10px;
+    }
+
+    /* findo_profile */
+    .signup_button {
+        margin: 50px 0px;
+    }
+
+    /* findo_profile */
+
+    /* findo_id_search */
+    .search_id input {
+        background-color: white;
+        color: #5fbb91;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .search_id input:hover {
+        background-color: #d7f5df;
+        color: #010101;
+    }
+
+    /* findo_id_search */
+
+    /* findo_password_search */
+    .search_password input {
+        background-color: white;
+        color: #5fbb91;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .search_password input:hover {
+        background-color: #d7f5df;
+        color: #010101;
+    }
+
+    /* findo_password_search */
+
+    /*댓글 수정화면 영역*/
+    #modDiv {
+        width: 300px;
+        height: 100px;
+        background-color: gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -150px;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    /*댓글 수정화면 영역*/
+
+    /* board_announcement */
+
+    .board_table table {
+        width: 320px;
+        border: 2px;
+        font-weight: bold;
+    }
+
+    .board_table table span {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .board_table table th {
+        font-size: 10px;
+        padding: 5px 5px;
+        font-weight: bold;
+    }
+
+    .board_table table th span {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .board_table table th a {
+        font-size: 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        cursor: grabbing;
+        font-weight: bold;
+    }
+
+    .board_table table td input {
+        font-size: 10px;
+        padding: 5px 10px;
+        font-weight: bold;
+        background-color: white;
+        color: #5fbb91;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+
+    }
+
+    .board_table table td input:hover {
+        background-color: #d7f5df;
+    }
+
+    /* board_cont2 */
+    .board_cont2 table th {
+        font-size: 10px;
+        padding: 5px 5px;
+        font-weight: bold;
+    }
+
+    .board_cont2 table {
+        width: 320px;
+        border: 2px;
+        font-weight: bold;
+    }
+
+    .board_cont2 table td span {
+        font-size: 10px;
+        font-weight: bold;
+        padding-left: 3px;
+    }
+
+    .board_cont2 table th span {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .board_cont2 table th a {
+        font-size: 10px;
+        padding: 5px 5px;
+        text-decoration: none;
+        cursor: grabbing;
+        font-weight: bold;
+    }
+
+    .board_cont2 table th input {
+        font-size: 10px;
+        padding: 5px 5px;
+        font-weight: bold;
+    }
+
+    .board_cont2_reply {
+        width: 100%;
+    }
+
+    .board_cont2_reply_button {
+        text-align: right;
+    }
+
+    .board_cont2_reply_button button {
+        color: #5fbb91;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .board_cont2_reply_button button:hover {
+        background-color: white;
+    }
+
+    .board_cont2 th input {
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid #5fbb91;
+        color: #5fbb91;
+        background-color: white;
+        padding: 5px 10px;
+    }
+    .board_cont2 th input:hover {
+        background-color: #d7f5df;
+    }
+
+    /* board_write */
+    .board_write table {
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .board_write table td textarea {
+        width: 97%;
+        border: 2px solid #5fbb91;
+    }
+
+    .board_write table th {
+        padding: 20px 0px;
+        font-size: 20px;
+    }
+
+    .board_write table tr td input {
+        width: 97%;
+        padding: 10px 0px;
+        font-weight: bold;
+        font-size: 10px;
+        border: 2px solid #5fbb91;
+    }
+
+    .board_write tr th input {
+        padding: 5px 5px;
+        font-size: 10px;
+        background-color: white;
+        border: 2px solid #5fbb91;
+        font-weight: bold;
+    }
+
+    .board_write tr td textarea {
+        background-color: white;
+        border: 2px solid #5fbb91;
+        font-weight: bold;
+        font-size: 10px;
+    }
+
+    .board_write tr th input:hover {
+        background-color: #d7f5df;
+    }
+    /* board_write*/
+
+    /* board_edit*/
+    .board_edit table {
+        width: 100%;
+        border: 2px solid #5fbb91;
+        border-radius: 10px;
+    }
+
+    .board_edit table tr td input {
+        font-size: 10px;
+        border: 2px solid #5fbb91;
+        width: 97%;
+        font-weight: bold;
+    }
+
+
+    .board_edit table th {
+        width: 10%;
+        font-weight: bold;
+        font-size: 10px;
+    }
+
+    .board_edit table tr th input {
+        padding: 5px 10px;
+        font-size: 10px;
+        border: 2px solid #5fbb91;
+        background-color: white;
+        color: #5fbb91;
+        font-weight: bold;
+    }
+
+    .board_edit table tr th input:hover {
+        background-color: #d7f5df;
+    }
+
+    .board_edit table tr td textarea {
+        border: 2px solid #5fbb91;
+        font-weight: bold;
+        font-size: 10px;
+        width: 97%;
+    }
+    /* board_edit*/
+
+    /* search */
+    .seaech_id_wrapper {
+        text-align: center;
+    }
+
+    .seaech_id_wrapper a input {
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+        background-color: white;
+        color: #5fbb91;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .seaech_id_wrapper a input:hover {
+        background-color: #d7f5df;
+    }
+    .search_password_wrapper {
+        text-align: center;
+    }
+
+    .search_password_wrapper a input {
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+        background-color: white;
+        color: #5fbb91;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .search_password_wrapper a input:hover {
+        background-color: #d7f5df;
+    }
+    /* portfolio */
+    .port_cont {
+        margin: 10px 0px;
+    }
+
+    .portfolio_stock table {
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .portfolio_stock table td {
+        text-align: center;
+    }
+    .portfolio_stock table td span {
+        text-align: center;
+    }
+
+    .delete_button_in_portfolio {
+        text-align: right;
+        margin: 10px 0px;
+    }
+
+    .delete_button_in_portfolio button {
+        font-size: 15px;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        background-color: white;
+        padding: 5px 15px;
+    }
+
+    .delete_button_in_portfolio button:hover {
+        background-color: #d7f5df;
+    }
+
+    .port_cont input {
+        width: 97%;
+        text-align: center;
+        border-radius: 10px;
+        border: 2px solid #5fbb91;
+        font-size: 10px;
+        font-weight: bold;
+        margin: 5px 0px;
+        padding: 15px 0px;
+    }
+
+    .port_cont button {
+        font-size: 15px;
+        font-weight: bold;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid #5fbb91;
+        padding: 10px 15px;
+        color: #5fbb91;
+        margin: 10px 0px;
+    }
+
+    .port_cont button:hover {
+        background-color: #d7f5df;
+    }
+
+    /* portfolio_stock */
+    .portfolio_stock {
+        margin: 10px 0px;
+        border: 1px;
+    }
+
+    .portfolio_stock table {
+        width: 100%;
+        border: 1px solid #5fbb91;
+    }
+
+    .portfolio_stock table tr th {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .portfolio_stock table tr td span {
+        font-weight: bold;
+        font-size: 10px;
+
+    }
+
+    .search-list {
+        margin-bottom: 30px;
+    }
+
+    .advertisement_portfolio img {
+        width: 320px;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    /* game zone */
+    .game_canvas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .game_canvas {
+        text-align: center;
+    }
+
+    /* community_chat */
+
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .community_title {
+        text-align: center;
+        width: 320px;
+        border-bottom: 1px solid #5fbb91;
+    }
+
+    .chating {
+        width: 320px;
+        height: 200px;
+        font-size: 10px;
+        color: black;
+        font-weight: bold;
+        background-color: #e8f4eb;
+        color: black;
+        padding: 15px 15px;
+        border-radius: 10px;
+
+    }
+
+    .chating p {
+        color: black;
+    }
+
+
+    .yourName {
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    .start_chatting {
+        font-size: 15px;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        background-color: white;
+        padding: 10px 20px;
+
+    }
+
+    .yourMsg {
+        margin: 15px 0px;
+    }
+
+    .yourMsg textarea {
+        width: 275px;
+        font-size: 10px;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        background-color: white;
+        padding: 10px 20px;
+        color: black;
+        resize: none;
+
+
+    }
+
+    .yourMsg button {
+        width: 320px;
+        font-size: 15px;
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        background-color: white;
+        padding: 10px 20px;
+    }
+
+    .non_session_community {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .start_chatting:hover {
+        background-color: #d7f5df;
+    }
+
+    .blank_td {
+        padding: 10px 0px;
+        border: 0px solid white;
+    }
+
+    /* new_write*/
+
+    .news_write table td input {
+        width: 97%;
+        padding: 10px 0px;
+        font-weight: bold;
+        font-size: 10px;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .fileuploadbutton {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 5px 10px;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .fileuploadbtn input {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 5px 10px;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #5fbb91;
+    }
+
+    .fileuploadbtn input:hover {
+        background-color: #d7f5df;
+    }
+
+    .ncontent {
+        border: 2px solid #5fbb91;
+        border-radius: 5px;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
 }
