@@ -1426,6 +1426,11 @@ footer_middle img {
     text-align: right;
 }
 
+.hidemenu button {
+    border-radius: 5px;
+    font-size: 10px;
+}
+
 .hidemenu_login {
     background-color: #5fbb91;
 }
@@ -4033,13 +4038,18 @@ canvas {
     }
 
     .search-list table span {
-        font-size: 15px;
+        font-size: 20px;
         font-weight: bold;
     }
 
     .search-list table span:hover {
         color: black;
     }
+
+    #stock_list td a {
+        font-size: 20px;
+    }
+
 
     /* serch_list */
     /* search_cont */

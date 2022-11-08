@@ -21,8 +21,8 @@
                             if (result.length >= 1) {
                                 result.forEach(function (item) {
                                     str = '<tr>'
-                                    str += "<td style=\"font-size: 30px; color:black;\"><a id='" + item.stocknumber + "' name='" + item.stockname + "' onclick='statusChange(this)'>" + item.stocknumber + "</a></td>";
-                                    str += "<td style=\"font-size: 30px;\"><a id='" + item.stockname + "'  name='" + item.stocknumber + "' onclick='statusChange2(this)'>" + item.stockname + "</a></td>";
+                                    str += "<td style=\"font-size:30px; color:black;\"><a id='" + item.stocknumber + "' name='" + item.stockname + "' onclick='statusChange(this)'>" + item.stocknumber + "</a></td>";
+                                    str += "<td style=\"font-size:30px; color:black;\"><a id='" + item.stockname + "'  name='" + item.stocknumber + "' onclick='statusChange2(this)'>" + item.stockname + "</a></td>";
                                     str += "</tr>"
                                     $('#stock_list').append(str);
                                 })
@@ -44,7 +44,7 @@
             <form method="GET" name="search-form">
                 <div class="input-area">
                     <input type="text" class="input-box" id="find_name" name="find_name" maxlength="20"
-                           placeholder="종목번호 / 코드 입력"/>
+                           placeholder="종목번호 / 코드 입력" required/>
                     <button type="button" onclick="getSearchList()"><i
                             class="fa-solid fa-magnifying-glass search-icon"></i></button>
                 </div>
