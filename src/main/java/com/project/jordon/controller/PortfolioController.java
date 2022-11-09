@@ -39,7 +39,7 @@ public class PortfolioController {
         if (id == null) {
             return "findo";
         } else {
-//            System.out.println("login은 가능함.");
+            //System.out.println("login은 가능함.");
             pvo.setMemberid(id);
             //db에서 불러온 보유 포트폴리오 리스트
             List<PortfolioVO> plist = this.portfolioService.getPortfolioList(pvo);
@@ -124,7 +124,7 @@ public class PortfolioController {
         return cm;
     }
 
-    @RequestMapping("/port_search")
+    @RequestMapping("/port_search")  // 나중에 여기 매핑값을 portfolio로 바꿔서 넘기고 받아보기 근데 위에 매핑이 있어서 실현될 가능성 거의 제로에 가까움 그래서 위에 파라미터 함 바꿔보고 그다음 모델앤드뷰로 바꿀것 
     @ResponseBody
     private List<SearchVO> port_search(HttpServletRequest request, SearchVO svo) {
         String find_name = request.getParameter("find_name");

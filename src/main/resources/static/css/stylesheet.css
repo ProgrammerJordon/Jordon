@@ -2223,6 +2223,7 @@ canvas {
     color: black;
     padding: 30px 30px;
     border-radius: 10px;
+    overflow: auto;
 
 }
 
@@ -4520,7 +4521,7 @@ canvas {
 
     .chating {
         width: 320px;
-        height: 200px;
+        height: 400px;
         font-size: 10px;
         color: black;
         font-weight: bold;
@@ -4528,6 +4529,8 @@ canvas {
         color: black;
         padding: 15px 15px;
         border-radius: 10px;
+        overflow: auto;
+
 
     }
 
