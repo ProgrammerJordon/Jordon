@@ -110,9 +110,9 @@
                            onkeyup="onlyNumber(this)" required><br>
                     <input type="text" id="stock_name" name="stock_name" placeholder="종목명" required><br>
                     <input type="date" id="date" name="date" placeholder="구매날짜" required><br>
-                    <input type="text" id="quantity" name="quantity" placeholder="구매수량" onkeyup="onlyNumber(this)"
+                    <input type="text" id="quantity" name="quantity" placeholder="구매수량" maxlength="8" onkeyup="onlyNumber(this)"
                            required><br>
-                    <input type="text" id="price" name="price" placeholder="구매가격" onkeyup="onlyNumber(this)"
+                    <input type="text" id="price" name="price" placeholder="구매가격" maxlength="8" onkeyup="onlyNumber(this)"
                            required><br>
                     <button type="submit">내 포트폴리오에 추가</button>
                     <button type=button id="edit_port" onclick="showEditButton();">포트폴리오 수정</button>

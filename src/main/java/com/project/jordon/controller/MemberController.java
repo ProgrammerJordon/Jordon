@@ -30,6 +30,7 @@ public class MemberController {
 
         MemberVO m = this.memberserivce.loginMember(memberid);
         if (m == null) {
+            System.out.println("아이디없음 비밀번호 자체를 비교를 안함");
             return "findo_login";
         } else if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
             System.out.println("아이디 비밀번호 둘다 같음");
@@ -62,10 +63,9 @@ public class MemberController {
             }
             return "redirect:/findo";
         } else {
-            System.out.println("아이디 비밀번호 틀림");
+            System.out.println("비밀번호 틀림");
             return "redirect:/login";
         }
-
     }
 
     @RequestMapping("/logout")
@@ -140,16 +140,20 @@ public class MemberController {
 
     @RequestMapping("/profile_update_completement")
     public String profile_update_completement(MemberVO m, HttpSession session) {
-        int updateinfo = this.memberserivce.updateMember(m);
-        System.out.println(updateinfo);
-        if (updateinfo == 1) {
-            System.out.println("업데이트성공");
-            session.invalidate();
-            return "findo_profile_update_completement";
-        } else {
-            System.out.println("업데이트실패");
-            return "findo_profile_update";
+
+        if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2().equals(m.getMemberpassword()) && m.getMembername() != null && m.getMemberemail() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMembergender() != null && m.getMemberphonenumber() != null) {
+            int updateinfo = this.memberserivce.updateMember(m);
+            System.out.println(updateinfo);
+            if (updateinfo == 1) {
+                System.out.println("업데이트성공");
+                session.invalidate();
+                return "findo_profile_update_completement";
+            } else {
+                System.out.println("업데이트실패");
+                return "findo_profile_update";
+            }
         }
+        return "findo_profile_update";
     }
 
     // 회원정보 삭제 컨트롤러

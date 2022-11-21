@@ -59,7 +59,7 @@
 
         <tr>
           <td colspan="5" align="right">
-            <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/announcement/board_write(page=${page})}'|" />
+            <input th:if="${session.session} != null and ${session.memberemailauth} == 2" type="button" value="글쓰기" th:onclick="|location.href='@{/announcement/board_write(page=${page})}'|" />
           </td>
         </tr>
 
