@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
 public class MemberController {
@@ -26,11 +29,16 @@ public class MemberController {
     }
 
     @RequestMapping("/findo_login_ok")
-    public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request) {
-
+    public String findo_login_ok(String memberid, String memberpassword, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         MemberVO m = this.memberserivce.loginMember(memberid);
         if (m == null) {
             System.out.println("아이디없음 비밀번호 자체를 비교를 안함");
+            out.println("<script>");
+            out.println("alert('존재하지 않는 아이디입니다.');");
+            out.println("</script>");
+            out.flush();
             return "findo_login";
         } else if (m.getMemberid().equals(memberid) && m.getMemberpassword().equals(memberpassword)) {
             System.out.println("아이디 비밀번호 둘다 같음");
@@ -54,18 +62,15 @@ public class MemberController {
             session.setAttribute("memberphonenumber", m.getMemberphonenumber());
             session.setAttribute("memberregdate", m.getMemberregdate());
             session.setAttribute("memberupdate", m.getMemberupdate());
-
-            if (m.getMemberid().equals(memberid) == false || m.getMemberpassword().equals(memberpassword) == false) {
-                System.out.println("쓰레기 값이 들어옴");
-                return "redirect:/login";
-            } else {
-                System.out.println("정상적인 데이터가 들어옴");
-            }
-            return "redirect:/findo";
         } else {
             System.out.println("비밀번호 틀림");
-            return "redirect:/login";
+            out.println("<script>");
+            out.println("alert('옳바른 비밀번호를 입력해주세요.');");
+            out.println("</script>");
+            out.flush();
+            return "findo_login";
         }
+        return "findo";
     }
 
     @RequestMapping("/logout")
@@ -139,17 +144,27 @@ public class MemberController {
     }
 
     @RequestMapping("/profile_update_completement")
-    public String profile_update_completement(MemberVO m, HttpSession session) {
-
+    public String profile_update_completement(MemberVO m, HttpSession session, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2().equals(m.getMemberpassword()) == true && m.getMembername() != null && m.getMemberemail() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMembergender() != null && m.getMemberphonenumber() != null) {
             int updateinfo = this.memberserivce.updateMember(m);
+            System.out.println("업데이트일단 저장됨");
             System.out.println(updateinfo);
             if (updateinfo == 1) {
                 System.out.println("업데이트성공");
                 session.invalidate();
+                out.println("<script>");
+                out.println("alert('회원정보가 업데이트 되었습니다.')");
+                out.println("</script>");
+                out.flush();
                 return "findo_profile_update_completement";
             } else {
                 System.out.println("업데이트실패");
+                out.println("<script>");
+                out.println("alert('회원정보가 업데이트가 실패하였습니다.')");
+                out.println("</script>");
+                out.flush();
                 return "findo_profile_update";
             }
         }
