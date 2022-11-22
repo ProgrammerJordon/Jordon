@@ -141,7 +141,7 @@ public class MemberController {
     @RequestMapping("/profile_update_completement")
     public String profile_update_completement(MemberVO m, HttpSession session) {
 
-        if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2().equals(m.getMemberpassword()) && m.getMembername() != null && m.getMemberemail() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMembergender() != null && m.getMemberphonenumber() != null) {
+        if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2().equals(m.getMemberpassword()) == true && m.getMembername() != null && m.getMemberemail() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMembergender() != null && m.getMemberphonenumber() != null) {
             int updateinfo = this.memberserivce.updateMember(m);
             System.out.println(updateinfo);
             if (updateinfo == 1) {
