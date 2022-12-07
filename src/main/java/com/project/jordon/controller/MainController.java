@@ -102,68 +102,67 @@ public class MainController {
         return "findo";
         }
     }
-
+    // 검색(search)로 이동하는 컨트롤러
     @RequestMapping("/search")
     public String findo_search() {
         return "findo_search";
     }
-
+    // 알림(bell)로 이동하는 컨트롤러
     @RequestMapping("/announcement")
     public String findo_announcement() {
         return "findo_announcement";
     }
-
+    // 회사소개로 이동하는 컨트롤러
     @RequestMapping("/company")
     public String findo_company() {
         return "findo_company";
     }
-
+    // 투자가능 증권사별로 페이지로 이동하는 컨트롤러
     @RequestMapping("/investment")
     public String findo_investment() {
         return "findo_investment";
     }
-
+    // 투자상품으로 페이지로 이동하는 컨트롤러
     @RequestMapping("/products")
     public String findo_products() {
         return "findo_products";
     }
-
-
+    // 자산관리 페이지로 이동하는 컨트롤러
     @RequestMapping("/management")
     public String findo_management() {
         return "findo_management";
     }
-
+    // 법률에 관련한 페이지로 이동하는 컨트롤러
     @RequestMapping("/using_law")
     public String findo_using_law() {
         return "findo_using_law";
     }
-
+    // 거래 법률에 관련한 페이지로 이동하는 컨트롤러
     @RequestMapping("/financial_transaction_law")
     public String findo_financial_transaction_law() {
         return "findo_financial_transaction_law";
     }
-
+    // 개인정보 법률에 괂련한 페이지로 이동하는 컨트롤러
     @RequestMapping("/personal_info_law")
     public String findo_personal_info_law() {
         return "findo_personal_info_law";
     }
-
+    // 회원가입에 관련한 페이지로 이동하는 컨트롤러
     @RequestMapping("/signup_agreement")
     public String findo_signup_agreement() {
         return "findo_signup_agreement";
     }
-
+    // 회원가입 완료에 대한 페이지로 이동하는 컨트롤러 -> 확인버튼 클릭시 findo 메인페이지로 이동
     @RequestMapping("/findo_signup_completement")
     public String findo_signup_completement() {
         return "findo_signup_completement";
     }
-
+    // 현재는 가려져있는 페이지 -> 바이너리파일 업로드 및 사내 이벤트 있을 경우 사용가능한 페이지 -> 기본적인 프론트앤드 작업은 완료되어 있음
     @RequestMapping("/event")
     public String findo_event() {
         return "findo_event";
     }
-
+    // GameZone 으로 이동하는 컨트롤러 -> 자바스크립트를 기반으로 간단한 게임 구현
     @RequestMapping("/gamezone")
     public String findo_gamezone() {
         return "findo_gamezone";
@@ -175,13 +174,11 @@ public class MainController {
 //        mv.setViewName("chat");
 //        return mv;
 //    }
-
+    // 커뮤니티 실시간 채팅 페이지로 이동하는 컨트롤러
     @RequestMapping("/community")
     public ModelAndView community() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("findo_community");
         return mv;
     }
-
-
 }

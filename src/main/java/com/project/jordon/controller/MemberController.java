@@ -87,17 +87,29 @@ public class MemberController {
 
     // 아이디 찾기 확인 눌렀을때 컨트롤러
     @RequestMapping("/search_memberid_completement")
-    public String search_memberid_completement(String memberemail, String membername, Model model) {
+    public String search_memberid_completement(String memberemail, String membername, Model model, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
         MemberVO m = this.memberserivce.idsearchMember(memberemail);
-
+        PrintWriter out = response.getWriter();
         System.out.println(m);
         if (m != null) {
+            out.println("<script>");
+            out.println("alert('유효하지 않은 아이디입니다.')");
+            out.println("</script>");
+            out.flush();
             if (m.getMemberemail().equals(memberemail) && m.getMembername().equals(membername)) {
                 System.out.println("찾았다 요놈");
                 String memberid = m.getMemberid();
                 model.addAttribute("memberid", memberid);
+                out.println("<script>");
+                out.println("alert('유효한 아이디를 찾았습니다.')");
+                out.println("</script>");
+                out.flush();
                 return "findo_search_id_completement";
             } else {
+                out.println("<script>");
+                out.println("alert('일치하는 회원정보가 없습니다.')");
+                out.println("</script>");
                 System.out.println("찾지 못함");
                 return "findo_search_id";
             }
@@ -136,13 +148,13 @@ public class MemberController {
         return "findo_profile";
     }
 
-
     // 회원정보 변경 컨트롤러
     @RequestMapping("/profile_update")
     public String profile_update() {
         return "findo_profile_update";
     }
 
+    // 회원정보 변경완료 클릭시 발생하는 컨트롤러
     @RequestMapping("/profile_update_completement")
     public String profile_update_completement(MemberVO m, HttpSession session, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
@@ -171,22 +183,28 @@ public class MemberController {
         return "findo_profile_update";
     }
 
-    // 회원정보 삭제 컨트롤러
+    // 회원정보 삭제로 이동하는 컨트롤러
     @RequestMapping("/profile_delete")
-    public String profile_delete() {
-        // 회원탈퇴시 session.invalidate() 해줘야됨
-        return "findo_profile_delete";
-    }
+    public String profile_delete() {return "findo_profile_delete";}
 
+    // 회원탈퇴에 관련한 컨트롤러
     @RequestMapping("/profile_delete_completement")
-    public String profile_delete_completement(MemberVO m, HttpSession session) {
+    public String profile_delete_completement(MemberVO m, HttpSession session, HttpServletResponse response) throws IOException {
         int deletemember = this.memberserivce.deleteMember(m);
+        PrintWriter out = response.getWriter();
         System.out.println(deletemember);
         if (deletemember == 1) {
+            // 삭제 완료된 환경을 보여줘야됨
+            out.println("<script>");
+            out.println("alert('회원탈퇴가 성공하였습니다.')");
+            out.println("</script>");
             System.out.println("회원탈퇴 성공");
             session.invalidate();
             return "findo_profile_delete_completement";
         } else {
+            out.println("<script>");
+            out.println("alert('회원탈퇴 정보가 일치하지 않습니다.')");
+            out.println("</script>");
             System.out.println("회원탈퇴 실패");
             return "findo_profile_delete";
         }
@@ -204,14 +222,23 @@ public class MemberController {
         return "findo_signup_form";
     }
 
-
     @RequestMapping("/findo_signup_form_ok")
-    public String findo_signup_form_ok(MemberVO m) {
+    public String findo_signup_form_ok(MemberVO m, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         if (m.getMemberid() != null && m.getMemberpassword() != null && m.getMemberpassword2() != null && m.getMembername() != null && m.getMemberbirth() != null && m.getMembergender() != null && m.getMemberemail() != null && m.getMemberemailauth() != null && m.getMemberaddress1() != null && m.getMemberaddress2() != null && m.getMemberaddress3() != null && m.getMemberaddress4() != null && m.getMemberphonenumber() != null) {
             this.memberserivce.insertMember(m);
+            out.println("<script>");
+            out.println("alert('회원가입이 완료되었습니다.')");
+            out.println("</script>");
+            out.flush();
             System.out.println("저장됨");
             return "findo_signup_completement";
         } else {
+            out.println("<script>");
+            out.println("alert('옳바른 입력값을 작성하시길 바랍니다.')");
+            out.println("</script>");
+            out.flush();
             System.out.println("저장안됨");
             return "findo_signup_form";
         }

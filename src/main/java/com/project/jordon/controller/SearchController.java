@@ -27,10 +27,8 @@ public class SearchController {
 
     @RequestMapping("/search_list")
     String index_search_ok(Model listM, HttpSession session, HttpServletResponse response, HttpServletRequest request, SearchVO svo) {
-
         String find_name = request.getParameter("find_name");
         svo.setFind_name("%"+find_name+"%");
-
         System.out.println(find_name);
         List<SearchVO> slist = this.searchService.getSearchList(svo);
         int slist_check = slist.size();
@@ -42,14 +40,11 @@ public class SearchController {
     @RequestMapping("stock_cont")
     public ModelAndView stock_cont(@RequestParam("stocknumber") String stocknumber, String state, SearchVO svo) throws ParseException, IOException {
         //@RequestParam("stocknumber")를 서블릿으로 표현하면 request.getParameter("stocknumber")와 같음.
-
         StockInfo stockInfo = new StockInfo();
         JSONObject stock = stockInfo.getStock(stocknumber);
         ModelAndView cm = new ModelAndView();
         cm.addObject("stock", stock);
-
         cm.setViewName("stock_cont");
         return cm;
     }
-
 }

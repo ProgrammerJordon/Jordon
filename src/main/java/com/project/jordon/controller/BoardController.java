@@ -40,9 +40,6 @@ public class BoardController {
     @RequestMapping(value = "/board_write", method = RequestMethod.POST) //post로 접근하는 매핑주소 처리,폼태그에서 액션 속성을 지정하지
     //않으면 이전 매핑주소가 액션 매핑주소가 된다. 같은 매핑주소 구분은 method인 get or post로 구분한다.
     public String board_write_ok(BoardVO b, RedirectAttributes rttr, HttpSession session, MemberVO m) {
-        /* BoardVO b는 board_write.jsp의 네임피라미터 이름과 BoardVO 빈클래스의 변수명이 같으면 b객체에 글쓴이와 제목,글내용이 저장되어 있다.
-         * 코드라인을 줄이는효과가 발생한다.
-         */
         session.getAttribute("session");
         this.boardService.insertBoard(b);//게시물저장
         return "redirect:/board/board_list";
@@ -63,7 +60,6 @@ public class BoardController {
         }
         b.setStartrow((page - 1) * 10 + 1);//시작행번호
         b.setEndrow(b.getStartrow() + limit - 1);//끝행번호
-
 
         int listCount = this.boardService.getListCount();
         //총게시물수
@@ -89,12 +85,8 @@ public class BoardController {
         m.addAttribute("maxpage", maxpage);
         m.addAttribute("page", page);//page키이름에 쪽번호
         m.addAttribute("session", session);
-
         m.addAttribute("session", memberid);
-
-        //를 저장
-
-        return "board/board_list"; //뷰리졸브 경로(뷰페이지 경로) => /WEB-INF/views/board/board_list.jsp
+        return "board/board_list"; //뷰리졸브 경로(뷰페이지 경로) => /resources/templates/board/board_list.jsp
     }//board_list()
 
 
@@ -116,8 +108,7 @@ public class BoardController {
 
     //게시물 수정폼
     @RequestMapping("/board/board_edit")
-    public String board_edit(int bno, int page,
-                             HttpServletRequest request, MemberVO m, HttpSession session) {
+    public String board_edit(int bno, int page, HttpServletRequest request, MemberVO m, HttpSession session) {
         //int bno,int page로 지정하면 get으로 전달된 bno,page피라미터값을 가져옴
         BoardVO eb = boardService.getBoardCont2(bno);//조회수를 증가하지 않고 번호에 해당하는 레코드를 가져오기
         request.setAttribute("eb", eb);
@@ -146,11 +137,11 @@ public class BoardController {
 
     //게시물 삭제
     @GetMapping("board_del") //board_del 매핑주소 등록, get으로 접근하는 매핑주소를 처리
-    public ModelAndView board_del(int bno, int page, RedirectAttributes rttr, HttpSession session, MemberVO m) {
+    public ModelAndView board_del(int bno, int page, HttpSession session, MemberVO m) {
         String memberid = (String) session.getAttribute("session");
         session.setAttribute("session", memberid);
         boardService.deleteBoard(bno);//게시물 삭제
-        ModelAndView dm=new ModelAndView();
+        ModelAndView dm = new ModelAndView();
         dm.setViewName("redirect:/board/board_list");
         return dm;
     }//board_del()
