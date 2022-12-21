@@ -47,16 +47,13 @@
             <span th:if="${page > 1}"><a th:href="@{/board/board_list(page=${page}-1)}" th:text="이전"></a></span>
 
             <th:block th:each="a : ${endpage}"><span th:if="${a == page}" th:text="' < '+${a}+' > '"></span>
+              <!-- a의 값을 바꿔주면 게시글 페이지에 숫자가 나올꺼 같은데... 나중에 다시 확인 -->
               <span th:if="${a != page}"><a th:href="@{/board/board_list(page=${a})}" th:text="' < '+${page}+' > '"> </a></span>
             </th:block>
-
             <span th:if="${page >= maxpage}"><span th:text="다음"></span></span>
-
             <span th:if="${page < maxpage}"><a th:href="@{/board/board_list(page=${page}+1)}" th:text="다음"></a></span>
           </th>
         </tr>
-
-
         <tr>
           <td colspan="5" align="right">
             <input th:if="${session.session != null}" type="button" value="글쓰기" th:onclick="|location.href='@{/board/board_write(page=${page})}'|" />

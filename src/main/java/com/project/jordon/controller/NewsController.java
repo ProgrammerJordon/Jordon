@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.nio.file.Files;
@@ -90,12 +91,13 @@ public class NewsController {
 
     @RequestMapping(value="/news_write",method=RequestMethod.POST) //post로 접근하는 매핑주소 처리,폼태그에서 액션 속성을 지정하지
     //않으면 이전 매핑주소가 액션 매핑주소가 된다. 같은 매핑주소 구분은 method인 get or post로 구분한다.
-    public ModelAndView news_write_ok(NewsVO nvo, RedirectAttributes rttr, MultipartFile[] uploadFile) throws IOException {
+    public ModelAndView news_write_ok(NewsVO nvo, RedirectAttributes rttr, MultipartFile[] uploadFile, HttpServletResponse response) throws IOException {
         /* BoardVO b는 board_write.jsp의 네임피라미터 이름과 BoardVO 빈클래스의 변수명이 같으면 b객체에 글쓴이와 제목,글내용이 저장되어 있다.
          * 코드라인을 줄이는효과가 발생한다.
          */
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         String uploadFolder = "/Users/beomsujeong/Documents/intellij1.8/Jordon/upload/";
-
         if(uploadFile != null){
             for(MultipartFile multipartFile:uploadFile){
                 String uuid = UUID.randomUUID().toString();
@@ -112,16 +114,22 @@ public class NewsController {
                 nvo.setFileoriginname(OriginfileName);
                 nvo.setUuidname(NewFileName);
                 this.newsService.insertFile(nvo);
-
                 try{
                     multipartFile.transferTo(saveFile);// uploads 폴더에 업로드 되는 원본 파일명으로 실제 업로드
+                    out.println("<script>");
+                    out.println("alert('파일의 업로드가 정상적으로 진행되었습니다.')");
+                    out.println("</script>");
+                    out.flush();
                 }catch (Exception e) {
                     System.out.println();
                     e.printStackTrace();
                 }
             }
-
         }else {
+            out.println("<script>");
+            out.println("alert('업로드하는 파잃이 존재하지 않습니다.')");
+            out.println("</script>");
+            out.flush();
             System.out.println("파일이 null");
         }
         this.newsService.insertNews(nvo);//게시물저장
@@ -131,8 +139,6 @@ public class NewsController {
         //창에서 노출되지 않아서 보안상좋다.
         return new ModelAndView("redirect:news/");//get방식으로 다른 매핑주소인 목록보기로 이동
     }
-
-
     @RequestMapping("news_cont") //get or post 방식일때 모두 실행
     public ModelAndView news_cont(@RequestParam("nno") int nno, @RequestParam("page") int page ) {
         /* @RequestParam("nno") 애노테이션은 서블릿의 request.getParameter("nno")와 같은 기능을 한다.결국 nno,page 네임피라미터 이름
@@ -158,8 +164,6 @@ public class NewsController {
         //System.out.println("nno:"+nno);
         System.out.println("uuidname:"+uuidname);
 
-
-
         try {
             Path filePath = Paths.get(path+uuidname);
             Resource resource = new InputStreamResource(Files.newInputStream(filePath)); // 파일 resource 얻기
@@ -169,10 +173,8 @@ public class NewsController {
             System.out.println("originName"+originName);
             String encodedFilename = URLEncoder.encode(originName, "UTF-8").replaceAll("\\+", "%20"); //한글 파일을 utf-8로 인코딩 하고 띄워쓰기를 '+'f로 나오는걸 공백으로 나오게 함.
 
-
             HttpHeaders headers = new HttpHeaders();
             headers.setContentDisposition(ContentDisposition.builder("attachment").filename(encodedFilename).build());  // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
-
 
             System.out.println("builder:"+file.getName());
             return new ResponseEntity<Object>(resource, headers, HttpStatus.OK);

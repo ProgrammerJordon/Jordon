@@ -98,6 +98,8 @@ public class BoardController {
 
         BoardVO b = this.boardService.getBoardCont(bno);//조회수증가와 내용보기
         String cont = b.getContent().replace("\n", "<br/>");//textarea영역에서 엔터키 친부분을 줄바꿈 즉 개행한다.
+        //String cont = b.getContent().replace("\n", "</p></p>");// 텍스트공간에서 작동하는지 확인할 것
+        // replace로 만들면 해당 게시판 내용물 자체에 <br/>이 들어가게되서 가시성에서 안좋기 때문에 줄바꿈 글보다는 해당 페이지에 <p>를 따로 두어 작성하는 것도 나쁘지 않다.
         ModelAndView cm = new ModelAndView();
         cm.addObject("b", b);//b키이름에 b객체를 저장
         cm.addObject("cont", cont);

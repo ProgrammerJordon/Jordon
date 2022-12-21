@@ -37,9 +37,12 @@ public class PortfolioController {
         String id = (String) session.getAttribute("session");
         PrintWriter out = response.getWriter();
         if (id == null) {
-            return "findo";
+            out.println("<script>");
+            out.println("alert('로그인 이후 이용가능한 서비스입니다.')");
+            out.println("</script>");
+            out.flush();
+            return "findo_login";
         } else {
-            //System.out.println("login은 가능함.");
             pvo.setMemberid(id);
             //db에서 불러온 보유 포트폴리오 리스트
             List<PortfolioVO> plist = this.portfolioService.getPortfolioList(pvo);
@@ -86,14 +89,13 @@ public class PortfolioController {
                 } else {
                     objectdetail.put("profitAndLoss", "-" + "₩" + df.format(Math.abs(profitAndLoss)));
                 }
-
                 //eprice : 수익률임. 수익률이 양수면 '+'와 '%'를 붙여서, 음수면 '-'와 '%'를 붙여서 json에 넣어줌.
+                // overflow 나오는 경우 double 말고 superdouble아니면 문자열로 받은 받음에 다시 파싱해서 쓴다.
                 if (eprice > 0) {
                     objectdetail.put("eprice", "+" + df.format(eprice) + "%");
                 } else {
                     objectdetail.put("eprice", df.format(eprice) + "%");
                 }
-
                 //평균가격에
                 objectdetail.put("avgprice", "₩" + df.format(avgprice));
                 klist.add(objectdetail);
@@ -118,9 +120,7 @@ public class PortfolioController {
         ModelAndView cm = new ModelAndView();
         cm.addObject("stock", stock);
         System.out.println(stock.get("detail"));
-
         cm.setViewName("port_cont");
-
         return cm;
     }
 
@@ -129,6 +129,12 @@ public class PortfolioController {
     private List<SearchVO> port_search(HttpServletRequest request, SearchVO svo) {
         String find_name = request.getParameter("find_name");
         svo.setFind_name("%" + find_name + "%");
+        // svo.setFind_name(find_name + "%");
+        // 앞 머리 내용부터 ㄱㄴㄷ 순으로 검색 창에 표시될 수 있도록 만든다. 제발 성룡아 두번 체크하게 하지마라
+        // 카카오 본사 들어가서 내가 너 찾으러간다. git 확인하고 조금있으면 비행기 내리는데 오늘 서울 올라가니까 재택근무하고 너 찾으러 간다.
+        // 굳이 지나간 글자까지 전붕포함해서 검색해야될 이유가 있을까?
+        // responsebody로 제이슨 객체든 시큐리티 환경을 넣을꺼 가아니면 왜 굳이 저걸 쓴거지??
+        // 보고 merge 해야되니까 이거 확인하고 주석들은 다 지워라
         System.out.println(find_name);
         List<SearchVO> slist = this.portfolioService.getSearchList(svo);
         System.out.println("slist : " + slist);
@@ -136,13 +142,18 @@ public class PortfolioController {
     }
 
     @RequestMapping("port_add")
-    public String addPortfolio(PortfolioVO pvo, HttpSession session) {
+    public String addPortfolio(PortfolioVO pvo, HttpSession session, HttpServletResponse response) throws IOException {
         String userID = (String) session.getAttribute("session");
         pvo.setMemberid(userID);
         PortfolioVO isStockExist = this.portfolioService.checkPortfolio(pvo);
-
+        PrintWriter out = response.getWriter(); // 입출력 예외처리, 만약 NullOointException이나 다른 예외 처리 필요하면 다른 전체 예외처리로 변경할 것
+        response.setContentType("text/html;Charset=UTF-8");
         if (isStockExist == null) {
             this.portfolioService.addPortfolio(pvo);
+            out.println("<script>");
+            out.println("alert('포트폴리오가 정상적으로 등록되었습니다.')");
+            out.println("</script>");
+            out.flush();
         } else {
             //이미 내 포트폴리오에 해당 종목이 있는경우 평단가를 수정해야 함.
             //수정된 평단가와 수량을 db에 저장함.
@@ -154,6 +165,7 @@ public class PortfolioController {
 
             int editQ = quantity + quantityFromDb;//수정된 수량
             double editAVG = (double) ((price * quantity) + (avgPFromDb * quantityFromDb)) / editQ;
+            // 이미 포트폴리오에 존재하는 종목과 수량 금액의 경우 평균을 재정의해서 다시 editAVG에 입력해서 다시 화면상에 다시 표현한다.
             pvo.setQuantity(editQ);
             pvo.setAvgprice(String.valueOf(editAVG));
             this.portfolioService.editAvgPrice(pvo);

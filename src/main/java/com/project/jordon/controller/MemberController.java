@@ -47,7 +47,7 @@ public class MemberController {
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(30 * 60);
             session.setAttribute("session", memberid);
-            session.setAttribute("memberpassword", m.getMemberpassword());
+            session.setAttribute("memberpassword", m.getMemberpassword()); // 비밀번호 중복 확인을 위해 password2 함께 두고 자바스크립트로 비교할 것
             session.setAttribute("memberpassword2", m.getMemberpassword2());
             session.setAttribute("membername", m.getMembername());
             session.setAttribute("memberbirth", m.getMemberbirth());
@@ -58,7 +58,7 @@ public class MemberController {
             session.setAttribute("memberaddress2", m.getMemberaddress2());
             session.setAttribute("memberaddress3", m.getMemberaddress3());
             session.setAttribute("memberaddress4", m.getMemberaddress4());
-            session.setAttribute("memberaddress5", m.getMemberaddress5());
+            session.setAttribute("memberaddress5", m.getMemberaddress5()); // 카카오 API를 사용해서 회원주소 목록을 데이터베이스에 넣기 위해 가져왔으나 열어도 되고 닫아도 되는 세션 값 Memberaddresss5
             session.setAttribute("memberphonenumber", m.getMemberphonenumber());
             session.setAttribute("memberregdate", m.getMemberregdate());
             session.setAttribute("memberupdate", m.getMemberupdate());
@@ -191,6 +191,7 @@ public class MemberController {
     @RequestMapping("/profile_delete_completement")
     public String profile_delete_completement(MemberVO m, HttpSession session, HttpServletResponse response) throws IOException {
         int deletemember = this.memberserivce.deleteMember(m);
+        response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         System.out.println(deletemember);
         if (deletemember == 1) {
