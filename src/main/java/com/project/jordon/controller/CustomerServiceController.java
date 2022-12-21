@@ -28,7 +28,7 @@ public class CustomerServiceController {
             this.customerserviceService.insertCustomerservice(c);
             // 저장 성공 유무에 따라 회원들에게 문의의 데이터베이스 저장 완료에 대한 글 띄워주기
             out.println("<script>");
-            out.println("alert('문의가 정상적으로 제출되었습니다.')";
+            out.println("alert('문의가 정상적으로 제출되었습니다.')");
             out.println("</script>");
             System.out.println("문의 저장 완료");
             return "findo_customerservice_completement";
