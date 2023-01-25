@@ -148,5 +148,3 @@ public class BoardController {
         return dm;
     }//board_del()
 }
-
-
