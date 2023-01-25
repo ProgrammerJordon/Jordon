@@ -130,11 +130,7 @@ public class PortfolioController {
         String find_name = request.getParameter("find_name");
         svo.setFind_name("%" + find_name + "%");
         // svo.setFind_name(find_name + "%");
-        // 앞 머리 내용부터 ㄱㄴㄷ 순으로 검색 창에 표시될 수 있도록 만든다. 제발 성룡아 두번 체크하게 하지마라
-        // 카카오 본사 들어가서 내가 너 찾으러간다. git 확인하고 조금있으면 비행기 내리는데 오늘 서울 올라가니까 재택근무하고 너 찾으러 간다.
-        // 굳이 지나간 글자까지 전붕포함해서 검색해야될 이유가 있을까?
-        // responsebody로 제이슨 객체든 시큐리티 환경을 넣을꺼 가아니면 왜 굳이 저걸 쓴거지??
-        // 보고 merge 해야되니까 이거 확인하고 주석들은 다 지워라
+        // 앞 머리 내용부터 ㄱㄴㄷ 순으로 검색 창에 표시될 수 있도록 만든다.
         System.out.println(find_name);
         List<SearchVO> slist = this.portfolioService.getSearchList(svo);
         System.out.println("slist : " + slist);

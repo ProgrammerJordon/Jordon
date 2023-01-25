@@ -130,7 +130,6 @@ public class MemberController {
         System.out.println(m);
         if (m != null) {
             if (m.getMemberid().equals(memberid) && m.getMemberemail().equals(memberemail) && m.getMembername().equals(membername)) {
-                System.out.println("찾았다 요놈");
                 String memberpassword = m.getMemberpassword();
                 model.addAttribute("memberpassword", memberpassword);
                 return "findo_search_password_completement";
